@@ -52,3 +52,47 @@ courseDetails.addEventListener("click",function(e){
    element.classList.add("active");
   }
 })
+
+// Course Content
+
+const allContent=document.querySelector("#course-content-schedule")
+
+const childrenList=allContent.children
+
+
+
+
+
+
+for (let i=0;i<childrenList.length;i++){
+
+
+  if (i%2===0){
+    console.log(childrenList[i])
+
+    childrenList[i].addEventListener("click",function(){
+
+      childrenList[i+1].classList.toggle("active-table")
+
+      const plus=childrenList[i].firstElementChild.firstElementChild
+      const minus=childrenList[i].firstElementChild.firstElementChild.nextSibling.nextSibling
+
+
+
+      plus.classList.toggle("deactive-plus")
+      minus.classList.toggle("active-minus")
+
+
+
+
+
+
+
+
+
+
+    })
+
+
+  }
+}

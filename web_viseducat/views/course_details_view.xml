@@ -17,21 +17,21 @@
                     </div>
                 </div>
             </section>
-            <section id="HC-row">
-                <div id="row">
-                    <ul>
-                        <li>
-                            <a href="/">Home&amp;nbsp&amp;nbsp&amp;nbsp/</a>
-                        </li>
-                        <li>
-                            <a href="/courses">Courses&amp;nbsp&amp;nbsp/</a>
-                        </li>
-                        <li>
-                            <a href="">Introduction To Python Programming</a>
-                        </li>
-                    </ul>
+           <div class="breadcrumb-cont breadcrumb-cont2">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="/">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active">
+                                <a href="/courses">Courses</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page"><t t-esc="course.name"/></li>
+                        </ol>
+                    </nav>
+
                 </div>
-            </section>
+                <hr class="breadcrumb-border"></hr>
             <section id="course-details-container">
                 <div id="course-details-article">
                     <div id="article title">
@@ -190,6 +190,7 @@
                                 <div class="cc-schedule">
                                     <a href="">
                                         <i class="fas fa-plus"></i>
+                                        <i class="fas fa-minus active-minus"></i>
                                         <span>
                                             <t t-esc="section.name"/>
                                         </span>
@@ -198,7 +199,7 @@
                                         </span>
                                     </a>
                                 </div>
-                                <div id="python-table">
+                                <div class="python-table">
                                     <table>
                                         <tbody>
                                             <t t-foreach="section.section_material_ids" t-as="material">
@@ -285,27 +286,27 @@
                         <a href="">CONTINUE LEARNING</a>
                     </div>
                     <div class="price-list">
-                        <img src="./img/extensible-markup-language.jpg" alt=""/>
+                        <img src="web_viseducat/static/src/img/extensible-markup-language.jpg" alt=""/>
                         <h6>Language:</h6>
                         <span>English</span>
                     </div>
                     <div class="price-list">
-                        <img src="./img/faculty-shield.jpg" alt=""/>
+                        <img src="web_viseducat/static/src/img/faculty-shield.jpg" alt=""/>
                         <h6>Lectures:</h6>
                         <span>2</span>
                     </div>
                     <div class="price-list">
-                        <img src="./img/hourglass.jpg" alt=""/>
+                        <img src="web_viseducat/static/src/img/hourglass.jpg" alt=""/>
                         <h6>Total Duration:</h6>
                         <span>67:29</span>
                     </div>
                     <div class="price-list">
-                        <img src="./img/levels.jpg" alt=""/>
+                        <img src="web_viseducat/static/src/img/levels.jpg" alt=""/>
                         <h6>Level:</h6>
                         <span>Beginner</span>
                     </div>
                     <div class="price-list">
-                        <img src="./img/group.jpg" alt=""/>
+                        <img src="web_viseducat/static/src/img/group.jpg" alt=""/>
                         <h6>Enrolled:</h6>
                         <span>12</span>
                     </div>
