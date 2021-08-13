@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="vm_fees_element_line_1" model="vm.fees.element">
+            <field name="product_id" ref="vm_product_7"></field>
+            <field name="value">50.0</field>
+        </record>
+
+        <record id="vm_fees_element_line_2" model="vm.fees.element">
+            <field name="product_id" ref="vm_product_8"></field>
+            <field name="value">50.0</field>
+        </record>
+
+        <record id="vm_fees_element_line_3" model="vm.fees.element">
+            <field name="product_id" ref="vm_product_7"></field>
+            <field name="value">50.0</field>
+        </record>
+
+        <record id="vm_fees_element_line_4" model="vm.fees.element">
+            <field name="product_id" ref="vm_product_8"></field>
+            <field name="value">50.0</field>
+        </record>
+
+        <record id="vm_fees_element_line_5" model="vm.fees.element">
+            <field name="product_id" ref="vm_product_8"></field>
+            <field name="value">50.0</field>
+        </record>
+
+        <record id="vm_fees_element_line_6" model="vm.fees.element">
+            <field name="product_id" ref="vm_product_7"></field>
+            <field name="value">50.0</field>
+        </record>
+
+        <record id="vm_fees_element_line_7" model="vm.fees.element">
+            <field name="product_id" ref="vm_product_7"></field>
+            <field name="value">50.0</field>
+        </record>
+
+        <record id="vm_fees_element_line_8" model="vm.fees.element">
+            <field name="product_id" ref="vm_product_9"></field>
+            <field name="value">50.0</field>
+        </record>
+
+        <record id="vm_fees_element_line_9" model="vm.fees.element">
+            <field name="product_id" ref="vm_product_7"></field>
+            <field name="value">50.0</field>
+        </record>
+
+        <record id="vm_fees_element_line_10" model="vm.fees.element">
+            <field name="product_id" ref="vm_product_9"></field>
+            <field name="value">50.0</field>
+        </record>
+
+        <record id="vm_fees_element_line_11" model="vm.fees.element">
+            <field name="product_id" ref="vm_product_7"></field>
+            <field name="value">50.0</field>
+        </record>
+
+        <record id="vm_fees_element_line_12" model="vm.fees.element">
+            <field name="product_id" ref="vm_product_9"></field>
+            <field name="value">50.0</field>
+        </record>
+
+        <record id="vm_fees_element_line_13" model="vm.fees.element">
+            <field name="product_id" ref="vm_product_7"></field>
+            <field name="value">50.0</field>
+        </record>
+
+        <record id="vm_fees_element_line_14" model="vm.fees.element">
+            <field name="product_id" ref="vm_product_9"></field>
+            <field name="value">50.0</field>
+        </record>
+
+    </data>
+</odoo>

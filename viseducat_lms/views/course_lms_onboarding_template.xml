@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="onboarding_course_layout_config">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Course Layout Configuration</t>
+            <t t-set="description">
+                See how to create a course layout.
+            </t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_open_lms_course_layout_onboarding'"/>
+            <t t-set="model" t-value="'vm.course'"/>
+            <t t-set="state" t-value="state.get('course_onboarding_lms_course_layout_state')"/>
+
+        </t>
+    </template>
+
+    <template id="onboarding_material_layout_config">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Material Layout Configuration</t>
+            <t t-set="description">
+                See how to create a material layout.
+            </t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_open_lms_material_layout_onboarding'"/>
+            <t t-set="model" t-value="'vm.course'"/>
+            <t t-set="state" t-value="state.get('course_onboarding_lms_material_layout_state')"/>
+        </t>
+    </template>
+
+    <template id="onboarding_enrollment_layout_config">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Enrollment Layout Configuration</t>
+            <t t-set="description">
+                See how to create a enrollment layout.
+            </t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_open_lms_enrollment_layout_onboarding'"/>
+            <t t-set="model" t-value="'vm.course'"/>
+            <t t-set="state" t-value="state.get('course_onboarding_lms_enrollment_layout_state')"/>
+        </t>
+    </template>
+
+    <template id="onboarding_course_category_layout_config">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Course Category Layout Configuration</t>
+            <t t-set="description">
+                See how to create a course category layout.
+            </t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_open_lms_course_category_layout_onboarding'"/>
+            <t t-set="model" t-value="'vm.course'"/>
+            <t t-set="state" t-value="state.get('course_onboarding_lms_category_layout_state')"/>
+        </t>
+    </template>
+
+    <template id="viseducat_lms_onboarding_panel" name="vm.course.lms.onboarding.panel">
+        <t t-call="base.onboarding_container">
+            <t t-set="classes" t-value="'o_onboarding_blue'"/>
+            <t t-set="bg_image" t-value="'/account/static/src/img/account_invoice_onboarding_bg.jpg'"/>
+            <t t-set="close_method" t-value="'action_close_course_onboarding'"/>
+            <t t-set="close_model" t-value="'vm.course'"/>
+            <t t-set="text_completed">Congratulations! You are all set.</t>
+            <t t-call="viseducat_lms.onboarding_course_layout_config" name="course_layout_config_step"/>
+            <t t-call="viseducat_lms.onboarding_material_layout_config" name="material_layout_config_step"/>
+            <t t-call="viseducat_lms.onboarding_enrollment_layout_config" name="enrollment_layout_config_step"/>
+            <t t-call="viseducat_lms.onboarding_course_category_layout_config"  name="course_category_layout_config_step"/>
+        </t>
+    </template>
+
+    <!-- Course Layout Configuration Wizard for Onboarding -->
+
+    <record id="lms_onboarding_course_layout_form" model="ir.ui.view">
+        <field name="name">vm.course.lms.onboarding.form</field>
+        <field name="model">vm.course</field>
+        <field name="inherit_id" ref="viseducat_lms.view_vm_course_lms_form"/>
+        <field name="mode">primary</field>
+        <field name="priority">1000</field>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='subject']" position="after"/>
+            <form position="inside">
+                <footer position="replace">
+                    <button name="action_lms_onboarding_course_layout" class="btn btn-primary" type="object"
+                            string="Apply"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_open_lms_onboarding_course_layout_step" model="ir.actions.act_window">
+        <field name="name">Course Layout Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vm.course</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="lms_onboarding_course_layout_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Material Layout Configuration Wizard for Onboarding -->
+
+    <record id="lms_onboarding_material_layout_form" model="ir.ui.view">
+        <field name="name">vm.material.onboarding.form</field>
+        <field name="model">vm.material</field>
+        <field name="inherit_id" ref="viseducat_lms.view_vm_material_form"/>
+        <field name="mode">primary</field>
+        <field name="priority">1000</field>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='main']" position="after"/>
+            <form position="inside">
+                <footer position="replace">
+                    <button name="action_lms_onboarding_material_layout" class="btn btn-primary" type="object"
+                            string="Apply"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_open_lms_onboarding_material_layout_step" model="ir.actions.act_window">
+        <field name="name">Material Layout Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vm.material</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="lms_onboarding_material_layout_form"/>
+        <field name="target">new</field>
+    </record>
+
+     <!-- Enrollment Layout Configuration Wizard for Onboarding -->
+
+    <record id="lms_onboarding_enrollment_layout_form" model="ir.ui.view">
+        <field name="name">vm.course.enrollment.onboarding.form</field>
+        <field name="model">vm.course.enrollment</field>
+        <field name="inherit_id" ref="viseducat_lms.view_vm_course_enrollment_lms_form"/>
+        <field name="mode">primary</field>
+        <field name="priority">1000</field>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='main']" position="after"/>
+            <form position="inside">
+                <footer position="replace">
+                    <button name="action_onboarding_enrollment_layout" class="btn btn-primary" type="object"
+                            string="Apply"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_open_lms_onboarding_enrollment_layout_step" model="ir.actions.act_window">
+        <field name="name">Enrollment Layout Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vm.course.enrollment</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="lms_onboarding_enrollment_layout_form"/>
+        <field name="target">new</field>
+    </record>
+
+
+
+    <!-- Course Category Layout Configuration Wizard for Onboarding -->
+
+    <record id="lms_onboarding_course_category_layout_form" model="ir.ui.view">
+        <field name="name">vm.course.category.onboarding.form</field>
+        <field name="model">vm.course.category</field>
+        <field name="inherit_id" ref="viseducat_lms.view_vm_course_category_form"/>
+        <field name="mode">primary</field>
+        <field name="priority">1000</field>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='main']" position="after"/>
+            <form position="inside">
+                <footer position="replace">
+                    <button name="action_onboarding_course_category_layout" class="btn btn-primary" type="object"
+                            string="Apply"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_open_lms_onboarding_course_category_layout_step" model="ir.actions.act_window">
+        <field name="name">Course Category Layout Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vm.course.category</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="lms_onboarding_course_category_layout_form"/>
+        <field name="target">new</field>
+    </record>
+
+
+</odoo>

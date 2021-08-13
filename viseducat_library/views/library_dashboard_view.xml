@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="view_vm_exam_dashboard_kanban" model="ir.ui.view">
+            <field name="name">Library Dashboard</field>
+            <field name="model">vm.media.type</field>
+            <field name="arch" type="xml">
+                <kanban create="false" class="oe_background_grey o_kanban_dashboard o_account_kanban"
+                        banner_route="/viseducat_library/viseducat_library_onboarding_panel">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="#{kanban_color(0)}">
+                                <div class="o_kanban_card_header">
+                                    <div class="o_kanban_card_header_title">
+                                        <div class="o_primary mt8">
+                                            <a>
+                                                <field name="name"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="o_kanban_manage_button_section">
+                                        <a class="o_kanban_manage_toggle_button" href="#">
+                                            <i class="fa fa-ellipsis-v" role="img" aria-label="Manage" title="Manage"/>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="container o_kanban_card_content o_visible">
+
+
+                                    <div class="row">
+                                        <div name="first_column" class="col-3">
+                                            <center>
+                                                <button type="object" name="create_new_media_type"
+                                                        groups="viseducat_library.group_vm_library"
+                                                        class="btn btn-primary btn-sm">New Media
+                                                </button>
+                                            </center>
+                                        </div>
+                                        <div name="second_column" class="col-3 o_kanban_primary_left">
+                                            <a>
+                                                <b>
+                                                    <field name="issued"/>
+                                                </b>
+                                                Issued
+                                            </a>
+                                            <a>
+                                                <b>
+                                                    <field name="available"/>
+                                                </b>
+                                                Available
+                                            </a>
+                                        </div>
+                                        <div name="third_column" class="col-6 o_kanban_primary_left">
+                                            <a type="object" name="compute_due_media_today">
+                                                <b>
+                                                    <field name="due_media_today"/>
+                                                </b>
+                                                Due
+                                                <field name="name"/>
+                                                of Today
+                                            </a>
+                                            <a type="object" name="compute_due_media_month">
+                                                <b>
+                                                    <field name="due_media_month"/>
+                                                </b>
+                                                Due
+                                                <field name="name"/>
+                                                of Month
+                                            </a>
+                                        </div>
+                                        <div name="graph_section" class="o_kanban_graph_section"/>
+                                        <div class="col-12 o_kanban_primary_bottom">
+                                            <t t-call="SalesTeamDashboardGraph"/>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                                <div class="container o_kanban_card_manage_pane dropdown-menu" role="menu">
+                                    <div class="row">
+                                        <!--                                        <div role="menuitem" class="col-6 o_kanban_card_manage_section o_kanban_manage_new">-->
+                                        <!--                                            <div name="library_new" class="o_kanban_card_manage_title">-->
+                                        <!--                                                <span>New</span>-->
+                                        <!--                                            </div>-->
+                                        <!--                                            <div>-->
+                                        <!--                                                <a type="object" name="create_new_media_type">New<field name="name"/></a>-->
+                                        <!--                                            </div>-->
+                                        <!--                                        </div>-->
+                                        <!--                                        <div role="menuitem" class="col-6 o_kanban_card_manage_section o_kanban_manage_operations">-->
+                                        <!--                                            <div name="library_reports" class="o_kanban_card_manage_title">-->
+                                        <!--                                                <span>Reports</span>-->
+                                        <!--                                            </div>-->
+                                        <!--                                            <div>-->
+                                        <!--                                                <a><field name="name"/>Status</a>-->
+                                        <!--                                            </div>-->
+                                        <!--                                        </div>-->
+                                    </div>
+                                    <div class="row o_kanban_card_settings">
+                                        <div class="col-6"/>
+                                        <div role="menuitem" class="col-6 text-right">
+                                            <a t-if="widget.editable" type="edit">Settings</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                        <t t-name="SalesTeamDashboardGraph">
+                            <div t-if="record.dashboard_graph_data.raw_value" class="o_sales_team_kanban_graph_section">
+                                <field name="dashboard_graph_data" widget="dashboard_graph" t-att-graph_type="'bar'"/>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+
+
+            </field>
+        </record>
+
+        <record id="act_open_vm_library_dashboard_tree" model="ir.ui.view">
+            <field name="name">vm.media.type.tree</field>
+            <field name="model">vm.media.type</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Tag">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="act_open_vm_library_dashboard_form" model="ir.ui.view">
+            <field name="name">vm.media.type.form</field>
+            <field name="model">vm.media.type</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Tag">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="act_open_vm_library_dashboard_search" model="ir.ui.view">
+            <field name="name">vm.media.type.search</field>
+            <field name="model">vm.media.type</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Tag">
+                    <field name="name"/>
+                    <newline/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Name" name="group_by_lbr_media_type_name"
+                                domain="[]" context="{'group_by':'name'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_vm_library_dashboard_view">
+            <field name="name">Library</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vm.media.type</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="search_view_id" ref="act_open_vm_library_dashboard_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_vm_library_dashboard_view_kanban">
+            <field name="act_window_id" ref="act_open_vm_library_dashboard_view"/>
+            <field name="sequence" eval="5"/>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="view_vm_exam_dashboard_kanban"/>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_vm_library_dashboard_view_form">
+            <field name="act_window_id" ref="act_open_vm_library_dashboard_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="act_open_vm_library_dashboard_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_vm_library_dashboard_view_tree">
+            <field name="act_window_id" ref="act_open_vm_library_dashboard_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="act_open_vm_library_dashboard_tree"/>
+        </record>
+
+
+    </data>
+</odoo>

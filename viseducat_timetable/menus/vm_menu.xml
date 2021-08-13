@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_vm_timetable_root"
+                  name="TimeTables"
+                  sequence="90"
+                  web_icon="viseducat_timetable,static/description/icon.png"
+                  groups="viseducat_core.group_vm_faculty,viseducat_core.group_vm_back_office_admin"
+        />
+
+
+        <menuitem id="menu_vm_timetable"
+                  string="Timetable"
+                  parent="menu_vm_timetable_root"
+                  sequence="10" action="act_open_vm_session_view"
+                  groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty"/>
+
+
+        <!-- Configuration Menu -->
+        <menuitem id="menu_vm_timetable_config"
+                  name="Configuration"
+                  parent="menu_vm_timetable_root"
+                  sequence="40"
+                  groups="viseducat_core.group_vm_faculty,viseducat_core.group_vm_back_office,viseducat_core.group_vm_back_office_admin"
+        />
+
+
+        <menuitem id="menu_vm_period"
+                  string="Timings"
+                  parent="menu_vm_timetable_config"
+                  sequence="10"
+                  action="act_open_vm_timing_view"
+                  groups="viseducat_core.group_vm_faculty"/>
+
+
+        <menuitem id="menu_generate_time_table"
+                  string="Generate Timetable"
+                  parent="menu_vm_timetable_config"
+                  sequence="20"
+                  action="act_open_generate_time_table_view"
+                  groups="viseducat_core.group_vm_back_office"/>
+
+
+        <menuitem id="menu_generate_time_table_report"
+                  string="Generate Timetable Report"
+                  parent="menu_vm_timetable_config"
+                  sequence="30"
+                  action="act_open_time_table_report_view"
+                  groups="viseducat_core.group_vm_back_office_admin"/>
+
+
+
+        <menuitem id="menu_vm_reporting_root"
+                  name="Reporting"
+                  sequence="40"
+                  parent="menu_vm_timetable_root"
+                  groups="viseducat_core.group_vm_faculty,viseducat_core.group_vm_back_office,viseducat_core.group_vm_back_office_admin"
+        />
+
+         <menuitem id="menu_generate_time_table_report"
+                  string="Timetable Analysis"
+                  parent="menu_vm_reporting_root"
+                  sequence="10"
+                  action="act_open_time_table_analysis_view"
+                  groups="viseducat_core.group_vm_back_office_admin"/>
+    </data>
+</odoo>

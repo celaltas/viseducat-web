@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="vm_session_1" model="vm.session">
+            <field name="timing_id" ref="vm_timing_1"/>
+            <field name="faculty_id" ref="viseducat_core.vm_faculty_1"/>
+            <field name="course_id" ref="viseducat_core.vm_course_2"/>
+            <field name="batch_id" ref="viseducat_core.vm_batch_1"/>
+            <field name="subject_id" ref="viseducat_core.vm_subject_6"/>
+            <field name="start_datetime" eval="time.strftime('%Y-%m-%d 04:30:00')"/>
+            <field name="end_datetime" eval="time.strftime('%Y-%m-%d 05:30:00')"/>
+        </record>
+
+        <record id="vm_session_2" model="vm.session">
+            <field name="timing_id" ref="vm_timing_2"/>
+            <field name="faculty_id" ref="viseducat_core.vm_faculty_3"/>
+            <field name="course_id" ref="viseducat_core.vm_course_2"/>
+            <field name="batch_id" ref="viseducat_core.vm_batch_1"/>
+            <field name="subject_id" ref="viseducat_core.vm_subject_7"/>
+            <field name="start_datetime" eval="time.strftime('%Y-%m-%d 05:30:00')"/>
+            <field name="end_datetime" eval="time.strftime('%Y-%m-%d 06:30:00')"/>
+        </record>
+
+        <record id="vm_session_3" model="vm.session">
+            <field name="timing_id" ref="vm_timing_2"/>
+            <field name="faculty_id" ref="viseducat_core.vm_faculty_4"/>
+            <field name="course_id" ref="viseducat_core.vm_course_2"/>
+            <field name="batch_id" ref="viseducat_core.vm_batch_1"/>
+            <field name="subject_id" ref="viseducat_core.vm_subject_8"/>
+            <field name="start_datetime" eval="time.strftime('%Y-%m-%d 05:30:00')"/>
+            <field name="end_datetime" eval="time.strftime('%Y-%m-%d 06:30:00')"/>
+        </record>
+
+        <record id="vm_session_4" model="vm.session">
+            <field name="timing_id" ref="vm_timing_3"/>
+            <field name="faculty_id" ref="viseducat_core.vm_faculty_6"/>
+            <field name="course_id" ref="viseducat_core.vm_course_4"/>
+            <field name="batch_id" ref="viseducat_core.vm_batch_3"/>
+            <field name="subject_id" ref="viseducat_core.vm_subject_9"/>
+            <field name="start_datetime" eval="time.strftime('%Y-%m-%d 06:30:00')"/>
+            <field name="end_datetime" eval="time.strftime('%Y-%m-%d 07:30:00')"/>
+        </record>
+    </data>
+</odoo>

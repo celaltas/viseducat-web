@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="onboarding_course_config">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Course Configuration</t>
+            <t t-set="description">
+                See how to create a course.
+            </t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_open_course_onboarding'"/>
+            <t t-set="model" t-value="'vm.course'"/>
+            <t t-set="state" t-value="state.get('course_onboarding_course_layout_state')"/>
+
+        </t>
+    </template>
+
+    <template id="onboarding_batch_config">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Batch Configuration</t>
+            <t t-set="description">
+                See how to create a batch.
+            </t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_open_batch_onboarding'"/>
+            <t t-set="model" t-value="'vm.course'"/>
+            <t t-set="state" t-value="state.get('course_onboarding_batch_layout_state')"/>
+        </t>
+    </template>
+
+    <template id="onboarding_subject_config">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Subject Configuration</t>
+            <t t-set="description">
+                See how to create a subject.
+            </t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_open_subject_onboarding'"/>
+            <t t-set="model" t-value="'vm.course'"/>
+            <t t-set="state" t-value="state.get('course_onboarding_subject_layout_state')"/>
+        </t>
+    </template>
+
+    <template id="viseducat_course_onboarding_panel" name="vm.course.onboarding.panel">
+        <t t-call="base.onboarding_container">
+            <t t-set="classes" t-value="'o_onboarding_blue'"/>
+            <t t-set="bg_image" t-value="'/account/static/src/img/account_invoice_onboarding_bg.jpg'"/>
+            <t t-set="close_method" t-value="'action_close_course_onboarding'"/>
+            <t t-set="close_model" t-value="'vm.course'"/>
+            <t t-set="text_completed">Congratulations! You are all set.</t>
+            <t t-call="viseducat_core.onboarding_course_config" name="course_config_step"/>
+            <t t-call="viseducat_core.onboarding_batch_config" name="batch_config_step"/>
+            <t t-call="viseducat_core.onboarding_subject_config" name="subject_config_step"/>
+        </t>
+    </template>
+
+    <!-- Course Wizard for Onboarding -->
+
+    <record id="course_onboarding_course_state_form" model="ir.ui.view">
+        <field name="name">vm.course.onboarding.form</field>
+        <field name="model">vm.course</field>
+        <field name="inherit_id" ref="viseducat_core.view_vm_course_form"/>
+        <field name="mode">primary</field>
+        <field name="priority">1000</field>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='subject']" position="after"/>
+            <form position="inside">
+                <footer position="replace">
+                    <button name="action_save_onboarding_course_step" class="btn btn-primary" type="object"
+                            string="Apply"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_open_course_onboarding_course_step" model="ir.actions.act_window">
+        <field name="name">Course Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vm.course</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="course_onboarding_course_state_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Batch Wizard for Onboarding -->
+
+    <record id="course_onboarding_batch_state_form" model="ir.ui.view">
+        <field name="name">vm.batch.onboarding.form</field>
+        <field name="model">vm.batch</field>
+        <field name="inherit_id" ref="viseducat_core.view_vm_batch_form"/>
+        <field name="mode">primary</field>
+        <field name="priority">1000</field>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='main']" position="after"/>
+            <form position="inside">
+                <footer position="replace">
+                    <button name="action_save_onboarding_batch_step" class="btn btn-primary" type="object"
+                            string="Apply"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_open_course_onboarding_batch_step" model="ir.actions.act_window">
+        <field name="name">Batch Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vm.batch</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="course_onboarding_batch_state_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Subject Wizard for Onboarding -->
+
+    <record id="course_onboarding_subject_state_form" model="ir.ui.view">
+        <field name="name">vm.subject.onboarding.form</field>
+        <field name="model">vm.subject</field>
+        <field name="inherit_id" ref="viseducat_core.view_vm_subject_form"/>
+        <field name="mode">primary</field>
+        <field name="priority">1000</field>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='main']" position="after"/>
+            <form position="inside">
+                <footer position="replace">
+                    <button name="action_save_onboarding_subject_step" class="btn btn-primary" type="object"
+                            string="Apply"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_open_course_onboarding_subject_step" model="ir.actions.act_window">
+        <field name="name">Subject Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vm.subject</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="course_onboarding_subject_state_form"/>
+        <field name="target">new</field>
+    </record>
+
+
+</odoo>

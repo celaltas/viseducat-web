@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_vm_course_section_tree" model="ir.ui.view">
+            <field name="name">vm.course.section.tree</field>
+            <field name="model">vm.course.section</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Course Section Details">
+                    <field name="sequence"/>
+                    <field name="name"/>
+                    <field name="total_time" widget="float_time"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_vm_course_section_form" model="ir.ui.view">
+            <field name="name">vm.course.section.form</field>
+            <field name="model">vm.course.section</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Course Section Detail">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box" width="100%">
+                            <button name="action_view_section_material" class="oe_stat_button pull-right"
+                                    icon="fa-files-o" type="object"
+                                    >  <!--groups="openeducat_core.group_op_back_office_admin,openeducat_core.group_op_faculty"-->
+                                <field string="Material" name="material_count" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <group col="4" colspan="4">
+                            <field name="sequence"/>
+                            <field name="name"/>
+                        </group>
+                        <group string="Materials">
+                            <field name="section_material_ids" nolabel="1">
+                                <tree string="Section Material" default_order="sequence" editable="bottom">
+                                    <field name="course_section_id" invisible="1"/>
+                                    <field name="sequence"/>
+                                    <field name="material_id"/>
+                                    <field name="preview"/>
+                                    <field name="total_time" widget="float_time" readonly="1"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_vm_course_section_search" model="ir.ui.view">
+            <field name="name">vm.course.section.search</field>
+            <field name="model">vm.course.section</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Course Section Detail">
+                    <field name="name"/>
+                    <newline/>
+                    <group expand="0" string="Group By...">
+                        <filter name="group_by_name" string="Name" domain="[]" context="{'group_by':'name'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_vm_course_section_view">
+            <field name="name">Course Section Detail</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vm.course.section</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_vm_course_section_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_vm_course_section_view_form">
+            <field name="act_window_id" ref="act_open_vm_course_section_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_vm_course_section_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_vm_course_section_view_tree">
+            <field name="act_window_id" ref="act_open_vm_course_section_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_vm_course_section_tree"/>
+        </record>
+    </data>
+</odoo>

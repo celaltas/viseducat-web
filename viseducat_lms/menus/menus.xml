@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- LMS Menu -->
+        <menuitem id="menu_vm_lms_root"
+                  name="LMS"
+                  sequence="10"
+                  web_icon="viseducat_core,static/description/icon.png"
+        />
+        <menuitem id="menu_vm_lms_courses_dashboard"
+                  name="Courses Dashboard"
+                  parent="menu_vm_lms_root"
+                  action="act_open_vm_course_dashboard_lms_view"
+                  sequence="10"/>
+
+        <menuitem id="menu_vm_lms_courses"
+                  name="Courses"
+                  parent="menu_vm_lms_root"
+                  action="act_open_vm_course_lms_view"
+                  sequence="20"/>
+
+
+        <menuitem id="menu_vm_lms_section"
+                  name="Section"
+                  parent="menu_vm_lms_root"
+                  action="act_open_vm_course_section_view"
+                  sequence="30"/>
+
+        <menuitem id="menu_vm_lms_material"
+                  name="Material"
+                  parent="menu_vm_lms_root"
+                  action="act_open_vm_material_view"
+                  sequence="40"/>
+
+        <menuitem id="menu_vm_lms_enrollments"
+                  name="Enrollments"
+                  parent="menu_vm_lms_root"
+                  action="act_open_vm_enrollments_view"
+                  sequence="50"/>
+
+        <!-- Configuration Menu -->
+        <menuitem id="menu_vm_lms_config"
+                  name="Configuration"
+                  parent="menu_vm_lms_root"
+                  sequence="60"/>
+
+        <menuitem id="menu_vm_lms_config_course"
+                  name="Course Category"
+                  parent="menu_vm_lms_config"
+                  action="act_open_vm_course_category_view"
+                  sequence="10"/>
+    </data>
+</odoo>

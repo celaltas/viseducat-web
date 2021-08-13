@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="vm_parent_1" model="vm.parent">
+            <field name="name" ref="viseducat_parent.res_partner_33"/>
+            <field name="student_ids"
+                   eval="[(6,0, [ref('viseducat_core.vm_student_1'), ref('viseducat_core.vm_student_4')])]"/>
+            <field name="relationship_id" ref="viseducat_parent.vm_parent_relationship_1"/>
+        </record>
+
+        <record id="viseducat_parent.res_partner_33" model="res.partner">
+            <field name="user_id" ref="viseducat_parent.user_parent"/>
+        </record>
+    </data>
+</odoo>

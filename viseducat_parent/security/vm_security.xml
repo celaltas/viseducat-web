@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="group_vm_parent" model="res.groups">
+            <field name="name">Parent</field>
+            <field name="category_id" ref="viseducat_core.module_category_viseducat_others"/>
+            <field name="implied_ids" eval="[(4, ref('viseducat_core.group_vm_back_office_admin'))]"/>
+            <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+        </record>
+
+        <record model="ir.rule" id="parent_login_rule">
+            <field name="name">Parent Login rule</field>
+            <field name="model_id" ref="model_vm_parent"/>
+            <field name="groups" eval="[(4, ref('viseducat_parent.group_vm_parent'))]"/>
+            <field name="domain_force">['|', ('user_id','=',user.id), ('user_id','in',user.child_ids.ids)]</field>
+        </record>
+
+        <record model="ir.rule" id="backoffice_login_rule">
+            <field name="name">Backoffice Login rule</field>
+            <field name="model_id" ref="model_vm_parent"/>
+            <field name="groups" eval="[(4, ref('viseducat_core.group_vm_back_office'))]"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+        </record>
+
+        <record model="ir.rule" id="student_parent_login_rule">
+            <field name="name">Student Parent Login rule</field>
+            <field name="model_id" ref="model_vm_student"/>
+            <field name="groups" eval="[(4, ref('viseducat_parent.group_vm_parent'))]"/>
+            <field name="domain_force">['|', ('user_id','=',user.id), ('user_id','in',user.child_ids.ids)]</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_vm_attendance_to_batch_dashboard_kanban_inherit" model="ir.ui.view">
+        <field name="name">vm.attendance.batch.kanban.dashboard.inherit</field>
+        <field name="model">vm.batch</field>
+        <field name="inherit_id" ref="viseducat_core.view_vm_batch_dashboard_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='third_column']" position="inside">
+                <ul style="list-style: none">
+                    <li>
+                        <strong>Attendance Details</strong>
+
+                    </li>
+                    <li>
+                        <div class="fa text-success o_button_icon" aria-label="Not available"
+                             title="Not available">
+                            <field name="total_present"/>:Present
+                        </div>
+                    </li>
+                    <li>
+                        <div class="fa text-warning o_button_icon" aria-label="Not available"
+                             title="Not available">
+                            <field name="total_absent"/>:Absent
+                        </div>
+
+                    </li>
+
+
+                </ul>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

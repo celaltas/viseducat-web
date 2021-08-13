@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="web_viseducat_assets_frontend" name="Theme VisEduCat Frontend Assets"
+              inherit_id="website.assets_frontend">
+        <xpath expr="." position="inside">
+            <link href="/web_viseducat/static/src/scss/homepage.scss"
+                  type="text/scss" rel="stylesheet"/>
+            <link href="/web_viseducat/static/src/css/main.css"
+                  type="text/scss" rel="stylesheet"/>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script type="text/javascript" src="web_viseducat/static/src/js/main.js"></script>
+        </xpath>
+    </template>
+
+
+    <template id="snippet_id" inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_structure']" position="before">
+            <div class="o_panel_body">
+                <!--________________________ Snippets____________________ -->
+                <t t-snippet="web_viseducat.slider"
+                   t-thumbnail="web_viseducat/static/src/img/snippets_icons/vm_educat.png"/>
+                <t t-snippet="web_viseducat.about-us"
+                   t-thumbnail="web_viseducat/static/src/img/snippets_icons/vm_educat.png"/>
+                <t t-snippet="web_viseducat.ourcourse"
+                   t-thumbnail="web_viseducat/static/src/img/snippets_icons/vm_educat.png"/>
+                <t t-snippet="web_viseducat.achievement"
+                   t-thumbnail="web_viseducat/static/src/img/snippets_icons/vm_educat.png"/>
+                <t t-snippet="web_viseducat.teacher"
+                   t-thumbnail="web_viseducat/static/src/img/snippets_icons/vm_educat.png"/>
+                <t t-snippet="web_viseducat.event"
+                   t-thumbnail="web_viseducat/static/src/img/snippets_icons/vm_educat.png"/>
+                <t t-snippet="web_viseducat.newsfeed"
+                   t-thumbnail="web_viseducat/static/src/img/snippets_icons/vm_educat.png"/>
+                <t t-snippet="web_viseducat.footer"
+                   t-thumbnail="web_viseducat/static/src/img/snippets_icons/vm_educat.png"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>

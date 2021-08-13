@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_vm_batch_root"
+                  name="Batch Dashboard"
+                  sequence="10"
+                  web_icon="viseducat_core,static/description/icon_batch.png"
+                  action="act_open_vm_batch_dashboard"/>
+
+    </data>
+</odoo>

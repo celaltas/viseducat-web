@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="display_course_details" name="Courses">
+        <t t-call="website.layout">
+            <section id="overlay">
+                <div id="pagebg"></div>
+                <div id="pagebg-details-container">
+                    <div id="pagebg-details-row">
+                        <h1>COURSE&amp;nbspDETAILS</h1>
+                    </div>
+                    <div id="details-search">
+                        <input placeholder="Search" type="form-control"/>
+                        <button type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <section id="HC-row">
+                <div id="row">
+                    <ul>
+                        <li>
+                            <a href="/">Home&amp;nbsp&amp;nbsp&amp;nbsp/</a>
+                        </li>
+                        <li>
+                            <a href="/courses">Courses&amp;nbsp&amp;nbsp/</a>
+                        </li>
+                        <li>
+                            <a href="">Introduction To Python Programming</a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section id="course-details-container">
+                <div id="course-details-article">
+                    <div id="article title">
+                        <h2>
+                            <t t-esc="course.name"/>
+                        </h2>
+                    </div>
+                    <div id="course-details-teacher">
+                        <t t-foreach="course.faculty_ids" t-as="faculty">
+                            <t t-if="faculty.image_1920 and faculty_index==0 ">
+                                <div id="cd-teacher">
+                            <img t-att-src="image_data_uri(faculty.image_1920)"
+                                 alt=""/>
+                            <div id="cd-teacher-info">
+                                <span>Teacher</span>
+                                <p>
+                                    <t t-esc="faculty.name"/>
+                                </p>
+                            </div>
+                        </div>
+                            </t>
+                        </t>
+                        <div id="cd-category">
+                            <span>Category</span>
+                            <t t-esc="course.category_ids.name"/>
+                        </div>
+                        <div id="cd-review">
+                            <span>Review</span>
+                            <div class="cd-review-rating">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i>
+                                    <span>( 0 Review )</span>
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="progressbar">
+                        <div id="progress">
+                            23%
+                        </div>
+                    </div>
+                    <div id="cd-image">
+                        <img t-if="course.image_1920" t-att-src="image_data_uri(course.image_1920)" alt=""/>
+                    </div>
+                    <div id="image-bottom-flex">
+                        <button class="tab-btn active" data-id="overview">OVERVIEW</button>
+                        <button class="tab-btn" data-id="review">REVIEW</button>
+                        <button class="tab-btn" data-id="qa">Q &amp; A</button>
+                        <button class="tab-btn" data-id="blog">BLOG</button>
+                    </div>
+                    <div class="cd-content" id="qa">
+                        <div id="course-q-and-a">
+                            <div class="entry-title">
+                                <a href="#">What is the difference between 2.7 search() and 3.1 search()?</a>
+                            </div>
+                            <div class="entry-title-bottom">
+                                <div class="entry-rate">
+                                    <i class="fas fa-sort-up"></i>
+                                    <b>0</b>
+                                    <i class="fas fa-sort-down"></i>
+                                    <span>14 June 2021, by&amp;nbsp</span>
+                                    <a href="">OdooBot</a>
+                                    <div class="entry-ans-view">
+                                        <span>&amp;nbsp; |</span>
+                                        <span>0 Answers</span>
+                                        <span>&amp;nbsp; |</span>
+                                        <span>0 Views</span>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="entry-title">
+                                <a href="#">Is it possible to develop embaded system with python?</a>
+                            </div>
+                            <div class="entry-title-bottom">
+                                <div class="entry-rate">
+                                    <i class="fas fa-sort-up"></i>
+                                    <b>0</b>
+                                    <i class="fas fa-sort-down"></i>
+                                    <span>14 June 2021, by&amp;nbsp</span>
+                                    <a href="">OdooBot</a>
+                                    <div class="entry-ans-view">
+                                        <span>&amp;nbsp; |</span>
+                                        <span>0 Answers</span>
+                                        <span>&amp;nbsp; |</span>
+                                        <span>0 Views</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div id="entry-title-ask">
+                                <a href="" type="button">Ask a Question</a>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="cd-content" id="blog">
+                        <div class="blog">
+                            <div class="blog-date-b">
+                                <p class="blog-dd">14</p>
+                                <p class="blog-m">June</p>
+                            </div>
+                            <div class="blog-content">
+                                <a href="">
+                                    <t t-esc="course.blog_id.name"/>
+                                </a>
+                                <i class="fas fa-tags"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cd-content" id="review">
+                        <div id="course-comments-image">
+                            <img src="./img/6.jpg" alt=""/>
+                        </div>
+
+                        <div id="course-comments">
+                            <div id="course-stars">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <textarea name="message" id="" cols="30" placeholder="Write a message..."
+                                      rows="10"></textarea>
+                            <div id="course-bottom-flex">
+                                <button id="cbf-send-button" style="cursor: pointer;" type="submit">Send</button>
+                                <button id="cbf-add-button" style="cursor: pointer;" type="button">
+                                    <i class="fas fa-paperclip"></i>
+                                </button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="cd-content active" id="overview">
+                        <div id="cd-description">
+                            <h2>Description</h2>
+                            <div id="cd-description-text">
+                                <t t-raw="course.full_description"/>
+                            </div>
+                        </div>
+
+                        <div id="course-content">
+                            <h2>Course Content</h2>
+                        </div>
+
+                        <div id="course-content-schedule">
+                            <t t-foreach="course.course_section_ids" t-as="section">
+                                <div class="cc-schedule">
+                                    <a href="">
+                                        <i class="fas fa-plus"></i>
+                                        <span>
+                                            <t t-esc="section.name"/>
+                                        </span>
+                                        <span class="cc-schedule-span2">
+                                            <t t-esc="section.total_time"/>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div id="python-table">
+                                    <table>
+                                        <tbody>
+                                            <t t-foreach="section.section_material_ids" t-as="material">
+                                                <tr>
+                                                    <td>
+                                                        <i class="fas fa-play-circle"></i>
+                                                        <t t-esc="material.material_id.name"/>
+                                                    </td>
+                                                    <td>
+                                                        <i class="fas fa-eye"></i>
+                                                        Preview
+                                                    </td>
+                                                    <td>
+                                                        <t t-esc="material.material_id.total_time"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </t>
+                        </div>
+
+                        <div id="course-details-instructor">
+                            <h2>Instructor</h2>
+                        </div>
+                        <t t-foreach="course.faculty_ids" t-as="faculty">
+                            <div id="instructor-details">
+                                <div id="instructor-image-holder">
+                                    <div id="instructor-image">
+
+                                        <img t-if="faculty.image_1920" t-att-src="image_data_uri(faculty.image_1920)"
+                                             alt=""/>
+
+                                    </div>
+                                    <div id="instructor-social">
+                                        <a href="">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                        <a href="">
+                                            <i class="fab fa-google"></i>
+                                        </a>
+                                        <a href="">
+                                            <i class="fab fa-linkedin"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div id="instructor-info">
+                                    <h4>
+                                        <t t-esc="faculty.name"/>
+                                    </h4>
+                                    <br/>
+                                    <span>Email :
+                                        <t t-esc="faculty.email"/>
+                                    </span>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt
+                                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                        exercitation
+                                        ullamco laboris.
+                                    </p>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+                <div id="course-details-aside">
+                    <div id="cd-price">
+                        <h5>PRICE</h5>
+                        <h3>
+                            <t t-esc="course.type"/>
+                        </h3>
+                    </div>
+                    <div id="cd-price-button">
+                        <a href="">CONTINUE LEARNING</a>
+                    </div>
+                    <div class="price-list">
+                        <img src="./img/extensible-markup-language.jpg" alt=""/>
+                        <h6>Language:</h6>
+                        <span>English</span>
+                    </div>
+                    <div class="price-list">
+                        <img src="./img/faculty-shield.jpg" alt=""/>
+                        <h6>Lectures:</h6>
+                        <span>2</span>
+                    </div>
+                    <div class="price-list">
+                        <img src="./img/hourglass.jpg" alt=""/>
+                        <h6>Total Duration:</h6>
+                        <span>67:29</span>
+                    </div>
+                    <div class="price-list">
+                        <img src="./img/levels.jpg" alt=""/>
+                        <h6>Level:</h6>
+                        <span>Beginner</span>
+                    </div>
+                    <div class="price-list">
+                        <img src="./img/group.jpg" alt=""/>
+                        <h6>Enrolled:</h6>
+                        <span>12</span>
+                    </div>
+
+                    <div id="course-rating-title">
+                        <h5>RATING</h5>
+                    </div>
+                    <div id="course-rating-holder">
+                        <div id="cd-r-discussion">
+                            <h1>0</h1>
+                            <div id="cd-r-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div id="discussion-message">
+                                <p>There are no comments for now.</p>
+                            </div>
+                        </div>
+
+                        <div id="stars-percent-holder">
+                            <div class="stars-percent">
+                                <div class="stars-number">
+                                    <p>5 stars</p>
+                                </div>
+                                <div class="stars-progress"></div>
+                                <div class="percentage">0%</div>
+                            </div>
+                            <div class="stars-percent">
+                                <div class="stars-number">
+                                    <p>4 stars</p>
+                                </div>
+                                <div class="stars-progress"></div>
+                                <div class="percentage">0%</div>
+                            </div>
+                            <div class="stars-percent">
+                                <div class="stars-number">
+                                    <p>3 stars</p>
+                                </div>
+                                <div class="stars-progress"></div>
+                                <div class="percentage">0%</div>
+                            </div>
+                            <div class="stars-percent">
+                                <div class="stars-number">
+                                    <p>2 stars</p>
+                                </div>
+                                <div class="stars-progress"></div>
+                                <div class="percentage">0%</div>
+                            </div>
+                            <div class="stars-percent">
+                                <div class="stars-number">
+                                    <p>1 stars</p>
+                                </div>
+                                <div class="stars-progress"></div>
+                                <div class="percentage">0%</div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </t>
+    </template>
+
+
+</odoo>

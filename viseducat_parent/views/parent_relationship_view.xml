@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_parent_relationship_tree" model="ir.ui.view">
+            <field name="name">vm.parent.relationship.tree</field>
+            <field name="model">vm.parent.relationship</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Relationships">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_parent_relationship_form" model="ir.ui.view">
+            <field name="name">vm.parent.relationship.form</field>
+            <field name="model">vm.parent.relationship</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Relationships">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_vm_parent_relationship_view">
+            <field name="name">Relationships</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vm.parent.relationship</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>

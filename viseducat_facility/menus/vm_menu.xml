@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_vm_facility_sub"
+                  name="Facilities"
+                  parent="viseducat_core.menu_vm_school_config_general"
+                  sequence="20"
+                  action="act_open_vm_facility_view"
+                  groups="viseducat_core.group_vm_back_office,viseducat_core.group_vm_back_office_admin"
+        />
+
+    </data>
+
+</odoo>

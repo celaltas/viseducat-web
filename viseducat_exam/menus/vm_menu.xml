@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+
+
+        <menuitem id="menu_vm_exam_root"
+                  name="Exams"
+                  sequence="10"
+                  web_icon="viseducat_exam,static/description/icon.png"/>
+
+        <menuitem id="menu_vm_school_exam_dashboard"
+                  name="Exam Dashboard"
+                  parent="menu_vm_exam_root"
+                  sequence="10"
+                  action="act_open_vm_exam_dashboard"/>
+
+
+        <menuitem id="menu_vm_school_exam_result"
+                  name="Exams"
+                  parent="menu_vm_exam_root"
+                  sequence="20"/>
+
+        <menuitem id="menu_vm_exam_main"
+                  name="Exams"
+                  parent="menu_vm_school_exam_result"
+                  sequence="20"
+                  action="act_vis_vm_exam_view"
+                  groups="viseducat_core.group_vm_back_office,viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty"
+
+        />
+
+
+        <menuitem id="menu_vm_exam_session"
+                  name="Exam Sessions"
+                  parent="menu_vm_school_exam_result"
+                  sequence="10"
+                  action="act_vis_vm_exam_session_view"
+                  groups="viseducat_core.group_vm_back_office,viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty"
+        />
+
+        <menuitem id="menu_vm_exam_attendees_sub"
+                  name="Exam Attendees"
+                  parent="menu_vm_school_exam_result"
+                  sequence="30"
+                  action="act_vis_vm_exam_attendees_view"
+                  groups="viseducat_core.group_vm_back_office,viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty"
+        />
+
+        <menuitem id="menu_vm_result_template"
+                  name="Result Templates"
+                  parent="menu_vm_school_exam_result"
+                  sequence="70"
+                  action="act_vis_vm_result_template_view"
+                  groups="viseducat_core.group_vm_back_office,viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty"
+        />
+
+        <menuitem id="menu_vm_marksheet_register_sub"
+                  name="Marksheet Registers"
+                  parent="menu_vm_school_exam_result"
+                  sequence="100"
+                  action="act_vis_vm_marksheet_register_view"
+                  groups="viseducat_core.group_vm_back_office,viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty"
+        />
+
+
+        <menuitem id="menu_vm_marksheet_line_sub"
+                  name="Marksheet Lines"
+                  parent="menu_vm_school_exam_result"
+                  sequence="110"
+                  action="act_vis_vm_marksheet_line_view"
+                  groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_back_office,viseducat_core.group_vm_faculty"
+        />
+
+        <menuitem id="menu_vm_result_line_sub"
+                  name="Result Lines"
+                  parent="menu_vm_school_exam_result"
+                  sequence="120"
+                  action="act_vis_vm_result_line_view"
+                  groups="viseducat_core.group_vm_back_office,viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty"
+        />
+
+        <menuitem id="menu_vm_exam_general"
+                  name="General"
+                  parent="menu_vm_exam_root"
+                  sequence="30"/>
+
+        <menuitem id="menu_student_hall_ticket"
+                  name="Student Hall Tickets"
+                  parent="menu_vm_exam_general"
+                  sequence="30"
+                  action="student_hall_ticket_act"
+                  groups="viseducat_core.group_vm_back_office,viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty"
+        />
+
+        <menuitem id="menu_exam_configuration"
+                  parent="menu_vm_exam_root"
+                  sequence="40"
+                  name="Configuration"/>
+
+        <menuitem id="menu_vm_exam_type_sub"
+                  name="Exam Types"
+                  parent="menu_exam_configuration"
+                  sequence="10"
+                  action="act_vis_vm_exam_type_view"
+                  groups="viseducat_core.group_vm_back_office,viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty"
+        />
+
+        <menuitem id="menu_vm_exam_room_sub"
+                  name="Exam Rooms"
+                  parent="menu_exam_configuration"
+                  sequence="20"
+                  action="act_vis_vm_exam_room_view"
+                  groups="viseducat_core.group_vm_back_office,viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty"
+        />
+
+        <menuitem id="menu_vm_grade_configuration"
+                  name="Grade Configuration"
+                  parent="menu_exam_configuration"
+                  sequence="40"
+                  action="act_vis_vm_grade_configuration_view"
+                  groups="viseducat_core.group_vm_back_office,viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty"
+        />
+
+
+    </data>
+</odoo>
+
+

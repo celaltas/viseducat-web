@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="vm_result_line_1" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_1"/>
+            <field name="exam_id" ref="vm_exam_1"/>
+            <field name="student_id" ref="viseducat_core.vm_student_1"/>
+            <field name="status">pass</field>
+            <field name="marks">55</field>
+        </record>
+
+        <record id="vm_result_line_2" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_2"/>
+            <field name="exam_id" ref="vm_exam_1"/>
+            <field name="student_id" ref="viseducat_core.vm_student_2"/>
+            <field name="status">pass</field>
+            <field name="marks">59</field>
+        </record>
+
+        <record id="vm_result_line_3" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_3"/>
+            <field name="exam_id" ref="vm_exam_1"/>
+            <field name="student_id" ref="viseducat_core.vm_student_3"/>
+            <field name="status">pass</field>
+            <field name="marks">75</field>
+        </record>
+
+        <record id="vm_result_line_4" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_4"/>
+            <field name="exam_id" ref="vm_exam_1"/>
+            <field name="student_id" ref="viseducat_core.vm_student_4"/>
+            <field name="status">pass</field>
+            <field name="marks">67</field>
+        </record>
+
+        <record id="vm_result_line_5" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_1"/>
+            <field name="exam_id" ref="vm_exam_2"/>
+            <field name="student_id" ref="viseducat_core.vm_student_1"/>
+            <field name="status">pass</field>
+            <field name="marks">45</field>
+        </record>
+
+        <record id="vm_result_line_6" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_2"/>
+            <field name="exam_id" ref="vm_exam_2"/>
+            <field name="student_id" ref="viseducat_core.vm_student_2"/>
+            <field name="status">pass</field>
+            <field name="marks">85</field>
+        </record>
+
+        <record id="vm_result_line_7" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_3"/>
+            <field name="exam_id" ref="vm_exam_2"/>
+            <field name="student_id" ref="viseducat_core.vm_student_3"/>
+            <field name="status">pass</field>
+            <field name="marks">65</field>
+        </record>
+
+        <record id="vm_result_line_8" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_4"/>
+            <field name="exam_id" ref="vm_exam_2"/>
+            <field name="student_id" ref="viseducat_core.vm_student_4"/>
+            <field name="status">fail</field>
+            <field name="marks">0</field>
+        </record>
+
+        <record id="vm_result_line_9" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_1"/>
+            <field name="exam_id" ref="vm_exam_3"/>
+            <field name="student_id" ref="viseducat_core.vm_student_1"/>
+            <field name="status">pass</field>
+            <field name="marks">55</field>
+        </record>
+
+        <record id="vm_result_line_10" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_2"/>
+            <field name="exam_id" ref="vm_exam_3"/>
+            <field name="student_id" ref="viseducat_core.vm_student_2"/>
+            <field name="status">pass</field>
+            <field name="marks">69</field>
+        </record>
+
+        <record id="vm_result_line_11" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_3"/>
+            <field name="exam_id" ref="vm_exam_3"/>
+            <field name="student_id" ref="viseducat_core.vm_student_3"/>
+            <field name="status">pass</field>
+            <field name="marks">84</field>
+        </record>
+
+        <record id="vm_result_line_12" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_4"/>
+            <field name="exam_id" ref="vm_exam_3"/>
+            <field name="student_id" ref="viseducat_core.vm_student_4"/>
+            <field name="status">pass</field>
+            <field name="marks">58</field>
+        </record>
+
+        <record id="vm_result_line_13" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_1"/>
+            <field name="exam_id" ref="vm_exam_4"/>
+            <field name="student_id" ref="viseducat_core.vm_student_1"/>
+            <field name="status">pass</field>
+            <field name="marks">88</field>
+        </record>
+
+        <record id="vm_result_line_14" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_2"/>
+            <field name="exam_id" ref="vm_exam_4"/>
+            <field name="student_id" ref="viseducat_core.vm_student_2"/>
+            <field name="status">pass</field>
+            <field name="marks">83</field>
+        </record>
+
+        <record id="vm_result_line_15" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_3"/>
+            <field name="exam_id" ref="vm_exam_4"/>
+            <field name="student_id" ref="viseducat_core.vm_student_3"/>
+            <field name="status">pass</field>
+            <field name="marks">57</field>
+        </record>
+
+        <record id="vm_result_line_16" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_4"/>
+            <field name="exam_id" ref="vm_exam_4"/>
+            <field name="student_id" ref="viseducat_core.vm_student_4"/>
+            <field name="status">pass</field>
+            <field name="marks">47</field>
+        </record>
+
+        <record id="vm_result_line_17" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_5"/>
+            <field name="exam_id" ref="vm_exam_5"/>
+            <field name="student_id" ref="viseducat_core.vm_student_9"/>
+            <field name="status">pass</field>
+            <field name="marks">56</field>
+        </record>
+
+        <record id="vm_result_line_18" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_6"/>
+            <field name="exam_id" ref="vm_exam_5"/>
+            <field name="student_id" ref="viseducat_core.vm_student_10"/>
+            <field name="status">pass</field>
+            <field name="marks">77</field>
+        </record>
+
+        <record id="vm_result_line_19" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_7"/>
+            <field name="exam_id" ref="vm_exam_5"/>
+            <field name="student_id" ref="viseducat_core.vm_student_11"/>
+            <field name="status">fail</field>
+            <field name="marks">0</field>
+        </record>
+
+        <record id="vm_result_line_20" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_7"/>
+            <field name="exam_id" ref="vm_exam_5"/>
+            <field name="student_id" ref="viseducat_core.vm_student_12"/>
+            <field name="status">pass</field>
+            <field name="marks">65</field>
+        </record>
+
+        <record id="vm_result_line_21" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_5"/>
+            <field name="exam_id" ref="vm_exam_6"/>
+            <field name="student_id" ref="viseducat_core.vm_student_9"/>
+            <field name="status">pass</field>
+            <field name="marks">55</field>
+        </record>
+
+        <record id="vm_result_line_22" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_6"/>
+            <field name="exam_id" ref="vm_exam_6"/>
+            <field name="student_id" ref="viseducat_core.vm_student_10"/>
+            <field name="status">pass</field>
+            <field name="marks">68</field>
+        </record>
+
+        <record id="vm_result_line_23" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_7"/>
+            <field name="exam_id" ref="vm_exam_6"/>
+            <field name="student_id" ref="viseducat_core.vm_student_11"/>
+            <field name="status">pass</field>
+            <field name="marks">61</field>
+        </record>
+
+        <record id="vm_result_line_24" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_7"/>
+            <field name="exam_id" ref="vm_exam_6"/>
+            <field name="student_id" ref="viseducat_core.vm_student_12"/>
+            <field name="status">pass</field>
+            <field name="marks">61</field>
+        </record>
+
+        <record id="vm_result_line_25" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_5"/>
+            <field name="exam_id" ref="vm_exam_7"/>
+            <field name="student_id" ref="viseducat_core.vm_student_9"/>
+            <field name="status">pass</field>
+            <field name="marks">85</field>
+        </record>
+
+        <record id="vm_result_line_26" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_6"/>
+            <field name="exam_id" ref="vm_exam_7"/>
+            <field name="student_id" ref="viseducat_core.vm_student_10"/>
+            <field name="status">pass</field>
+            <field name="marks">54</field>
+        </record>
+
+        <record id="vm_result_line_27" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_7"/>
+            <field name="exam_id" ref="vm_exam_7"/>
+            <field name="student_id" ref="viseducat_core.vm_student_11"/>
+            <field name="status">pass</field>
+            <field name="marks">59</field>
+        </record>
+
+        <record id="vm_result_line_28" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_7"/>
+            <field name="exam_id" ref="vm_exam_7"/>
+            <field name="student_id" ref="viseducat_core.vm_student_12"/>
+            <field name="status">pass</field>
+            <field name="marks">65</field>
+        </record>
+
+        <record id="vm_result_line_29" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_5"/>
+            <field name="exam_id" ref="vm_exam_8"/>
+            <field name="student_id" ref="viseducat_core.vm_student_9"/>
+            <field name="status">pass</field>
+            <field name="marks">55</field>
+        </record>
+
+        <record id="vm_result_line_30" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_6"/>
+            <field name="exam_id" ref="vm_exam_8"/>
+            <field name="student_id" ref="viseducat_core.vm_student_10"/>
+            <field name="status">pass</field>
+            <field name="marks">77</field>
+        </record>
+
+        <record id="vm_result_line_31" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_7"/>
+            <field name="exam_id" ref="vm_exam_8"/>
+            <field name="student_id" ref="viseducat_core.vm_student_11"/>
+            <field name="status">pass</field>
+            <field name="marks">79</field>
+        </record>
+
+        <record id="vm_result_line_32" model="vm.result.line">
+            <field name="marksheet_line_id" ref="vm_marksheet_line_7"/>
+            <field name="exam_id" ref="vm_exam_8"/>
+            <field name="student_id" ref="viseducat_core.vm_student_12"/>
+            <field name="status">pass</field>
+            <field name="marks">68</field>
+        </record>
+    </data>
+</odoo>

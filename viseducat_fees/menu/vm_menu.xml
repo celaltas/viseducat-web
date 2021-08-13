@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_fees_terms"
+                  parent="viseducat_core.menu_vm_school_config"
+                  name="Fees Terms"
+                  sequence="10"
+                  action="act_open_fees_terms_view"
+                  groups="viseducat_core.group_vm_back_office"/>
+
+        <menuitem id="menu_vm_fees_analysis_report_main"
+                  name="Fees Analysis"
+                  action="fees_detail_report_wizard_act"
+                  parent="viseducat_core.menu_vm_report_main"
+                  sequence="10"
+                  groups="viseducat_core.group_vm_back_office"
+        />
+
+    </data>
+</odoo>

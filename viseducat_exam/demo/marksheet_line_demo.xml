@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="vm_marksheet_line_1" model="vm.marksheet.line">
+            <field name="marksheet_reg_id" ref="vm_marksheet_register_1"/>
+            <field name="student_id" ref="viseducat_core.vm_student_1"/>
+        </record>
+
+        <record id="vm_marksheet_line_2" model="vm.marksheet.line">
+            <field name="marksheet_reg_id" ref="vm_marksheet_register_1"/>
+            <field name="student_id" ref="viseducat_core.vm_student_2"/>
+        </record>
+
+        <record id="vm_marksheet_line_3" model="vm.marksheet.line">
+            <field name="marksheet_reg_id" ref="vm_marksheet_register_1"/>
+            <field name="student_id" ref="viseducat_core.vm_student_3"/>
+        </record>
+
+        <record id="vm_marksheet_line_4" model="vm.marksheet.line">
+            <field name="marksheet_reg_id" ref="vm_marksheet_register_1"/>
+            <field name="student_id" ref="viseducat_core.vm_student_4"/>
+        </record>
+
+        <record id="vm_marksheet_line_5" model="vm.marksheet.line">
+            <field name="marksheet_reg_id" ref="vm_marksheet_register_2"/>
+            <field name="student_id" ref="viseducat_core.vm_student_9"/>
+        </record>
+
+        <record id="vm_marksheet_line_6" model="vm.marksheet.line">
+            <field name="marksheet_reg_id" ref="vm_marksheet_register_2"/>
+            <field name="student_id" ref="viseducat_core.vm_student_10"/>
+        </record>
+
+        <record id="vm_marksheet_line_7" model="vm.marksheet.line">
+            <field name="marksheet_reg_id" ref="vm_marksheet_register_2"/>
+            <field name="student_id" ref="viseducat_core.vm_student_11"/>
+        </record>
+    </data>
+</odoo>

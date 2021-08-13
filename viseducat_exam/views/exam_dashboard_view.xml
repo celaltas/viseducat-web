@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="view_vm_exam_dashboard_kanban" model="ir.ui.view">
+            <field name="name">Exam Kanban</field>
+            <field name="model">vm.exam</field>
+            <field name="arch" type="xml">
+                <kanban create="false" string="LMS Overview"
+                        class="o_emphasize_colors o_kanban_dashboard o_slide_kanban breadcrumb_item active"
+                        edit="false">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="#{kanban_color(0)} oe_kanban_global_click ">
+                                <div class="o_kanban_card_header ">
+                                    <div class="o_kanban_card_header_title mb16 ">
+                                        <div class="o_primary  " >
+                                            <a type="edit" class="mr-auto">
+                                                <field name="name" class="o_primary"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb10">
+                                    <span>Start Time :</span>
+                                    <span>
+                                        <field name="start_time" options='{"format": "d MMM Y"}'/>
+                                    </span>
+
+                                </div>
+                                <div class="mb16">
+                                    <span>End Time :</span>
+                                    <span>
+                                        <field name="end_time" options='{"format": "d MMM Y"}'/>
+                                    </span>
+                                </div>
+                                <div class="row mt10">
+                                    <!--style="padding-left:8px; text-align:right; background-color:#f0eeee; padding: 5px;"-->
+                                    <div class="col-4 border-right">
+                                        <a name="action_open_vm_exam_view" type="object">View Exam
+                                        </a>
+
+                                    </div>
+                                    <div class="col-4 border-right">
+                                        <a name="action_open_completed_exam_view" type="object">Completed
+                                                Exams
+                                        </a>
+
+                                    </div>
+                                    <div class="col-4">
+                                        <a name="action_open_exam_session_view" type="object">
+                                           Exam Sessions
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+
+            </field>
+        </record>
+
+        <record id="view_vm_exam_dashboard_tree" model="ir.ui.view">
+            <field name="name">vm.exam.tree</field>
+            <field name="model">vm.exam</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Exam">
+                    <field name="session_id"/>
+                    <field name="name"/>
+                    <field name="subject_id"/>
+                    <field name="exam_code"/>
+                    <field name="start_time"/>
+                    <field name="end_time"/>
+                    <field name="state"/>
+                    <field name="note"/>
+                    <field name="total_marks"/>
+                    <field name="min_marks"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_vm_exam_dashboard_form" model="ir.ui.view">
+            <field name="name">vm.exam.form</field>
+            <field name="model">vm.exam</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Exam">
+                    <header groups="base.group_user">
+                        <button name="%(act_open_vm_room_distribution_view)d" states="draft" type="action"
+                                string="Schedule Exam" class="oe_highlight"/>
+                        <button name="%(act_open_vm_held_exam_view)d" states="schedule" type="action"
+                                string="Held Exam" class="oe_highlight"/>
+                        <button name="act_done" states="result_updated" type="object" string="Done"
+                                class="oe_highlight"/>
+                        <button name="act_draft" states="cancel" type="object" string="Draft" class="oe_highlight"/>
+                        <button string="Result Updated" class="oe_highlight" states="held" type="object"
+                                name="act_result_updated"/>
+                        <button name="act_cancel" states="draft,held,schedule" type="object" string="Cancel"/>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,held,scheduled,result_updated,done"/>
+                    </header>
+                    <sheet>
+                        <field name="active" invisible="1"/>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <group col="4" colspan="4">
+                            <field name="session_id" required="1"/>
+                            <field name="name"/>
+                            <field name="subject_id"/>
+                            <field name="exam_code"/>
+                            <field name="start_time"/>
+                            <field name="end_time"/>
+                            <field name="total_marks"/>
+                            <field name="min_marks"/>
+                        </group>
+                        <group string="Attendees">
+                            <field name="attendees_line" colspan="4" nolabel="1"/>
+                        </group>
+                        <separator colspan="4" string="Description"/>
+                        <field name="note" colspan="4"/>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_vm_exam_dashboard_search" model="ir.ui.view">
+            <field name="name">vm.exam.search</field>
+            <field name="model">vm.exam</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Exam">
+                    <field name="session_id"/>
+                    <field name="name"/>
+                    <field name="subject_id"/>
+                    <field name="exam_code"/>
+                    <field name="start_time"/>
+                    <field name="end_time"/>
+                    <field name="state"/>
+                    <field name="note"/>
+                    <field name="total_marks"/>
+                    <field name="min_marks"/>
+                    <filter string="Archived" name="inactive"
+                            domain="[('active', '=', False)]"/>
+                    <newline/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Subject" name="group_by_exam_subject_id"
+                                domain="[]" context="{'group_by':'subject_id'}"/>
+                        <filter string="Exam Code" name="group_by_exam_code"
+                                domain="[]" context="{'group_by':'exam_code'}"/>
+                        <filter string="State" name="group_by_exam_state"
+                                domain="[]" context="{'group_by':'state'}"/>
+                        <filter string="Exam" name="group_by_exam_name"
+                                domain="[]" context="{'group_by':'name'}"/>
+                    </group>
+                    <searchpanel>
+                        <field name="course_id" icon="fa-book"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_vm_exam_dashboard">
+            <field name="name">Exams</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vm.exam</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="search_view_id" ref="view_vm_exam_dashboard_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_vm_exam_view_kanban">
+            <field name="act_window_id" ref="act_open_vm_exam_dashboard"/>
+            <field name="sequence" eval="5"/>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="view_vm_exam_dashboard_kanban"/>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_vm_exam_view_form">
+            <field name="act_window_id" ref="act_open_vm_exam_dashboard"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_vm_exam_dashboard_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_vm_exam_view_tree">
+            <field name="act_window_id" ref="act_open_vm_exam_dashboard"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_vm_exam_dashboard_tree"/>
+        </record>
+
+
+
+
+
+
+
+
+    </data>
+</odoo>

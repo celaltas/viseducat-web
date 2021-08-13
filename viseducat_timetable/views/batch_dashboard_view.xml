@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_vm_timetable_to_batch_dashboard_kanban_inherit" model="ir.ui.view">
+        <field name="name">vm.timetable.batch.kanban.dashboard.inherit</field>
+        <field name="model">vm.batch</field>
+        <field name="inherit_id" ref="viseducat_core.view_vm_batch_dashboard_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='second_column']" position="inside">
+                <a name="action_open_vm_session_view" type="object" style="overflow: visible;">
+                    <field name="today_lecture"/>
+                    Today's Lectures
+                </a>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

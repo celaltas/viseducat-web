@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_vm_student_root"
+                  name="Students"
+                  sequence="25"
+                  web_icon="viseducat_core,static/description/icon_student.png"
+                  groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty"
+
+        />
+
+
+        <menuitem id="menu_vm_student_main_student"
+                  name="Profile"
+                  parent="menu_vm_student_root"
+                  sequence="10"
+                  action="act_open_vm_student_view_2"
+                  groups="group_vm_back_office_admin,viseducat_core.group_vm_faculty"
+
+        />
+
+
+        <menuitem id="menu_vm_general_student"
+                  parent="menu_vm_student_root"
+                  sequence="20"
+                  name="General"/>
+
+        <menuitem id="subject_registration_student_menu"
+                  name="Subject Registration"
+                  parent="viseducat_core.menu_vm_general_student"
+                  sequence="30"
+                  action="act_subject_registration_view"
+                  groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty"
+
+        />
+
+
+        <menuitem id="student_course_menu"
+                  name="Student Course Detail"
+                  parent="viseducat_core.menu_vm_general_student"
+                  sequence="40"
+                  action="act_open_vm_student_course_view"
+                  groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty"
+
+        />
+
+
+    </data>
+</odoo>

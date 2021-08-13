@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_vm_admission_register_tree" model="ir.ui.view">
+            <field name="name">vm.admission.register.tree</field>
+            <field name="model">vm.admission.register</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Admission Register">
+                    <field name="name"/>
+                    <field name="course_id"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="min_count"/>
+                    <field name="max_count"/>
+                    <field name="product_id" invisible="1"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_vm_admission_register_form" model="ir.ui.view">
+            <field name="name">vm.admission.register.form</field>
+            <field name="model">vm.admission.register</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Admission Register">
+                    <header groups="base.group_user">
+                        <button name="confirm_register" states="draft" type="object" string="Confirm"
+                                class="oe_highlight"/>
+                        <button name="start_application" states="confirm" type="object" string="Start Application"
+                                class="oe_highlight"/>
+                        <button name="start_admission" states="application" type="object" string="Start Admission"
+                                class="oe_highlight"/>
+                        <button name="close_register" states="admission" type="object" string="Done"
+                                class="oe_highlight"/>
+                        <button name="cancel_register" states="draft,confirm" string="Cancel" type="object"/>
+                        <button name="set_to_draft" states="cancel" string="Set to Draft" type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,application,admission"/>
+                    </header>
+                    <sheet>
+                        <field name="active" invisible="1"/>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="course_id"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="product_id" context="{'default_type': 'service'}"/>
+                            <field name="min_count"/>
+                            <field name="max_count"/>
+                        </group>
+                        <group string="Applications">
+                            <field name="admission_ids" nolabel="1" readonly="1"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_vm_admission_register_search" model="ir.ui.view">
+            <field name="name">vm.admission.register.search</field>
+            <field name="model">vm.admission.register</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Admission Register">
+                    <field name="name"/>
+                    <field name="course_id"/>
+                    <field name="product_id"/>
+                    <newline/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Course" name="group_by_adm_reg_course_id"
+                                domain="[]" context="{'group_by':'course_id'}"/>
+                        <filter string="Fees" name="group_by_adm_reg_product_id"
+                                domain="[]" context="{'group_by':'product_id'}"/>
+                        <filter string="Status" name="group_by_adm_reg_state"
+                                domain="[]" context="{'group_by':'state'}"/>
+                        <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                    </group>
+                      <searchpanel>
+                        <field name="course_id" icon="fa-book"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_vm_admission_registration_graph">
+            <field name="name">vm.admission.register.graph</field>
+            <field name="model">vm.admission.register</field>
+            <field name="arch" type="xml">
+                <graph string="Course By Admission Register">
+                    <field name="course_id" type="row"/>
+                    <field name="start_date" interval="month"/>
+                    <field name="product_id" type="measure"/>
+
+                </graph>
+            </field>
+        </record>
+
+        <record id="view_vm_admission_register_pivot" model="ir.ui.view">
+            <field name="name">vm.admission.register.pivot</field>
+            <field name="model">vm.admission.register</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <pivot string="Admission Register">
+                    <field name="name"/>
+                    <field name="course_id" type="row"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="min_count"/>
+                    <field name="max_count"/>
+                    <field name="product_id"/>
+                    <field name="state"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_vm_admission_register_graph">
+            <field name="name">vm.admission.register.graph</field>
+            <field name="model">vm.admission.register</field>
+            <field name="arch" type="xml">
+                <graph string="Admission Register" type="pie">
+                    <field name="course_id"/>
+                </graph>
+            </field>
+        </record>
+
+        <record  id="view_vm_admission_register_kanban" model="ir.ui.view">
+            <field name="name">Admission Kanban</field>
+            <field name="model">vm.admission.register</field>
+            <field name="arch" type="xml">
+            <kanban string="Admission Register"
+                    class="o_emphasize_colors o_kanban_dashboard oe_background_grey o_kanban_dashboard o_account_kanban o_slide_kanban breadcrumb_item active"
+                    edit="false" js_class="account_dashboard_kanban">
+                <field name="color"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="#{kanban_color(0)} oe_kanban_global_click">
+                            <div class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title mb16">
+                                    <div class="o_primary">
+                                        <a type="edit" class="mr-auto">
+                                            <field name="name" class="o_primary"/>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="container o_kanban_card_content mt0">
+                                <div class="row mb16">
+                                    <div class="col-12 o_kanban_primary_right">
+                                        <div class="d-flex">
+                                            <span class="mr-auto mb0">
+                                                Start Date
+                                            </span>
+                                            <field name="start_date"/>
+                                        </div>
+                                        <div class="d-flex">
+                                            <span class="mr-auto mb0">
+                                                End Date
+                                            </span>
+                                            <field name="end_date"/>
+                                        </div>
+
+                                        <div class="d-flex">
+                                            <span class="mr-auto mb0">
+                                                Maximum Admissions
+                                            </span>
+                                            <field name="max_count"/>
+                                        </div>
+
+                                        <div class="d-flex">
+                                            <span class="mr-auto mb0">
+                                                Minimum Admissions
+
+                                            </span>
+                                            <field name="min_count"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a name="action_view_applications" type="object">
+                                    <div class="o_field_widget o_stat_info">
+                                        <span class="o_stat_value">
+                                            <field name="admission_count"/>
+                                        </span>
+                                        <span name="total_slides_label" class="o_stat_text">Applications</span>
+                                    </div>
+                                </a>
+                                <div name="graph_section" class="o_sales_team_kanban_graph_section">
+                                    <field name="kanban_admission_dashboard_graph" widget="dashboard_graph" t-att-graph_type="'bar'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_vm_admission_register_view">
+            <field name="name">Admission Registers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vm.admission.register</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">kanban,tree,form,pivot,graph</field>
+            <field name="search_view_id" ref="view_vm_admission_register_search"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_vm_admission_register_view_kanban">
+            <field name="act_window_id" ref="act_open_vm_admission_register_view"/>
+            <field name="sequence" eval="5"/>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="view_vm_admission_register_kanban"/>
+        </record>
+
+
+    </data>
+</odoo>

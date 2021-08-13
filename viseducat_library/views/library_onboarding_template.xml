@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="onboarding_library_card_config">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Library Card Configuration</t>
+            <t t-set="description">
+                See how to create a library card.
+            </t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_open_library_card_onboarding'"/>
+            <t t-set="model" t-value="'vm.media.type'"/>
+            <t t-set="state" t-value="state.get('library_onboarding_card_layout_state')"/>
+        </t>
+    </template>
+
+    <template id="onboarding_library_publisher_config">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Publisher Configuration</t>
+            <t t-set="description">
+                See how to create a publsiher.
+            </t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_open_library_publisher_onboarding'"/>
+            <t t-set="model" t-value="'vm.media.type'"/>
+            <t t-set="state" t-value="state.get('library_onboarding_publisher_layout_state')"/>
+        </t>
+    </template>
+
+    <template id="onboarding_library_author_config">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Author Configuration</t>
+            <t t-set="description">
+                See how to create a author.
+            </t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_open_library_author_onboarding'"/>
+            <t t-set="model" t-value="'vm.media.type'"/>
+            <t t-set="state" t-value="state.get('library_onboarding_author_layout_state')"/>
+        </t>
+    </template>
+
+    <template id="onboarding_library_media_type_config">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Media Type Configuration</t>
+            <t t-set="description">
+                See how to create a media type.
+            </t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_open_library_media_type_onboarding'"/>
+            <t t-set="model" t-value="'vm.media.type'"/>
+            <t t-set="state" t-value="state.get('library_onboarding_media_type_layout_state')"/>
+        </t>
+    </template>
+
+    <template id="onboarding_library_card_type_config">
+        <t t-call="base.onboarding_step">
+            <t t-set="title">Library Card Type Configuration</t>
+            <t t-set="description">
+                See how to create a library card type.
+            </t>
+            <t t-set="btn_text">Customize</t>
+            <t t-set="method" t-value="'action_open_library_card_type_onboarding'"/>
+            <t t-set="model" t-value="'vm.media.type'"/>
+            <t t-set="state" t-value="state.get('library_onboarding_card_type_layout_state')"/>
+        </t>
+    </template>
+
+
+    <template id="viseducat_library_onboarding_panel" name="vm.media.type.onboarding.panel">
+        <t t-call="base.onboarding_container">
+            <t t-set="classes" t-value="'o_onboarding_orange'"/>
+            <t t-set="bg_image" t-value="'/account/static/src/img/account_invoice_onboarding_bg.jpg'"/>
+            <t t-set="close_method" t-value="'action_close_library_onboarding'"/>
+            <t t-set="close_model" t-value="'vm.media.type'"/>
+            <t t-set="text_completed">Congratulations! You are all set.</t>
+            <t t-call="viseducat_library.onboarding_library_media_type_config" name="media_type_config_step"/>
+            <t t-call="viseducat_library.onboarding_library_card_config" name="card_config_step"/>
+            <t t-call="viseducat_library.onboarding_library_publisher_config" name="publisher_config_step"/>
+            <t t-call="viseducat_library.onboarding_library_author_config" name="author_config_step"/>
+            <t t-call="viseducat_library.onboarding_library_card_type_config" name="card_type_config_step"/>
+        </t>
+    </template>
+
+    <!-- Library Card Wizard for Onboarding -->
+
+    <record id="library_onboarding_card_state_form" model="ir.ui.view">
+        <field name="name">vm.library.card.onboarding.form</field>
+        <field name="model">vm.library.card</field>
+        <field name="inherit_id" ref="viseducat_library.view_vm_library_card_form"/>
+        <field name="mode">primary</field>
+        <field name="priority">1000</field>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='library_card']" position="after"/>
+            <form position="inside">
+                <footer position="replace">
+                    <button name="action_save_onboarding_card_step" class="btn btn-primary" type="object"
+                            string="Apply"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_open_library_onboarding_card_step" model="ir.actions.act_window">
+        <field name="name">Library Card Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vm.library.card</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="library_onboarding_card_state_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Publisher Wizard for Onboarding -->
+
+    <record id="library_onboarding_publisher_state_form" model="ir.ui.view">
+        <field name="name">vm.publisher.onboarding.form</field>
+        <field name="model">vm.publisher</field>
+        <field name="inherit_id" ref="viseducat_library.view_vm_publisher_form"/>
+        <field name="mode">primary</field>
+        <field name="priority">1000</field>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='publisher']" position="after"/>
+            <form position="inside">
+                <footer position="replace">
+                    <button name="action_save_onboarding_publisher_step" class="btn btn-primary" type="object"
+                            string="Apply"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_open_library_onboarding_publisher_step" model="ir.actions.act_window">
+        <field name="name">Publisher Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vm.publisher</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="library_onboarding_publisher_state_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Author Wizard for Onboarding -->
+
+    <record id="library_onboarding_author_state_form" model="ir.ui.view">
+        <field name="name">vm.author.onboarding.form</field>
+        <field name="model">vm.author</field>
+        <field name="inherit_id" ref="viseducat_library.view_vm_author_form"/>
+        <field name="mode">primary</field>
+        <field name="priority">1000</field>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='author']" position="after"/>
+            <form position="inside">
+                <footer position="replace">
+                    <button name="action_save_onboarding_author_step" class="btn btn-primary" type="object"
+                            string="Apply"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_open_library_onboarding_author_step" model="ir.actions.act_window">
+        <field name="name">Author Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vm.author</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="library_onboarding_author_state_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Media Type Wizard for Onboarding -->
+
+    <record id="library_onboarding_media_type_state_form" model="ir.ui.view">
+        <field name="name">vm.media.type.onboarding.form</field>
+        <field name="model">vm.media.type</field>
+        <field name="inherit_id" ref="viseducat_library.view_vm_media_type_form"/>
+        <field name="mode">primary</field>
+        <field name="priority">1000</field>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='media_type']" position="after"/>
+            <form position="inside">
+                <footer position="replace">
+                    <button name="action_save_onboarding_media_type_step" class="btn btn-primary" type="object"
+                            string="Apply"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_open_library_onboarding_media_type_step" model="ir.actions.act_window">
+        <field name="name">Media Type Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vm.media.type</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="library_onboarding_media_type_state_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Library Card Type Wizard for Onboarding -->
+
+    <record id="library_onboarding_card_type_state_form" model="ir.ui.view">
+        <field name="name">vm.library.card.type.onboarding.form</field>
+        <field name="model">vm.library.card.type</field>
+        <field name="inherit_id" ref="viseducat_library.view_vm_library_card_type_form"/>
+        <field name="mode">primary</field>
+        <field name="priority">1000</field>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='library_card_type']" position="after"/>
+            <form position="inside">
+                <footer position="replace">
+                    <button name="action_save_onboarding_card_type_step" class="btn btn-primary" type="object"
+                            string="Apply"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_open_library_onboarding_card_type_step" model="ir.actions.act_window">
+        <field name="name">Library Card Type Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vm.library.card.type</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="library_onboarding_card_type_state_form"/>
+        <field name="target">new</field>
+    </record>
+
+
+</odoo>

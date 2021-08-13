@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_vm_assignment_root" name="Assignments" sequence="40"
+                  web_icon="viseducat_assignment,static/description/icon.png"
+                  groups="viseducat_core.group_vm_faculty"
+
+                  />
+
+        <menuitem id="menu_vm_assignment_main" name="Assignments"
+                  parent="menu_vm_assignment_root" sequence="10"
+                  groups="viseducat_core.group_vm_faculty"
+
+        />
+
+        <menuitem id="menu_vm_assignment_sub" name="Assignments"
+                  parent="menu_vm_assignment_main" sequence="10"
+                  action="act_open_vm_assignment_view"
+                  groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty"
+        />
+
+
+        <menuitem id="menu_vm_assignment_sub_line_sub" name="Assignment Submissions"
+                  parent="menu_vm_assignment_main" sequence="20"
+                  action="act_open_vm_assignment_sub_line_view"
+                  groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty"
+        />
+
+
+        <menuitem id="menu_vm_assignment_configuration" name="Configuration"
+                  parent="menu_vm_assignment_root" sequence="20"
+                  groups="viseducat_core.group_vm_faculty"
+        />
+
+
+        <menuitem id="menu_vm_assignment_type_sub" name="Assignment Types"
+                  parent="menu_vm_assignment_configuration" sequence="10"
+                  action="act_open_vm_assignment_type_view"
+                  groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty"
+        />
+
+            <menuitem id="menu_vm_assignment_reporting" name="Reporting"
+                  parent="menu_vm_assignment_root" sequence="30"
+                  groups="viseducat_core.group_vm_faculty"
+        />
+
+        <menuitem id="menu_vm_assignment_analysis" name="Assignment Analysis"
+                  parent="menu_vm_assignment_reporting" sequence="10"
+                  action="act_open_vm_assignment_analysis_view"
+                  groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty"
+        />
+
+         <menuitem id="menu_vm_assignment_submission_analysis" name="Assignment Submission Analysis"
+                  parent="menu_vm_assignment_reporting" sequence="40"
+                  action="act_open_vm_assignment_submission_analysis_view"
+                  groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty"
+        />
+
+
+
+    </data>
+</odoo>

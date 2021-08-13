@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_vm_activity_sub"
+                  name="Activity Logs"
+                  parent="viseducat_core.menu_vm_general_student"
+                  sequence="10"
+                  action="act_open_vm_activity_view"
+                  groups="viseducat_core.group_vm_back_office"
+                  />
+
+
+        <menuitem id="menu_vm_activity_type_sub"
+                  name="Activity Types"
+                  parent="viseducat_core.menu_vm_school_config_activity"
+                  sequence="10"
+                  action="act_open_vm_activity_type_view"
+                  groups="viseducat_core.group_vm_back_office"
+                  />
+
+
+        <menuitem id="menu_student_migrate"
+                  name="Student Migration"
+                  parent="viseducat_core.menu_vm_general_main"
+                  sequence="30"
+                  action="act_open_student_migrate_view"
+                  groups="viseducat_core.group_vm_back_office"
+                  />
+
+    </data>
+</odoo>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_vm_course_section_material_line_tree" model="ir.ui.view">
+            <field name="name">vm.course.material.tree</field>
+            <field name="model">vm.course.material</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Course Section Material Line">
+                    <field name="sequence"/>
+                    <field name="material_id"/>
+                    <field name="preview"/>
+                    <field name="total_time"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_vm_course_section_material_line_search" model="ir.ui.view">
+            <field name="name">vm.course.material.search</field>
+            <field name="model">vm.course.material</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Course Section Material Line">
+                    <field name="material_id"/>
+                    <newline/>
+                    <group expand="0" string="Group By...">
+                        <filter name="group_by_material_id" string="Material" domain="[]" context="{'group_by':'material_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_vm_course_section_material_view">
+            <field name="name">Course Section Material Line</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vm.course.material</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_vm_course_section_material_line_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+
+        <record model="ir.actions.act_window.view" id="act_open_vm_course_section_material_view_tree">
+            <field name="act_window_id" ref="act_open_vm_course_section_material_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_vm_course_section_material_line_tree"/>
+        </record>
+
+        </data>
+</odoo>

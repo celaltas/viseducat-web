@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_vm_library_root"
+                  name="Library"
+                  sequence="80"
+                  web_icon="viseducat_library,static/description/icon.png"
+                  groups="group_vm_library,viseducat_core.group_vm_faculty,viseducat_core.group_vm_back_office_admin"
+        />
+
+        <menuitem id="menu_vm_library_dashboard"
+                  name="Dashboard"
+                  parent="menu_vm_library_root"
+                  sequence="10"
+                  action="act_open_vm_library_dashboard_view"/>
+
+        <menuitem id="menu_library_medias"
+                  name="All Media"
+                  parent="menu_vm_library_root"
+                  sequence="20"
+                  groups="group_vm_library,viseducat_core.group_vm_faculty,viseducat_core.group_vm_back_office_admin"
+        />
+
+        <menuitem id="menu_vm_sub_media_library"
+                  name="Media"
+                  parent="menu_library_medias"
+                  sequence="10"
+                  action="act_open_vm_media_view"
+                  groups="group_vm_library,viseducat_core.group_vm_faculty,viseducat_core.group_vm_back_office_admin"
+        />
+
+        <menuitem id="menu_vm_media_unit_library"
+                  name="Media Units"
+                  parent="menu_library_medias"
+                  sequence="20"
+                  action="act_open_media_unit_view"
+                  groups="group_vm_library,viseducat_core.group_vm_back_office"
+        />
+
+        <menuitem id="menu_vm_media_movement_library"
+                  name="Media Movements"
+                  parent="menu_library_medias"
+                  sequence="30"
+                  action="act_open_vm_media_movement_view"
+                  groups="group_vm_library,viseducat_core.group_vm_back_office,viseducat_parent.group_vm_parent"
+        />
+
+        <menuitem id="menu_vm_media_queue_request_library_sub"
+                  name="Media Queue Requests"
+                  parent="menu_library_medias"
+                  sequence="40"
+                  action="act_open_vm_media_queue_view"
+                  groups="group_vm_library,viseducat_core.group_vm_faculty,viseducat_core.group_vm_back_office_admin"
+        />
+
+        <menuitem id="menu_vm_media_request_library_sub"
+                  name="Media Purchase Requests"
+                  parent="menu_library_medias"
+                  sequence="50"
+                  action="act_open_vm_purchase_view"
+                  groups="group_vm_library,viseducat_core.group_vm_faculty,viseducat_core.group_vm_back_office_admin"
+        />
+
+        <menuitem id="menu_vm_school_library_config"
+                  name="Configuration"
+                  parent="menu_vm_library_root"
+                  sequence="20"/>
+
+        <menuitem id="menu_vm_library_card_sub"
+                  name="Library Cards"
+                  parent="menu_vm_school_library_config"
+                  sequence="10"
+                  action="act_open_vm_library_card_view"
+                  groups="group_vm_library,viseducat_core.group_vm_back_office"
+        />
+
+        <menuitem id="menu_vm_publisher_sub"
+                  name="Publishers"
+                  parent="menu_vm_school_library_config"
+                  sequence="20"
+                  action="act_open_vm_publisher_view"
+                  groups="group_vm_library,viseducat_core.group_vm_faculty"
+        />
+
+        <menuitem id="menu_vm_author_sub"
+                  name="Authors"
+                  parent="menu_vm_school_library_config"
+                  sequence="30"
+                  action="act_open_vm_author_view"
+                  groups="group_vm_library,viseducat_core.group_vm_faculty"
+        />
+
+        <menuitem id="menu_vm_tag_sub"
+                  name="Tags"
+                  parent="menu_vm_school_library_config"
+                  sequence="40"
+                  action="act_open_vm_tag_view"
+                  groups="group_vm_library,viseducat_core.group_vm_back_office"
+        />
+
+        <menuitem id="menu_vm_media_type_sub"
+                  name="Media Type"
+                  parent="menu_vm_school_library_config"
+                  sequence="50"
+                  action="act_open_vm_media_type_view"
+                  groups="group_vm_library,viseducat_core.group_vm_back_office"
+        />
+
+        <menuitem id="menu_vm_library_card_type_sub"
+                  name="Library Card Types"
+                  parent="menu_vm_school_library_config"
+                  sequence="60"
+                  action="act_open_vm_library_card_type_view"
+                  groups="group_vm_library,viseducat_core.group_vm_back_office"
+        />
+
+        <menuitem id="menu_vm_library_reporting"
+                  parent="menu_vm_library_root"
+                  name="Reporting"
+                  sequence="50"/>
+
+        <menuitem id="menu_vm_library_media_analysis"
+                  name="Media Analysis"
+                  parent="menu_vm_library_reporting"
+                  sequence="10"
+                  action="act_open_library_media_analysis_view"
+                  groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_back_office,group_vm_library"
+        />
+
+        <menuitem id="menu_vm_library_media_unit_analysis"
+                  name="Media Unit Analysis"
+                  parent="menu_vm_library_reporting"
+                  sequence="20"
+                  action="act_open_library_media_unit_analysis_view"
+                  groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_back_office,group_vm_library"
+        />
+
+        <menuitem id="menu_vm_library_media_movement_analysis"
+                  name="Media Movement Analysis"
+                  parent="menu_vm_library_reporting"
+                  sequence="30"
+                  action="act_open_library_media_movement_analysis_view"
+                  groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_back_office,group_vm_library"
+        />
+        <menuitem id="menu_vm_library_media_queue_analysis"
+                  name="Media Queue Analysis"
+                  parent="menu_vm_library_reporting"
+                  sequence="40"
+                  action="act_open_library_media_queue_analysis_view"
+                  groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_back_office,group_vm_library"
+        />
+        <menuitem id="menu_vm_library_media_purchase_analysis"
+                  name="Media Purchase Analysis"
+                  parent="menu_vm_library_reporting"
+                  sequence="50"
+                  action="act_open_library_media_purchase_analysis_view"
+                  groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_back_office,group_vm_library"
+        />
+
+    </data>
+</odoo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="viseducat_core.group_vm_back_office" model="res.groups">
+            <field name="implied_ids"
+                   eval="[(4, ref('viseducat_core.group_vm_faculty')),(4, ref('base.group_partner_manager')),(4, ref('account.group_account_invoice'))]"/>
+        </record>
+    </data>
+</odoo>

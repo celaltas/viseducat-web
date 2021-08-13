@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_vm_course_dashboard_lms_kanban" model="ir.ui.view">
+            <field name="name">vm.course.kanban.dashboard.lms</field>
+            <field name="model">vm.course</field>
+            <field name="arch" type="xml">
+                <kanban string="LMS Overview"
+                        class="o_emphasize_colors o_kanban_dashboard o_slide_kanban breadcrumb_item active"
+                        edit="false">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="#{kanban_color(0)} oe_kanban_global_click">
+                                <div class="o_kanban_card_header">
+                                    <div class="o_kanban_card_header_title mb16">
+                                        <div class="o_primary">
+                                            <a type="edit" class="mr-auto">
+                                                <field name="name" class="o_primary"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="container o_kanban_card_content mt0">
+                                    <div class="row mb16">
+                                        <div class="col-12 o_kanban_primary_right">
+                                            <div class="d-flex">
+                                                <span class="mr-auto mb0">
+                                                    Course To Begin
+                                                </span>
+                                                <field name="course_to_begin"/>
+                                            </div>
+                                            <div class="d-flex">
+                                                <span class="mr-auto mb0">
+                                                    Duration
+                                                </span>
+                                                <field name="display_time" widget="float_time"/>
+                                            </div>
+
+                                            <div class="d-flex">
+                                                <span class="mr-auto mb0">
+                                                    Days Since Launch
+                                                </span>
+                                                <field name="days_since_launch"/>
+                                            </div>
+
+                                            <div class="d-flex">
+                                                <span class="mr-auto mb0">
+                                                    Course In Progress
+                                                </span>
+                                                <field name="course_in_progress"/>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="row mt3">
+                                        <div class="col-4 border-right">
+                                            <a name="action_view_material" type="object"
+                                               class="d-flex flex-column align-items-center">
+                                                <span class="font-weight-bold">
+                                                    <field name="training_material"/>
+                                                </span>
+                                                <span class="text-muted">Material</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-4 border-right">
+                                            <a name="action_view_users" type="object"
+                                               class="d-flex flex-column align-items-center">
+                                                <span class="font-weight-bold">
+                                                    <field name="enrolled_users"/>
+                                                </span>
+                                                <span class="text-muted">Users</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-4 border-right">
+                                            <a name="action_course_completed" type="object"
+                                               class="d-flex flex-column align-items-center">
+                                                <span class="font-weight-bold">
+                                                    <field name="course_completed"/>
+                                                </span>
+                                                <span class="text-muted">Completed</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="view_vm_course_dashboard_lms_tree" model="ir.ui.view">
+            <field name="name">vm.course.tree.dashboard.lms</field>
+            <field name="model">vm.course</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Course">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="parent_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_vm_course_dashboard_lms_form" model="ir.ui.view">
+            <field name="name">vm.course.form.dashboard.lms</field>
+            <field name="model">vm.course</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Course">
+                    <header>
+                        <button name="action_confirm" states="draft" string="Confirm" type="object"
+                                class="oe_highlight"/>
+                        <button name="action_draft" states="closed" string="Re-open" type="object"
+                                class="oe_highlight"/>
+                        <button name="action_closed" states="open" string="Closed" type="object" class="oe_highlight"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <field name="active" invisible="1"/>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <div>
+                            <div class="oe_button_box" name="button_box" width="100%">
+                                <button name="action_view_section" class="btn oe_stat_button" icon="fa-book"
+                                        type="object"
+                                        groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty">
+                                    <field string="Section" name="section_count" widget="statinfo"/>
+                                </button>
+
+                                <button name="action_view_material" type="object" icon="fa-files-o"
+                                        class="btn oe_stat_button"
+                                        groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty">
+                                    <div class="o_field_widget o_stat_info">
+                                        <span class="o_stat_value">
+                                            <field name="training_material" nolabel="1"/>
+                                        </span>
+                                        <span name="total_slides_label" class="o_stat_text">Material</span>
+                                    </div>
+                                </button>
+                                <button name="action_course_completed" type="object" icon="fa-trophy"
+                                        class="btn oe_stat_button"
+                                        groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty">
+                                    <div class="o_field_widget o_stat_info">
+                                        <span class="o_stat_value">
+                                            <field name="course_completed" nolabel="1"/>
+                                        </span>
+                                        <span name="members_done_count_label" class="o_stat_text">Completed</span>
+                                    </div>
+                                </button>
+                                <button name="action_view_users" type="object" icon="fa-users"
+                                        class="btn oe_stat_button"
+                                        groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty">
+                                    <field name="enrolled_users" string="Enrollments" widget="statinfo"/>
+                                </button>
+                            </div>
+                        </div>
+                        <field name="image_1920" widget="image" class="oe_avatar"/>
+                        <div class="oe_title">
+                            <field name="online_course" class="oe_edit_only" readonly="1"/>
+                            <label class="oe_edit_only" for="online_course" string="Online Course ?"/>
+                            <h1>
+                                <field name="name" placeholder="Course Name"/>
+                            </h1>
+                        </div>
+                        <group col="2">
+                            <group>
+                                <field name="code" required="1"/>
+                                <field name="confirm_date" readonly="1"/>
+                                <field name="user_id" readonly="1"/>
+                                <!--                                <field name="company_id" groups="base.group_multi_company" optional="show"/>-->
+                            </group>
+                        </group>
+                        <notebook colspan="4">
+                            <page name="general" string="General">
+                                <group col="2">
+                                    <group>
+                                        <field name="visibility" widget="radio"/>
+                                    </group>
+                                    <group>
+                                        <field name="navigation_policy" widget="radio"/>
+                                    </group>
+                                    <group>
+                                        <field name="certificate"/>
+                                        <field name="title" attrs="{'invisible': [('certificate', '!=', True)]}"/>
+                                        <field name="certi_title"
+                                               attrs="{'invisible': [('certificate', '!=', True)], 'required':[('certificate','=',True)]}"/>
+                                        <field name="certi_date" attrs="{'invisible': [('certificate', '!=', True)]}"/>
+                                        <field name="certi_num" attrs="{'invisible': [('certificate', '!=', True)]}"/>
+                                    </group>
+                                    <group>
+                                        <field name="background" widget="image" class="oe_avatar" style="float: left;"
+                                               attrs="{'invisible': [('certificate', '!=', True)]}"/>
+                                    </group>
+                                </group>
+                                <group string="Short Description">
+                                    <field name="short_description" colspan="4" nolabel="1"/>
+                                </group>
+                                <group string="Full Description">
+                                    <field name="full_description" colspan="4" nolabel="1"/>
+                                </group>
+                            </page>
+                            <page string="Invited Users" attrs="{'invisible': [('visibility', '!=', 'invited_user')]}">
+                                <button name="716" string="Invited Users" type="action" class="oe_highlight"/>
+                                <field name="invited_users_ids">
+                                    <tree string="User" editable="top">
+                                        <field name="name"/>
+                                        <field name="login"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="course_materials" string="Course Materials">
+                                <group col="4" colspan="4">
+                                    <field name="total_time" widget="float_time"/>
+                                </group>
+                                <field name="course_section_ids">
+                                    <tree string="Course Material" default_order="sequence">
+                                        <field name="sequence"/>
+                                        <field name="name"/>
+                                        <field name="total_time" widget="float_time"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="faculties" string="Faculties">
+                                <field name="faculty_ids" options="{'no_create': True}"/>
+                            </page>
+                            <page name="suggested course" string="Suggested Course">
+                                <field name="suggested_course_ids" options="{'no_create': True}"
+                                       domain="[('online_course','=',True)]"/>
+                            </page>
+                            <page name="categories" string="Categories">
+                                <field name="category_ids" options="{'no_create': True}"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_vm_course_dashboard_lms_search" model="ir.ui.view">
+            <field name="name">vm.course.search.dashboard.lms</field>
+            <field name="model">vm.course</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Category">
+                    <field name="name"/>
+                    <newline/>
+                    <separator/>
+<!--                    <filter string="Online Course" name="online_course" domain="[('online_course', '=', True)]"/>-->
+                    <separator/>
+                    <searchpanel>
+                         <field string="CREATE BY" select="multi"  name="user_id" icon="fa-users" />
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_vm_course_dashboard_lms_view">
+            <field name="name">Course Dashboard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vm.course</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="search_view_id" ref="view_vm_course_dashboard_lms_search"/>
+            <field name="domain">[('online_course', '=', True)]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_vm_course_dashboard_lms_view_form">
+            <field name="act_window_id" ref="act_open_vm_course_dashboard_lms_view"/>
+            <field name="sequence" eval="30"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_vm_course_dashboard_lms_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_vm_course_dashboard_lms_view_tree_2">
+            <field name="act_window_id" ref="act_open_vm_course_dashboard_lms_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_vm_course_dashboard_lms_tree"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_vm_course_dashboard_lms_view_kanban">
+            <field name="act_window_id" ref="act_open_vm_course_dashboard_lms_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="view_vm_course_dashboard_lms_kanban"/>
+        </record>
+    </data>
+</odoo>

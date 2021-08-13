@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Viseducat Menu -->
+        <menuitem id="menu_vm_school_root"
+                  name="VisEduCat"
+                  sequence="10"
+                  web_icon="viseducat_core,static/description/icon.png"
+                  groups="group_vm_back_office,group_vm_back_office_admin"
+        />
+
+
+        <menuitem id="menu_vm_school_main"
+                  name="Students"
+                  parent="menu_vm_school_root"
+                  sequence="10"
+                  action="act_open_vm_student_view"
+                  groups="group_vm_faculty"
+        />
+
+
+        <menuitem id="menu_vm_faculty_main"
+                  name="Faculties"
+                  parent="menu_vm_school_root"
+                  sequence="20"
+                  action="act_open_vm_faculty_view"
+                  groups="viseducat_core.group_vm_faculty"
+        />
+
+
+        <menuitem id="menu_vm_general_main"
+                  name="General"
+                  parent="menu_vm_school_root"
+                  sequence="30"/>
+
+        <!-- Configuration Menu -->
+        <menuitem id="menu_vm_school_config"
+                  name="Configuration"
+                  parent="menu_vm_school_root"
+                  sequence="40"/>
+
+        <menuitem id="menu_vm_school_config_course"
+                  name="Course Management"
+                  parent="menu_vm_school_config"
+                  sequence="10"/>
+
+        <menuitem id="menu_vm_course_sub"
+                  name="Courses"
+                  parent="menu_vm_school_config_course"
+                  sequence="10"
+                  action="act_open_vm_course_view"
+                  groups="group_vm_back_office,group_vm_back_office_admin"
+        />
+
+
+        <menuitem id="menu_vm_batch_sub"
+                  name="Batches"
+                  parent="menu_vm_school_config_course"
+                  sequence="20"
+                  action="act_open_vm_batch_view"
+                  groups="group_vm_back_office,group_vm_back_office_admin"
+        />
+
+
+        <menuitem id="menu_vm_department_sub"
+                  name="Department"
+                  parent="menu_vm_school_config_course"
+                  sequence="20"
+                  action="act_open_vm_department_view"
+                  groups="group_vm_back_office,group_vm_back_office_admin"
+
+        />
+
+
+        <menuitem id="menu_vm_school_config_subject"
+                  name="Subject Management"
+                  parent="menu_vm_school_config"
+                  sequence="20"/>
+
+        <menuitem id="menu_vm_subject_sub"
+                  name="Subjects"
+                  sequence="10"
+                  parent="menu_vm_school_config_subject"
+                  action="act_open_vm_subject_view"
+                  groups="group_vm_back_office,group_vm_back_office_admin,viseducat_core.group_vm_faculty"
+        />
+
+
+        <menuitem id="menu_vm_school_config_general"
+                  name="General Management"
+                  parent="menu_vm_school_config"
+                  sequence="80"/>
+
+        <menuitem id="menu_vm_category_sub"
+                  name="Categories"
+                  parent="menu_vm_school_config_general"
+                  sequence="40"
+                  action="act_open_vm_category_view"
+                  groups="viseducat_core.group_vm_back_office"
+
+        />
+
+
+        <!-- Activity Root -->
+        <menuitem id="menu_vm_school_config_activity"
+                  name="Activity Management"
+                  parent="menu_vm_school_config"
+                  sequence="40"/>
+
+        <!-- Report Root -->
+        <menuitem id="menu_vm_report_main"
+                  name="Reports"
+                  parent="menu_vm_school_root"
+                  sequence="40"/>
+
+        <!--        &lt;!&ndash; Setting Root &ndash;&gt;-->
+        <!--        <menuitem id="menu_viseducat_config"-->
+        <!--                  name="Settings"-->
+        <!--                  sequence="100"-->
+        <!--                  parent="viseducat_core.menu_vm_school_root"-->
+        <!--                  action="viseducat_config_settings_core_action"-->
+        <!--                  groups="base.group_system"-->
+        <!--                  web_icon="viseducat_core,static/description/icon.png"/>-->
+    </data>
+</odoo>

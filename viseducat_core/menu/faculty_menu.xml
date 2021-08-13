@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_vm_faculty_root"
+                  name="Faculties"
+                  sequence="20"
+                  web_icon="viseducat_core,static/description/icon_faculty.png"/>
+
+        <menuitem id="menu_vm_faculty_details"
+                  name="Profile"
+                  parent="viseducat_core.menu_vm_faculty_root"
+                  sequence="20"
+                  action="act_open_vm_faculty_view_2"
+                  groups="viseducat_core.group_vm_faculty"/>
+
+
+
+        <menuitem id="subject_registration_faculty_menu"
+                  name="Subject Registration"
+                  parent="viseducat_core.menu_vm_faculty_root"
+                  sequence="30"
+                  action="act_subject_registration_view"
+                  groups="viseducat_core.group_vm_back_office_admin"/>
+
+
+    </data>
+</odoo>

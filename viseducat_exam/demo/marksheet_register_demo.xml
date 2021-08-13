@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="vm_marksheet_register_1" model="vm.marksheet.register">
+            <field name="name">Mark Sheet for BOA-Exam</field>
+            <field name="exam_session_id" ref="vm_exam_session_1"/>
+            <field name="generated_date" eval='(DateTime.today())'/>
+            <field name="generated_by" ref="viseducat_core.vm_user_boa"/>
+            <field name="result_template_id" ref="vm_result_template_1"/>
+            <field name="state">validated</field>
+        </record>
+
+        <record id="vm_marksheet_register_2" model="vm.marksheet.register">
+            <field name="name">Mark Sheet for LRTP-Exam</field>
+            <field name="exam_session_id" ref="vm_exam_session_2"/>
+            <field name="generated_date" eval='(DateTime.today())'/>
+            <field name="generated_by" ref="viseducat_core.vm_user_boa"/>
+            <field name="result_template_id" ref="vm_result_template_2"/>
+            <field name="state">validated</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_vm_course_tree_pt_inherit" model="ir.ui.view">
+            <field name="name">vm.course.tree.pt.inherit</field>
+            <field name="model">vm.course</field>
+            <field name="inherit_id" ref="viseducat_core.view_vm_course_tree"/>
+            <field name="priority" eval="9"/>
+            <field name="arch" type="xml">
+                <field name="evaluation_type" position="after">
+                    <field name="fees_term_id" required="1"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_vm_course_form_pt_inherit" model="ir.ui.view">
+            <field name="name">vm.course.form.pt.inherit</field>
+            <field name="model">vm.course</field>
+            <field name="inherit_id" ref="viseducat_core.view_vm_course_form"/>
+            <field name="priority" eval="9"/>
+            <field name="arch" type="xml">
+                <field name="evaluation_type" position="after">
+                    <field name="fees_term_id" required="1"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

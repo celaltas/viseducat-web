@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_vm_faculty_form_session_inherit" model="ir.ui.view">
+            <field name="name">vm.faculty.form.session.inherit</field>
+            <field name="model">vm.faculty</field>
+            <field name="inherit_id" ref="viseducat_core.view_vm_faculty_form"/>
+            <field name="priority" eval="9"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page name="time_table" string="Sessions">
+                        <field name="session_ids" colspan="4"/>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</odoo>

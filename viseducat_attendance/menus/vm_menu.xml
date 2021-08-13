@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_vm_attendance_root"
+                  name=" Attendances"
+                  sequence="-2"
+                  web_icon="viseducat_attendance,static/description/icon.png"
+                  groups="viseducat_core.group_vm_back_office,viseducat_core.group_vm_faculty,viseducat_core.group_vm_back_office_admin"
+        />
+
+        <menuitem id="menu_vm_attendance"
+                  name="Attendance"
+                  parent="menu_vm_attendance_root"
+                  sequence="10"/>
+
+        <menuitem id="menu_vm_attendance_register_sub"
+                  name="Registers"
+                  parent="menu_vm_attendance"
+                  sequence="10"
+                  action="act_vis_vm_attendance_register_view"
+                  groups="viseducat_core.group_vm_back_office,viseducat_core.group_vm_faculty,viseducat_core.group_vm_back_office_admin"
+        />
+
+        <menuitem id="menu_vm_attendance_line_sub"
+                  name="Attendance lines"
+                  parent="menu_vm_attendance"
+                  sequence="30"
+                  action="act_vis_vm_attendance_line_view"
+                  groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_back_office,viseducat_core.group_vm_faculty,viseducat_core.group_vm_back_office_admin"
+        />
+
+        <menuitem id="menu_vm_attendance_sheet_sub"
+                  name="Sheets"
+                  parent="menu_vm_attendance"
+                  sequence="20"
+                  action="act_vis_vm_attendance_sheet_view"
+                  groups="viseducat_core.group_vm_back_office,viseducat_core.group_vm_faculty,viseducat_core.group_vm_back_office_admin"
+        />
+
+
+        <menuitem id="menu_vm_attendance_config"
+                  parent="menu_vm_attendance_root"
+                  name="Configuration"
+                  sequence="40"/>
+
+
+        <menuitem id="menu_vm_attendance_type"
+                  name="Attendance Type"
+                  parent="menu_vm_attendance_config"
+                  sequence="30"
+                  action="act_vis_vm_attendance_type_view"
+                  groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_back_office,viseducat_core.group_vm_faculty"
+        />
+
+
+        <menuitem id="menu_vm_attendance_reporting"
+                  parent="menu_vm_attendance_root"
+                  name="Reporting"
+                  sequence="50"/>
+
+        <menuitem id="menu_vm_attendance_attendance_sheet_analysis"
+                  name="Attendance Sheet Analysis"
+                  parent="menu_vm_attendance_reporting"
+                  sequence="10"
+                  action="act_open_attendance_sheet_analysis_view"
+                  groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_back_office,viseducat_core.group_vm_faculty"
+        />
+
+          <menuitem id="menu_vm_attendance_attendance_line_analysis"
+                  name="Attendance Line Analysis"
+                  parent="menu_vm_attendance_reporting"
+                  sequence="20"
+                  action="act_open_attendance_line_analysis_view"
+                  groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_back_office,viseducat_core.group_vm_faculty"
+        />
+
+
+
+    </data>
+</odoo>
