@@ -149,30 +149,62 @@
                         </div>
                     </div>
                     <div class="cd-content" id="review">
-                        <div id="course-comments-image">
-                            <img src="./img/6.jpg" alt=""/>
-                        </div>
+                        
 
                         <div id="course-comments">
-                            <div id="course-stars">
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <textarea name="message" id="" cols="30" placeholder="Write a message..."
-                                      rows="10"></textarea>
-                            <div id="course-bottom-flex">
-                                <button id="cbf-send-button" style="cursor: pointer;" type="submit">Send</button>
-                                <button id="cbf-add-button" style="cursor: pointer;" type="button">
-                                    <i class="fas fa-paperclip"></i>
-                                </button>
+                                <div id="course-comments-image">
+                                    <img src="web_viseducat/static/src/img/6.jpg" alt=""/>
+                                </div>
+                            <div class="a">
+                                <div id="course-stars">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+
+                                <textarea name="message" id="" cols="30" placeholder="Write a message..." rows="10"></textarea>
+
+                                <div id="course-bottom-flex">
+                                    <button id="cbf-send-button" style="cursor: pointer;" type="submit">Send</button>
+                                    <button id="cbf-add-button" style="cursor: pointer;" type="button">
+                                        <i class="fas fa-paperclip"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
+                        <div class="comment-answers">
+                            <div class="comment-answer">
+                                <img src="web_viseducat/static/src/img/6.jpg" alt=""/>
+                                <div class="comment-flex">
+                                    <h5>YourCompany, Mitchell Admin</h5>
+                                    <p class="published-time">Published on August 16th 2021, 2:20:52 pm</p>
+                                    <p class="comment-area">This is comment......</p>
+                                    <button class="reply-comment"><i class="fas fa-comment">Comment</i></button>
+                                </div>
+                                <button class="visible" >Visible</button>
+                        
+                            </div>
+                            <div class="answer-reply-cont">
+                                <div class="answer-reply">
+                                    <img src="web_viseducat/static/src/img/6.jpg" alt=""/>
+                                    <div class="answer-flex">
+                                        <h5>Write your comment</h5>
+                                        <p>Published on</p>
+                                        <textarea name="message" id="" cols="30" placeholder="Write a message..." rows="10"></textarea>
+                                        <button class="post-cmnt">Post Comment</button>
+                                        <button class="cancel-cmnt">Cancel</button>
+                                    </div>
+                                
+                                    
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
+                    
                     <div class="cd-content active" id="overview">
                         <div id="cd-description">
                             <h2>Description</h2>

@@ -68,7 +68,7 @@ for (let i=0;i<childrenList.length;i++){
 
 
   if (i%2===0){
-    console.log(childrenList[i])
+    
 
     childrenList[i].addEventListener("click",function(){
 
@@ -96,3 +96,57 @@ for (let i=0;i<childrenList.length;i++){
 
   }
 }
+
+// Visible and Employee Only
+
+const vebtns=document.querySelector(".visible")
+
+
+
+vebtns.addEventListener("click",function(){
+
+  
+
+    if(vebtns.style.backgroundColor!="red"){   
+    vebtns.style.backgroundColor="red"
+    vebtns.style.width="auto"
+    vebtns.textContent="Employees Only"
+  }
+
+ 
+
+    else{
+      vebtns.textContent="Visible"
+      vebtns.style.backgroundColor="green"
+
+
+    }
+
+
+
+})
+  
+
+// Reply Comment
+
+const replyButton=document.querySelector(".reply-comment")
+const replyTextArea=document.querySelector(".answer-reply-cont")
+
+
+replyButton.addEventListener("click",function(){
+
+    replyTextArea.classList.toggle("active")
+
+
+
+
+})
+
+// Reply Comment Cancel Button
+
+const cancelButton=document.querySelector(".cancel-cmnt")
+
+cancelButton.addEventListener("click",function(){
+
+  replyTextArea.classList.toggle("active")
+})
