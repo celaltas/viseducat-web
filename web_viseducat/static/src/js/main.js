@@ -99,25 +99,26 @@ for (let i=0;i<childrenList.length;i++){
 
 // Visible and Employee Only
 
-const vebtns=document.querySelector(".visible")
+const vebtns=document.querySelectorAll(".visible")
 
 
+vebtns.forEach(function(vebtn){
 
-vebtns.addEventListener("click",function(){
+  vebtn.addEventListener("click",function(){
 
   
 
-    if(vebtns.style.backgroundColor!="red"){   
-    vebtns.style.backgroundColor="red"
-    vebtns.style.width="auto"
-    vebtns.textContent="Employees Only"
+    if(vebtn.style.backgroundColor!="red"){   
+    vebtn.style.backgroundColor="red"
+    vebtn.style.width="auto"
+    vebtn.textContent="Employees Only"
   }
 
  
 
     else{
-      vebtns.textContent="Visible"
-      vebtns.style.backgroundColor="green"
+      vebtn.textContent="Visible"
+      vebtn.style.backgroundColor="green"
 
 
     }
@@ -127,26 +128,46 @@ vebtns.addEventListener("click",function(){
 })
   
 
+
+})
+
+
 // Reply Comment
 
-const replyButton=document.querySelector(".reply-comment")
-const replyTextArea=document.querySelector(".answer-reply-cont")
-
-
-replyButton.addEventListener("click",function(){
-
-    replyTextArea.classList.toggle("active")
+const replyButtons=document.querySelectorAll(".reply-comment")
 
 
 
 
-})
+for(let i=0;i<replyButtons.length;i++){
 
-// Reply Comment Cancel Button
+  const replyTextAreas=replyButtons[i].parentElement.parentElement.nextElementSibling.nextElementSibling
+  const cancelButtons=document.querySelectorAll(".cancel-cmnt")
+  const ellipsisButtons=document.querySelectorAll(".ellipsis")
+  const editDelete=document.querySelectorAll(".edit-delete")
+  
+  
+  
+      replyButtons[i].addEventListener("click",function(){
+      
+      replyTextAreas.classList.toggle("active")
 
-const cancelButton=document.querySelector(".cancel-cmnt")
+    })
 
-cancelButton.addEventListener("click",function(){
+      cancelButtons[i].addEventListener("click",function(){
 
-  replyTextArea.classList.toggle("active")
-})
+      replyTextAreas.classList.toggle("active")
+
+    })
+
+    ellipsisButtons[i].addEventListener("click",function(){
+      editDelete[i].classList.toggle("active")
+
+    })
+
+  
+
+}  
+
+
+

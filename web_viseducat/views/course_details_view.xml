@@ -210,6 +210,10 @@
                                 <div class="answer-reply-cont">
                                     <div class="answer-reply">
                                         <img t-if="request.env.user.image_1920" t-att-src="image_data_uri(request.env.user.image_1920)" alt=""/>
+                                                                        <div class="edit-delete">
+                                    <button class="edit"><i class="fas fa-pencil-alt"></i>Edit</button>
+                                    <button class="delete"><i class="far fa-trash-alt"></i>Delete</button>
+                                </div>
                                         <div class="answer-flex">
                                             <h5>Write your comment</h5>
                                             <p>Published on</p>
