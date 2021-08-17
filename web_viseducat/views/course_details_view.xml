@@ -17,6 +17,7 @@
                     </div>
                 </div>
             </section>
+
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
@@ -31,6 +32,7 @@
                 </ol>
             </nav>
             <hr class="breadcrumb-border"></hr>
+
             <section id="course-details-container">
                 <div id="course-details-article">
                     <div id="article title">
@@ -148,6 +150,7 @@
                         </div>
                     </div>
                     <div class="cd-content" id="review">
+
                         <div id="course-comments-image">
                             <img t-if="request.env.user.image_1920" t-att-src="image_data_uri(request.env.user.image_1920)" alt=""/>
                         </div>
@@ -164,12 +167,14 @@
                                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                                 <textarea name="content" id="" cols="30" placeholder="Write a message..."
                                 rows="10"></textarea>
+
                                 <div id="course-bottom-flex">
                                     <button id="cbf-send-button" style="cursor: pointer;" type="submit">Send</button>
                                     <button id="cbf-add-button" style="cursor: pointer;" type="button">
                                         <i class="fas fa-paperclip"></i>
                                     </button>
                                 </div>
+
                             </form>
                             <t t-foreach="comments" t-as="comment">
                                 <div>
@@ -178,10 +183,52 @@
                                     <t t-esc="comment.content"/>
                                 </div>
                             </t>
+
                         </div>
 
+                        <div class="comment-answers">
+                            <div class="comment-answer">
+                                <img src="web_viseducat/static/src/img/6.jpg" alt=""/>
+                                <div class="comment-flex">
+                                    <h5>YourCompany, Mitchell Admin</h5>
+                                    <p class="published-time">Published on August 16th 2021, 2:20:52 pm</p>
+                                    <p class="comment-area">This is comment......</p>
+                                    <button class="reply-comment"><i class="fas fa-comment">Comment</i></button>
+                                </div>
+                                <button class="visible" >Visible</button>
+                        
+                            </div>
+
+                             <div class="comment-answer answered-comment">
+                                <img src="web_viseducat/static/src/img/6.jpg" alt=""/>
+                                <div class="comment-flex">
+                                    <h5>YourCompany, Mitchell Admin</h5>
+                                    <p class="published-time">Published on August 16th 2021, 2:20:52 pm</p>
+                                    <p class="comment-area">This is answer......</p>
+                                   
+                                </div>
+                               
+                        
+                            </div>
+
+                            <div class="answer-reply-cont">
+                                <div class="answer-reply">
+                                    <img src="web_viseducat/static/src/img/6.jpg" alt=""/>
+                                    <div class="answer-flex">
+                                        <h5>Write your comment</h5>
+                                        <p>Published on</p>
+                                        <textarea name="message" id="" cols="30" placeholder="Write a message..." rows="10"></textarea>
+                                        <button class="post-cmnt">Post Comment</button>
+                                        <button class="cancel-cmnt">Cancel</button>
+                                    </div>
+                                
+                                    
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
+                    
                     <div class="cd-content active" id="overview">
                         <div id="cd-description">
                             <h2>Description</h2>
@@ -199,6 +246,7 @@
                                 <div class="cc-schedule">
                                     <a href="">
                                         <i class="fas fa-plus"></i>
+                                        <i class="fas fa-minus active-minus"></i>
                                         <span>
                                             <t t-esc="section.name"/>
                                         </span>
@@ -207,7 +255,7 @@
                                         </span>
                                     </a>
                                 </div>
-                                <div id="python-table">
+                                <div class="python-table">
                                     <table>
                                         <tbody>
                                             <t t-foreach="section.section_material_ids" t-as="material">
