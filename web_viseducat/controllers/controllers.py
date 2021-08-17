@@ -26,7 +26,7 @@ class ViseducatOnline(http.Controller):
 
             }
             comment_obj = request.env['vm.course.comment'].sudo().create(vals)
-            url = '/course-detail?id=#{kw.get("id")}'
+            url = f'/course-detail?id={kw.get("id")}'
             return request.redirect(url)
 
 
