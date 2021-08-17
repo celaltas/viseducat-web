@@ -157,8 +157,8 @@
                                 </div>
                             <div class="a">
                                 <div id="course-stars">
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
                                     <i class="far fa-star"></i>
                                     <i class="far fa-star"></i>
                                     <i class="far fa-star"></i>
@@ -187,6 +187,19 @@
                                 <button class="visible" >Visible</button>
                         
                             </div>
+
+                             <div class="comment-answer answered-comment">
+                                <img src="web_viseducat/static/src/img/6.jpg" alt=""/>
+                                <div class="comment-flex">
+                                    <h5>YourCompany, Mitchell Admin</h5>
+                                    <p class="published-time">Published on August 16th 2021, 2:20:52 pm</p>
+                                    <p class="comment-area">This is answer......</p>
+                                   
+                                </div>
+                               
+                        
+                            </div>
+
                             <div class="answer-reply-cont">
                                 <div class="answer-reply">
                                     <img src="web_viseducat/static/src/img/6.jpg" alt=""/>

@@ -2432,7 +2432,7 @@
              height: 2.4rem;
              color: white;
              background-color: rgb(70, 148, 8);
-             border:1px solid rgb(70, 148, 8);
+             border: 1px solid transparent;
              border-radius: 5px;
              display: block;
              padding: 0 0.5rem;
@@ -2504,6 +2504,7 @@
          .answer-reply img{
              width: 3rem;
              height: 3rem;
+             border-radius: 3rem;
          }
          .answer-flex{
              margin-left: 1rem;
@@ -2533,6 +2534,11 @@
          .comment-answer img{
              width: 3rem;
              height: 3rem;
+             border-radius: 3rem;
+         }
+         .answered-comment{
+             margin-left: 4rem;
+             margin-top: 1rem;
          }
          #course-stars .fa-star{
              font-size: 12px;
@@ -7508,7 +7514,7 @@
             height: 2.4rem;
             color: white;
             background-color: rgb(70, 148, 8);
-            border:1px solid rgb(70, 148, 8);
+            border: 1px solid transparent;
             border-radius: 5px;
             display: block;
             padding: 0 0.5rem;
@@ -7581,6 +7587,7 @@
         .answer-reply img{
             width: 3rem;
             height: 3rem;
+            border-radius: 3rem;
         }
         .answer-flex{
             margin-left: 1rem;
@@ -7610,6 +7617,11 @@
         .comment-answer img{
             width: 3rem;
             height: 3rem;
+            border-radius: 3rem;
+        }
+        .answered-comment{
+            margin-left: 4rem;
+            margin-top: 1rem;
         }
         #course-stars .fa-star{
             font-size: 12px;
@@ -12608,7 +12620,7 @@
             height: 2.4rem;
             color: white;
             background-color: rgb(70, 148, 8);
-            
+            border: 1px solid transparent;
             border-radius: 5px;
             display: block;
             padding: 0 0.5rem;
@@ -12685,6 +12697,7 @@
         .answer-reply img{
             width: 3rem;
             height: 3rem;
+            border-radius: 3rem;
         }
         .answer-flex{
             margin-left: 1rem;
@@ -12714,6 +12727,11 @@
         .comment-answer img{
             width: 3rem;
             height: 3rem;
+            border-radius: 3rem;
+        }
+        .answered-comment{
+            margin-left: 4rem;
+            margin-top: 1rem;
         }
         #course-stars .fa-star{
             font-size: 12px;
