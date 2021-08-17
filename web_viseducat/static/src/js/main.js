@@ -30,7 +30,7 @@ const courseDetails=document.querySelector("#course-details-article");
 // Tab
 
 
-console.log(courseDetails)
+
 courseDetails.addEventListener("click",function(e){
   const id=e.target.dataset.id;
 
