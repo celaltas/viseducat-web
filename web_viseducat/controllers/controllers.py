@@ -1,5 +1,6 @@
 from odoo import http, fields
 from odoo.http import request
+from datetime import datetime
 
 
 class ViseducatOnline(http.Controller):
@@ -16,11 +17,25 @@ class ViseducatOnline(http.Controller):
         return request.render('web_viseducat.display_courses', vals)
 
     @http.route('/course-detail', auth='public', type="http", website=True)
-    def enroll_course(self, **kw):
-        vals = {}
-        course_obj = request.env['vm.course'].search([('id', '=', kw.get('id'))])
-        vals.update({
-            'course': course_obj,
-        })
+    def _display_courses_detail(self, **kw):
+        if request.httprequest.method == 'POST':
 
-        return request.render('web_viseducat.display_course_details', vals)
+            vals = {
+                    'content' :kw.get('content'),
+                    'course_id': kw.get('id'),
+
+            }
+            comment_obj = request.env['vm.course.comment'].sudo().create(vals)
+            url = '/course-detail?id=#{kw.get("id")}'
+            return request.redirect(url)
+
+
+        else:
+            vals = {}
+            course_obj = request.env['vm.course'].sudo().search([('id', '=', kw.get('id'))])
+            comment_obj_list = request.env['vm.course.comment'].sudo().search([('course_id', '=', course_obj.id)])
+            vals.update({
+                'course': course_obj,
+                'comments': comment_obj_list,
+            })
+            return request.render('web_viseducat.display_course_details', vals)
