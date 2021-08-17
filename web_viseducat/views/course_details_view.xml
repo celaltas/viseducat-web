@@ -17,21 +17,22 @@
                     </div>
                 </div>
             </section>
-           <div class="breadcrumb-cont breadcrumb-cont2">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">
-                                <a href="/">Home</a>
-                            </li>
-                            <li class="breadcrumb-item active">
-                                <a href="/courses">Courses</a>
-                            </li>
-                            <li class="breadcrumb-item active" aria-current="page"><t t-esc="course.name"/></li>
-                        </ol>
-                    </nav>
 
-                </div>
-                <hr class="breadcrumb-border"></hr>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        <a href="/courses">Courses</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <t t-esc="course.name"/>
+                    </li>
+                </ol>
+            </nav>
+            <hr class="breadcrumb-border"></hr>
+
             <section id="course-details-container">
                 <div id="course-details-article">
                     <div id="article title">
@@ -43,15 +44,15 @@
                         <t t-foreach="course.faculty_ids" t-as="faculty">
                             <t t-if="faculty.image_1920 and faculty_index==0 ">
                                 <div id="cd-teacher">
-                            <img t-att-src="image_data_uri(faculty.image_1920)"
-                                 alt=""/>
-                            <div id="cd-teacher-info">
-                                <span>Teacher</span>
-                                <p>
-                                    <t t-esc="faculty.name"/>
-                                </p>
-                            </div>
-                        </div>
+                                    <img t-att-src="image_data_uri(faculty.image_1920)"
+                                         alt=""/>
+                                    <div id="cd-teacher-info">
+                                        <span>Teacher</span>
+                                        <p>
+                                            <t t-esc="faculty.name"/>
+                                        </p>
+                                    </div>
+                                </div>
                             </t>
                         </t>
                         <div id="cd-category">
@@ -149,22 +150,23 @@
                         </div>
                     </div>
                     <div class="cd-content" id="review">
-                        
+
+                        <div id="course-comments-image">
+                            <img t-if="request.env.user.image_1920" t-att-src="image_data_uri(request.env.user.image_1920)" alt=""/>
+                        </div>
 
                         <div id="course-comments">
-                                <div id="course-comments-image">
-                                    <img src="web_viseducat/static/src/img/6.jpg" alt=""/>
-                                </div>
-                            <div class="a">
-                                <div id="course-stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-
-                                <textarea name="message" id="" cols="30" placeholder="Write a message..." rows="10"></textarea>
+                            <div id="course-stars">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <form action="" method="post">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                <textarea name="content" id="" cols="30" placeholder="Write a message..."
+                                rows="10"></textarea>
 
                                 <div id="course-bottom-flex">
                                     <button id="cbf-send-button" style="cursor: pointer;" type="submit">Send</button>
@@ -172,7 +174,16 @@
                                         <i class="fas fa-paperclip"></i>
                                     </button>
                                 </div>
-                            </div>
+
+                            </form>
+                            <t t-foreach="comments" t-as="comment">
+                                <div>
+                                    <img t-if="comment.create_uid.image_1920" t-att-src="image_data_uri(comment.create_uid.image_1920)" alt=""/>
+                                    <span>Published Date<t t-esc="comment.create_date"/></span>
+                                    <t t-esc="comment.content"/>
+                                </div>
+                            </t>
+
                         </div>
 
                         <div class="comment-answers">
@@ -328,7 +339,13 @@
                         </h3>
                     </div>
                     <div id="cd-price-button">
-                        <a href="">CONTINUE LEARNING</a>
+                        <t t-if="course.type==1">
+                            <a href="/bbb">CONTINUE LEARNING</a>
+                        </t>
+                        <t t-else="">
+                            <a href="/aaa">START COURSE</a>
+                        </t>
+
                     </div>
                     <div class="price-list">
                         <img src="web_viseducat/static/src/img/extensible-markup-language.jpg" alt=""/>
@@ -338,12 +355,17 @@
                     <div class="price-list">
                         <img src="web_viseducat/static/src/img/faculty-shield.jpg" alt=""/>
                         <h6>Lectures:</h6>
-                        <span>2</span>
+                        <t t-set="sections" t-value="course.course_section_ids"/>
+                        <span>
+                            <t t-esc="sections"/>
+                        </span>
                     </div>
                     <div class="price-list">
                         <img src="web_viseducat/static/src/img/hourglass.jpg" alt=""/>
                         <h6>Total Duration:</h6>
-                        <span>67:29</span>
+                        <span>
+                            <t t-esc="'%.2f'%(course.display_time)"/>
+                        </span>
                     </div>
                     <div class="price-list">
                         <img src="web_viseducat/static/src/img/levels.jpg" alt=""/>
@@ -353,7 +375,9 @@
                     <div class="price-list">
                         <img src="web_viseducat/static/src/img/group.jpg" alt=""/>
                         <h6>Enrolled:</h6>
-                        <span>12</span>
+                        <span>
+                            <t t-esc="course.enrolled_users"/>
+                        </span>
                     </div>
 
                     <div id="course-rating-title">

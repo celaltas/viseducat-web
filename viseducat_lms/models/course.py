@@ -70,7 +70,6 @@ class VmCourseInherit(models.Model):
         string="State of the lms onboarding course category layout step", default='not_done')
 
 
-
     def section_count_compute(self):
         for record in self:
             record.section_count = len(self.course_section_ids)
@@ -85,7 +84,7 @@ class VmCourseInherit(models.Model):
             record.course_completed = 1
 
     def enrolled_users_compute(self):
-        #State draft değiştirmen lazım
+        # State draft değiştirmen lazım
         for record in self:
             record.enrolled_users = self.env['vm.course.enrollment'].search_count(
                 [('state', '=', 'draft'), ('course_id', '=', record.id)])

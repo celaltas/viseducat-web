@@ -12,20 +12,16 @@
                 </div>
             </section>
             <section id="main">
-                <div class="breadcrumb-cont">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">
-                                <a href="/">Home</a>
-                            </li>
-                            <li class="breadcrumb-item active">
-                                <a href="/courses">Courses</a>
-                            </li>
-                            <!--                        <li class="breadcrumb-item active" aria-current="page">Data</li>-->
-                        </ol>
-                    </nav>
-
-                </div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="/">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            <a href="/courses">Courses</a>
+                        </li>
+                    </ol>
+                </nav>
                 <hr class="breadcrumb-border"></hr>
                 <div id="container">
                     <div id="aside">
@@ -178,4 +174,5 @@
 
 
 </odoo>
+
 
