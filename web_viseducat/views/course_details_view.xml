@@ -176,36 +176,40 @@
                                 </div>
 
                             </form>
+                            <t t-foreach="comments" t-as="comment">
+                                <div>
+                                    <img t-if="comment.create_uid.image_1920" t-att-src="image_data_uri(comment.create_uid.image_1920)" alt=""/>
+                                    <span>Published Date<t t-esc="comment.create_date"/></span>
+                                    <t t-esc="comment.content"/>
+                                </div>
+                            </t>
+
                         </div>
 
-                        <t t-foreach="comments" t-as="comment">
-                            <div class="comment-answers">
-                                
-                                    <div class="comment-answer">
-                                        <img t-if="comment.create_uid.image_1920" t-att-src="image_data_uri(comment.create_uid.image_1920)" alt=""/>
-                                        <div class="comment-flex">
-                                            <h5> <t t-esc="comment.create_uid.name"/></h5>
-                                            <p class="published-time">Published on <t t-esc="comment.create_date"/></p>
-                                            <p class="comment-area"><t t-esc="comment.content"/></p>
-                                            <button class="reply-comment"><i class="fas fa-comment">Comment</i></button>
-                                        </div>
-                                        <button class="visible" >Visible</button>
-                                    </div>
+                        <div class="comment-answers">
+                            <div class="comment-answer">
+                                <img src="web_viseducat/static/src/img/6.jpg" alt=""/>
+                                <div class="comment-flex">
+                                    <h5>YourCompany, Mitchell Admin</h5>
+                                    <p class="published-time">Published on August 16th 2021, 2:20:52 pm</p>
+                                    <p class="comment-area">This is comment......</p>
+                                    <button class="reply-comment"><i class="fas fa-comment">Comment</i></button>
+                                </div>
+                                <button class="visible" >Visible</button>
                         
-                                <t t-if="comment.response_ids">
-                                        <t t-foreach="comment.response_ids" t-as="response">
-                                            <div class="comment-answer answered-comment">
-                                                <img t-if="response.create_uid.image_1920" t-att-src="image_data_uri(response.create_uid.image_1920)" alt=""/>
-                                                <div class="comment-flex">
-                                                    <h5><t t-esc="response.create_uid.name"/></h5>
-                                                    <p class="published-time">Published on <t t-esc="response.create_date"/></p>
-                                                    <p class="comment-area"><t t-esc="response.content"/></p>
-                                                
-                                                </div>
-                                            </div>
-                                        </t>
-                                </t>
+                            </div>
 
+                             <div class="comment-answer answered-comment">
+                                <img src="web_viseducat/static/src/img/6.jpg" alt=""/>
+                                <div class="comment-flex">
+                                    <h5>YourCompany, Mitchell Admin</h5>
+                                    <p class="published-time">Published on August 16th 2021, 2:20:52 pm</p>
+                                    <p class="comment-area">This is answer......</p>
+                                   
+                                </div>
+                               
+                        
+                            </div>
 
                                 <div class="answer-reply-cont">
                                     <div class="answer-reply">
@@ -234,9 +238,11 @@
                                     
                                         
                                     </div>
+                                
+                                    
                                 </div>
                             </div>
-                        </t>
+                        </div>
 
                     </div>
                     
