@@ -5,3 +5,4 @@ access_vm_course_section,vm_course_section,model_vm_course_section,,1,1,1,1
 access_vm_course_material,vm_course_material,model_vm_course_material,,1,1,1,1
 access_vm_course_enrollment,vm_course_enrollment,model_vm_course_enrollment,,1,1,1,1
 access_vm_course_enrollment_material,vm_course_enrollment_material,model_vm_course_enrollment_material,,1,1,1,1
+access_vm_course_comment,vm_course_comment,model_vm_course_comment,,1,1,1,1
