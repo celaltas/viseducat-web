@@ -3,5 +3,4 @@
 /workspace.xml
 #Compiled Python Files 
 
-*.pyc
-__pycache__/
+
