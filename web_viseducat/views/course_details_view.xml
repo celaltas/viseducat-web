@@ -201,10 +201,61 @@
 
                              <div class="comment-answer answered-comment">
                                 <img src="web_viseducat/static/src/img/6.jpg" alt=""/>
+                                <div class="edit-delete">
+                                    <button class="edit"><i class="fas fa-pencil-alt"></i>Edit</button>
+                                    <button class="delete"><i class="far fa-trash-alt"></i>Delete</button>
+                                </div>
                                 <div class="comment-flex">
+                                    <button class="ellipsis"><i class="fas fa-ellipsis-v"></i></button>
                                     <h5>YourCompany, Mitchell Admin</h5>
                                     <p class="published-time">Published on August 16th 2021, 2:20:52 pm</p>
                                     <p class="comment-area">This is answer......</p>
+                                    
+                                   
+                                </div>
+                               
+                        
+                            </div>
+                            
+
+                            <div class="answer-reply-cont">
+                                <div class="answer-reply">
+                                    <img src="web_viseducat/static/src/img/6.jpg" alt=""/>
+                                    <div class="answer-flex">
+                                        <h5>Write your comment</h5>
+                                        <p>Published on</p>
+                                        <textarea name="message" id="" cols="30" placeholder="Write a message..." rows="10"></textarea>
+                                        <button class="post-cmnt">Post Comment</button>
+                                        <button class="cancel-cmnt">Cancel</button>
+                                    </div>
+                                
+                                    
+                                </div>
+                            </div>
+                            <div class="comment-answer">
+                                <img src="web_viseducat/static/src/img/6.jpg" alt=""/>
+                                <div class="comment-flex">
+                                    <h5>YourCompany, Mitchell Admin</h5>
+                                    <p class="published-time">Published on August 16th 2021, 2:20:52 pm</p>
+                                    <p class="comment-area">This is comment......</p>
+                                    <button class="reply-comment"><i class="fas fa-comment">Comment</i></button>
+                                </div>
+                                <button class="visible" >Visible</button>
+                        
+                            </div>
+
+                             <div class="comment-answer answered-comment">
+                                <img src="web_viseducat/static/src/img/6.jpg" alt=""/>
+                                <div class="edit-delete">
+                                    <button class="edit"><i class="fas fa-pencil-alt"></i>Edit</button>
+                                    <button class="delete"><i class="far fa-trash-alt"></i>Delete</button>
+                                </div>
+                                <div class="comment-flex">
+                                    <button class="ellipsis"><i class="fas fa-ellipsis-v"></i></button>
+                                    <h5>YourCompany, Mitchell Admin</h5>
+                                    <p class="published-time">Published on August 16th 2021, 2:20:52 pm</p>
+                                    <p class="comment-area">This is answer......</p>
+                                   
                                    
                                 </div>
                                
@@ -226,6 +277,7 @@
                                 </div>
                             </div>
                         </div>
+                        
 
                     </div>
                     
