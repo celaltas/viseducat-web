@@ -1,5 +1,3 @@
-  
-
 // Nav elements
 
 //const navToggle = document.querySelector(".nav-toggle");
@@ -138,18 +136,23 @@ vebtns.forEach(function(vebtn){
   const replyButtons=document.querySelectorAll(".reply-comment")
   const cancelButtons=document.querySelectorAll(".cancel-cmnt")
   const ellipsisButtons=document.querySelectorAll(".ellipsis")
-  const editDelete=document.querySelectorAll(".edit-delete")
+  const editDelete=document.querySelectorAll(".delete-edit")
 
 
 
 for(let i=0;i<replyButtons.length;i++){
 
 
-
+  
 
 
   const replyTextAreas=replyButtons[i].parentElement.parentElement.nextElementSibling
   
+  
+  if(replyTextAreas.classList[1]==="answered-comment"){
+    replyButtons[i].style.display="none"
+  }
+
   replyButtons[i].addEventListener("click",function(event){
 
       identify=event.target.id
@@ -157,6 +160,7 @@ for(let i=0;i<replyButtons.length;i++){
       if(identify===replyTextAreas.id){
         replyTextAreas.classList.toggle("active")
       }
+    
     
 
 
@@ -166,31 +170,15 @@ for(let i=0;i<replyButtons.length;i++){
 
        replyTextAreas.classList.toggle("active")
 
+      })
+  })
+      if(replyTextAreas.classList[1]==="answered-comment")
+      ellipsisButtons[i].addEventListener("click",function(){
+
+       editDelete[i].classList.toggle("active-flex")
+
     })
-
-    //   ellipsisButtons[i].addEventListener("click",function(){
-
-    //    editDelete[i].classList.toggle("active")
-
-    // })
 
   
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

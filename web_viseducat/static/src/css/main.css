@@ -2527,6 +2527,7 @@
              border: 1px solid gainsboro;
              border-radius: 3px;
              padding: 0.10rem 0.5rem;
+             margin-top: 0.5rem;
          }
          .reply-comment:focus{
              outline: none;
@@ -2542,54 +2543,53 @@
              position: relative;
          }
          .ellipsis{
+             border: none;
+             background: transparent;
              position: absolute;
-             left: 19.25rem;
-             border:none;
-             background-color: transparent;
-             
+             left: 12rem;
          }
          .ellipsis:focus{
-            outline: none;
-         }
-         .edit-delete{
-             align-items: center;
-             text-align: left;
-             padding: 0.2rem 1rem 0.2rem 1rem;
-             left: 18.7rem;
-             top: 1.7rem;
-             border-radius: 3px;
-             position: absolute;
-             border:1px solid gainsboro;
-             width: 10rem;
-             display: flex;
-             flex-direction: column;
-             display: none;
-         }
-         .edit-delete button{
-             width: 100%;
-             text-align: left;
-             margin-top: 0.2rem;
-             color: rgb(33, 37, 41);
-             font-size: 16px;
-             background-color: transparent;
-             border: none;
-         }
-         .edit-delete button:focus{
              outline: none;
          }
-         .edit-delete button:hover{
-         
-             background-color: rgba(33,37,41,0.1);
-         }
-         .edit-delete button:active{
-             background-color:#fdbb18 ;
-             border-radius: 5px;
-         }
-         
-         .edit-delete button i{
-             color: rgb(33, 37, 41);
-             
-         }
+        .delete-edit{
+            position: absolute;
+            left:15rem  ;
+           
+            display: flex;
+            flex-direction: column;
+            border: 1px solid gainsboro;
+            padding: 0.4rem 0;
+            text-align: left;
+            display: none;
+            border-radius: 3px;
+            
+            
+        }
+        .active-flex{
+            display: flex;
+        }
+        .delete-edit button{
+            width: 7rem;
+            color: rgb(33, 37, 41);
+            font-size: 16px;
+            background: transparent;
+            border: none;
+            text-align: left;
+            padding-left: 1rem;
+            padding-top: 0.2rem;
+        }
+        .delete-edit button:hover{
+            background-color: rgba(102, 102, 102, 0.1);
+        }
+        .delete-edit button:focus{
+            outline: none;
+            background: #fdbb18;
+            border-radius: 5px;
+        }
+        
+        .delete-edit button i{
+            padding-right: 0.4rem
+        }
          #course-stars .fa-star{
              font-size: 12px;
              font-weight: 400;
