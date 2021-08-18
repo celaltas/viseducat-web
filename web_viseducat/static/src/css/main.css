@@ -2541,55 +2541,7 @@
              margin-top: 1rem;
              position: relative;
          }
-         .ellipsis{
-             position: absolute;
-             left: 19.25rem;
-             border:none;
-             background-color: transparent;
-             
-         }
-         .ellipsis:focus{
-            outline: none;
-         }
-         .edit-delete{
-             align-items: center;
-             text-align: left;
-             padding: 0.2rem 1rem 0.2rem 1rem;
-             left: 18.7rem;
-             top: 1.7rem;
-             border-radius: 3px;
-             /* position: absolute; */
-             border:1px solid gainsboro;
-             width: 10rem;
-             display: flex;
-             flex-direction: column;
-             display: none;
-         }
-         .edit-delete button{
-             width: 100%;
-             text-align: left;
-             margin-top: 0.2rem;
-             color: rgb(33, 37, 41);
-             font-size: 16px;
-             background-color: transparent;
-             border: none;
-         }
-         .edit-delete button:focus{
-             outline: none;
-         }
-         .edit-delete button:hover{
-         
-             background-color: rgba(33,37,41,0.1);
-         }
-         .edit-delete button:active{
-             background-color:#fdbb18 ;
-             border-radius: 5px;
-         }
-         
-         .edit-delete button i{
-             color: rgb(33, 37, 41);
-             
-         }
+        
          #course-stars .fa-star{
              font-size: 12px;
              font-weight: 400;
