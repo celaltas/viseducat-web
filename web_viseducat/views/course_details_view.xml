@@ -206,10 +206,6 @@
                                         <div class="comment-answer answered-comment">
                                             <img t-if="response.create_uid.image_1920"
                                                 t-att-src="image_data_uri(response.create_uid.image_1920)" alt="" />
-                                                <div class="edit-delete">
-                                                   
-                    
-                                                </div>
                                                 <button class="edit"><i class="fas fa-pencil-alt"></i>Edit</button>
                                                 <button class="delete"><i class="far fa-trash-alt"></i>Delete</button>
                                                
