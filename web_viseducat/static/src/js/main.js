@@ -1,5 +1,3 @@
-  
-
 // Nav elements
 
 //const navToggle = document.querySelector(".nav-toggle");
@@ -166,31 +164,15 @@ for(let i=0;i<replyButtons.length;i++){
 
        replyTextAreas.classList.toggle("active")
 
+      })
+  })
+
+      ellipsisButtons[i].addEventListener("click",function(){
+
+       editDelete[i].classList.toggle("active")
+
     })
-
-    //   ellipsisButtons[i].addEventListener("click",function(){
-
-    //    editDelete[i].classList.toggle("active")
-
-    // })
 
   
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
