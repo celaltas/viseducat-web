@@ -134,13 +134,17 @@ vebtns.forEach(function(vebtn){
 
 // Reply Comment
 
-const replyButtons=document.querySelector(".reply-comment")
-const cancelButtons=document.querySelectorAll(".cancel-cmnt")
-const ellipsisButtons=document.querySelectorAll(".ellipsis")
-const editDelete=document.querySelectorAll(".edit-delete")
+
+  const replyButtons=document.querySelectorAll(".reply-comment")
+  const cancelButtons=document.querySelectorAll(".cancel-cmnt")
+  const ellipsisButtons=document.querySelectorAll(".ellipsis")
+  const editDelete=document.querySelectorAll(".edit-delete")
+
 
 
 for(let i=0;i<replyButtons.length;i++){
+
+
 
 
 
@@ -154,7 +158,6 @@ for(let i=0;i<replyButtons.length;i++){
         replyTextAreas.classList.toggle("active")
       }
     
-  })
 
 
   
