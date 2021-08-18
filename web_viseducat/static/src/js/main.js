@@ -166,7 +166,8 @@ for(let i=0;i<replyButtons.length;i++){
 
        replyTextAreas.classList.toggle("active")
 
-    })
+      })
+  })
 
     //   ellipsisButtons[i].addEventListener("click",function(){
 
