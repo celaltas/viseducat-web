@@ -210,7 +210,10 @@
                                                 <button class="ellipsis"><i class="fas fa-ellipsis-v"></i></button>
                                             <div class="delete-edit">
                                                 <button class="edit"><i class="fas fa-pencil-alt"></i>Edit</button>
-                                                <button class="delete"><i class="far fa-trash-alt"></i>Delete</button>
+                                                
+                                                 <a t-attf-href="/delete/?id=#{response.id}&amp;course_id=#{comment.course_id.id}">
+                                                    <button class="delete"><i class="far fa-trash-alt"></i>Delete</button>
+                                                </a>
                                             </div>
 
                                             <div class="comment-flex">
