@@ -2558,7 +2558,7 @@
              left: 18.7rem;
              top: 1.7rem;
              border-radius: 3px;
-             position: absolute;
+             /* position: absolute; */
              border:1px solid gainsboro;
              width: 10rem;
              display: flex;

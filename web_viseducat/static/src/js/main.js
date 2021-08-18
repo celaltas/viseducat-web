@@ -143,11 +143,16 @@ vebtns.forEach(function(vebtn){
 for(let i=0;i<replyButtons.length;i++){
 
 
-
+  
 
 
   const replyTextAreas=replyButtons[i].parentElement.parentElement.nextElementSibling
   
+  
+  if(replyTextAreas.classList[1]==="answered-comment"){
+    replyButtons[i].style.display="none"
+  }
+
   replyButtons[i].addEventListener("click",function(event){
 
       identify=event.target.id
@@ -155,6 +160,7 @@ for(let i=0;i<replyButtons.length;i++){
       if(identify===replyTextAreas.id){
         replyTextAreas.classList.toggle("active")
       }
+    
     
 
 
@@ -167,11 +173,11 @@ for(let i=0;i<replyButtons.length;i++){
       })
   })
 
-      ellipsisButtons[i].addEventListener("click",function(){
+    //   ellipsisButtons[i].addEventListener("click",function(){
 
-       editDelete[i].classList.toggle("active")
+    //    editDelete[i].classList.toggle("active")
 
-    })
+    // })
 
   
 
