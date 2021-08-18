@@ -134,36 +134,44 @@ vebtns.forEach(function(vebtn){
 
 // Reply Comment
 
-const replyButtons=document.querySelectorAll(".reply-comment")
+  const replyButtons=document.querySelectorAll(".reply-comment")
+  const cancelButtons=document.querySelectorAll(".cancel-cmnt")
+  const ellipsisButtons=document.querySelectorAll(".ellipsis")
+  const editDelete=document.querySelectorAll(".edit-delete")
 
 
 
 
 for(let i=0;i<replyButtons.length;i++){
 
-  const replyTextAreas=replyButtons[i].parentElement.parentElement.nextElementSibling.nextElementSibling
-  const cancelButtons=document.querySelectorAll(".cancel-cmnt")
-  const ellipsisButtons=document.querySelectorAll(".ellipsis")
-  const editDelete=document.querySelectorAll(".edit-delete")
-  
-  
-  
-      replyButtons[i].addEventListener("click",function(){
-      
-      replyTextAreas.classList.toggle("active")
 
-    })
+
+  const replyTextAreas=replyButtons[i].parentElement.parentElement.nextElementSibling
+  
+  replyButtons[i].addEventListener("click",function(event){
+
+      identify=event.target.id
+
+      if(identify===replyTextAreas.id){
+        replyTextAreas.classList.toggle("active")
+      }
+    
+  })
+
+
+  
 
       cancelButtons[i].addEventListener("click",function(){
 
-      replyTextAreas.classList.toggle("active")
+       replyTextAreas.classList.toggle("active")
 
     })
 
-    ellipsisButtons[i].addEventListener("click",function(){
-      editDelete[i].classList.toggle("active")
+    //   ellipsisButtons[i].addEventListener("click",function(){
 
-    })
+    //    editDelete[i].classList.toggle("active")
+
+    // })
 
   
 
