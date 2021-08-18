@@ -39,3 +39,23 @@ class ViseducatOnline(http.Controller):
                 'comments': comment_obj_list,
             })
             return request.render('web_viseducat.display_course_details', vals)
+
+    @http.route('/comment-reply', auth='public', type="http", website=True)
+    def _display_comment_res(self, **kw):
+
+        if request.httprequest.method == 'POST':
+
+            vals = {
+            'content' :kw.get('content'),
+            'comment_id': kw.get('comment_id'),
+            }
+            print("comment: ", vals['content'])
+            if vals['content']:
+                response_obj = request.env['vm.course.comment.reply'].sudo().create(vals)
+                comment_obj= request.env['vm.course.comment'].sudo().search([('id', '=',kw.get('comment_id'))])
+                comment_obj.write({
+                    'response_ids':[(4, response_obj.id, 0)]
+                })
+                print("conrent res", response_obj.content)
+                url = f'/course-detail?id={kw.get("course_id")}'
+                return request.redirect(url)
