@@ -17,20 +17,21 @@
                     </div>
                 </div>
             </section>
-
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <a href="/">Home</a>
-                    </li>
-                    <li class="breadcrumb-item active">
-                        <a href="/courses">Courses</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">
-                        <t t-esc="course.name" />
-                    </li>
-                </ol>
-            </nav>
+            <div class="breadcrumb-cont">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="/">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            <a href="/courses">Courses</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <t t-esc="course.name" />
+                        </li>
+                    </ol>
+                </nav>
+            </div>
             <hr class="breadcrumb-border">
             </hr>
 
@@ -151,20 +152,22 @@
                     </div>
                     <div class="cd-content" id="review">
 
-                        <div id="course-comments-image">
-                            <img t-if="request.env.user.image_1920"
-                                t-att-src="image_data_uri(request.env.user.image_1920)" alt="" />
-                        </div>
 
                         <div id="course-comments">
-                            <div id="course-stars">
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
+
+                            <div id="course-comments-image">
+                                <img t-if="request.env.user.image_1920"
+                                    t-att-src="image_data_uri(request.env.user.image_1920)" alt="" />
                             </div>
+
                             <form action="" method="post">
+                                <div id="course-stars">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
                                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
                                 <textarea name="content" id="" cols="30" placeholder="Write a message..."
                                     rows="10"></textarea>
@@ -207,7 +210,7 @@
                                         <div class="comment-answer answered-comment">
                                             <img t-if="response.create_uid.image_1920"
                                                 t-att-src="image_data_uri(response.create_uid.image_1920)" alt="" />
-                                                <button class="ellipsis"><i class="fas fa-ellipsis-v"></i></button>
+                                            <button class="ellipsis"><i class="fas fa-ellipsis-v"></i></button>
                                             <div class="delete-edit">
                                                 <button class="edit"><i class="fas fa-pencil-alt"></i>Edit</button>
                                                 <button class="delete"><i class="far fa-trash-alt"></i>Delete</button>

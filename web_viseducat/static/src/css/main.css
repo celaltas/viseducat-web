@@ -1302,8 +1302,9 @@
         }
         /* Breadcrumb */
         .breadcrumb-cont{
-            margin-left:14rem;
-            width:10rem;
+           width: 66rem;
+           margin: 0 auto;
+            
         }
         .breadcrumb-cont2{
             width:69rem;
@@ -7673,6 +7674,54 @@
             margin-left: 4rem;
             margin-top: 1rem;
         }
+        .ellipsis{
+            border: none;
+            background: transparent;
+            position: absolute;
+            left: 19rem;
+        }
+        .ellipsis:focus{
+            outline: none;
+        }
+       .delete-edit{
+           position: absolute;
+           left:22rem;
+          
+           display: flex;
+           flex-direction: column;
+           border: 1px solid gainsboro;
+           padding: 0.4rem 0;
+           text-align: left;
+           display: none;
+           border-radius: 3px;
+           
+           
+       }
+       .active-flex{
+           display: flex;
+       }
+       .delete-edit button{
+           width: 7rem;
+           color: rgb(33, 37, 41);
+           font-size: 16px;
+           background: transparent;
+           border: none;
+           text-align: left;
+           padding-left: 1rem;
+           padding-top: 0.2rem;
+       }
+       .delete-edit button:hover{
+           background-color: rgba(102, 102, 102, 0.1);
+       }
+       .delete-edit button:focus{
+           outline: none;
+           background: #fdbb18;
+           border-radius: 5px;
+       }
+       
+       .delete-edit button i{
+           padding-right: 0.4rem
+       }
         #course-stars .fa-star{
             font-size: 12px;
             font-weight: 400;
@@ -12780,9 +12829,57 @@
             border-radius: 3rem;
         }
         .answered-comment{
-            margin-left: 4rem;
+            margin-left: 3rem;
             margin-top: 1rem;
         }
+        .ellipsis{
+            border: none;
+            background: transparent;
+            position: absolute;
+            left: 17rem;
+        }
+        .ellipsis:focus{
+            outline: none;
+        }
+       .delete-edit{
+           position: absolute;
+           left:18rem;
+          
+           display: flex;
+           flex-direction: column;
+           border: 1px solid gainsboro;
+           padding: 0.4rem 0;
+           text-align: left;
+           display: none;
+           border-radius: 3px;
+           
+           
+       }
+       .active-flex{
+           display: flex;
+       }
+       .delete-edit button{
+           width: 7rem;
+           color: rgb(33, 37, 41);
+           font-size: 16px;
+           background: transparent;
+           border: none;
+           text-align: left;
+           padding-left: 1rem;
+           padding-top: 0.2rem;
+       }
+       .delete-edit button:hover{
+           background-color: rgba(102, 102, 102, 0.1);
+       }
+       .delete-edit button:focus{
+           outline: none;
+           background: #fdbb18;
+           border-radius: 5px;
+       }
+       
+       .delete-edit button i{
+           padding-right: 0.4rem
+       }
         #course-stars .fa-star{
             font-size: 12px;
             font-weight: 400;
