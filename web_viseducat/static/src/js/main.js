@@ -136,7 +136,7 @@ vebtns.forEach(function(vebtn){
   const replyButtons=document.querySelectorAll(".reply-comment")
   const cancelButtons=document.querySelectorAll(".cancel-cmnt")
   const ellipsisButtons=document.querySelectorAll(".ellipsis")
-  const editDelete=document.querySelectorAll(".edit-delete")
+  const editDelete=document.querySelectorAll(".delete-edit")
 
 
 
@@ -172,12 +172,12 @@ for(let i=0;i<replyButtons.length;i++){
 
       })
   })
+      if(replyTextAreas.classList[1]==="answered-comment")
+      ellipsisButtons[i].addEventListener("click",function(){
 
-    //   ellipsisButtons[i].addEventListener("click",function(){
+       editDelete[i].classList.toggle("active-flex")
 
-    //    editDelete[i].classList.toggle("active")
-
-    // })
+    })
 
   
 
