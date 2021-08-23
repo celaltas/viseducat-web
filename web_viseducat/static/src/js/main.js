@@ -241,7 +241,7 @@ odoo.define('web_viseducat', function (require) {
     ajax.jsonRpc(url, 'call', params).then(function (data) {
       
       console.log("edit çağrı yapıldı")
-      console.log("data" + data.id)
+      console.log("data" + data.content)
 
 
     }).catch(function (ex) {
