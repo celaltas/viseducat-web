@@ -5,9 +5,9 @@
 
 // Tab elements
 
-const btns=document.querySelectorAll(".tab-btn");
-const articles=document.querySelectorAll(".cd-content");
-const courseDetails=document.querySelector("#course-details-article");
+const btns = document.querySelectorAll(".tab-btn");
+const articles = document.querySelectorAll(".cd-content");
+const courseDetails = document.querySelector("#course-details-article");
 
 
 
@@ -29,51 +29,51 @@ const courseDetails=document.querySelector("#course-details-article");
 
 
 
-courseDetails.addEventListener("click",function(e){
-  const id=e.target.dataset.id;
+courseDetails.addEventListener("click", function (e) {
+  const id = e.target.dataset.id;
 
-  if(id){
-    
+  if (id) {
+
     // remove active from other buttons
 
-    btns.forEach(function(btn){
+    btns.forEach(function (btn) {
       btn.classList.remove("active");
       e.target.classList.add("active");
     })
 
     // hide other articles
 
-   articles.forEach(function(article){
-     article.classList.remove("active");
-   }) 
-   const element=document.getElementById(id);
-   element.classList.add("active");
+    articles.forEach(function (article) {
+      article.classList.remove("active");
+    })
+    const element = document.getElementById(id);
+    element.classList.add("active");
   }
 })
 
 // Course Content
 
-const allContent=document.querySelector("#course-content-schedule")
+const allContent = document.querySelector("#course-content-schedule")
 
-const childrenList=allContent.children
-
-
+const childrenList = allContent.children
 
 
 
 
-for (let i=0;i<childrenList.length;i++){
 
 
-  if (i%2===0){
-    
+for (let i = 0; i < childrenList.length; i++) {
 
-    childrenList[i].addEventListener("click",function(){
 
-      childrenList[i+1].classList.toggle("active-table")
+  if (i % 2 === 0) {
 
-      const plus=childrenList[i].firstElementChild.firstElementChild
-      const minus=childrenList[i].firstElementChild.firstElementChild.nextSibling.nextSibling
+
+    childrenList[i].addEventListener("click", function () {
+
+      childrenList[i + 1].classList.toggle("active-table")
+
+      const plus = childrenList[i].firstElementChild.firstElementChild
+      const minus = childrenList[i].firstElementChild.firstElementChild.nextSibling.nextSibling
 
 
 
@@ -97,34 +97,34 @@ for (let i=0;i<childrenList.length;i++){
 
 // Visible and Employee Only
 
-const vebtns=document.querySelectorAll(".visible")
+const vebtns = document.querySelectorAll(".visible")
 
 
-vebtns.forEach(function(vebtn){
+vebtns.forEach(function (vebtn) {
 
-  vebtn.addEventListener("click",function(){
+  vebtn.addEventListener("click", function () {
 
-  
 
-    if(vebtn.style.backgroundColor!="red"){   
-    vebtn.style.backgroundColor="red"
-    vebtn.style.width="auto"
-    vebtn.textContent="Employees Only"
-  }
 
- 
+    if (vebtn.style.backgroundColor != "red") {
+      vebtn.style.backgroundColor = "red"
+      vebtn.style.width = "auto"
+      vebtn.textContent = "Employees Only"
+    }
 
-    else{
-      vebtn.textContent="Visible"
-      vebtn.style.backgroundColor="green"
+
+
+    else {
+      vebtn.textContent = "Visible"
+      vebtn.style.backgroundColor = "green"
 
 
     }
 
 
 
-})
-  
+  })
+
 
 
 })
@@ -133,52 +133,124 @@ vebtns.forEach(function(vebtn){
 // Reply Comment
 
 
-  const replyButtons=document.querySelectorAll(".reply-comment")
-  const cancelButtons=document.querySelectorAll(".cancel-cmnt")
-  const ellipsisButtons=document.querySelectorAll(".ellipsis")
-  const editDelete=document.querySelectorAll(".delete-edit")
+const replyButtons = document.querySelectorAll(".reply-comment")
+const cancelButtons = document.querySelectorAll(".cancel-cmnt")
+const ellipsisButtons = document.querySelectorAll(".ellipsis")
+const editDelete = document.querySelectorAll(".delete-edit")
 
 
 
-for(let i=0;i<replyButtons.length;i++){
+for (let i = 0; i < replyButtons.length; i++) {
 
 
-  
 
 
-  const replyTextAreas=replyButtons[i].parentElement.parentElement.nextElementSibling
-  
-  
-  if(replyTextAreas.classList[1]==="answered-comment"){
-    replyButtons[i].style.display="none"
+
+  const replyTextAreas = replyButtons[i].parentElement.parentElement.nextElementSibling
+
+
+  if (replyTextAreas.classList[1] === "answered-comment") {
+    replyButtons[i].style.display = "none"
   }
 
-  replyButtons[i].addEventListener("click",function(event){
+  replyButtons[i].addEventListener("click", function (event) {
 
-      identify=event.target.id
+    identify = event.target.id
 
-      if(identify===replyTextAreas.id){
-        replyTextAreas.classList.toggle("active")
-      }
-    
-    
+    if (identify === replyTextAreas.id) {
+      replyTextAreas.classList.toggle("active")
+    }
 
 
-  
 
-      cancelButtons[i].addEventListener("click",function(){
 
-       replyTextAreas.classList.toggle("active")
 
-      })
+
+    cancelButtons[i].addEventListener("click", function () {
+
+      replyTextAreas.classList.toggle("active")
+
+    })
   })
-      if(replyTextAreas.classList[1]==="answered-comment")
-      ellipsisButtons[i].addEventListener("click",function(){
+  if (replyTextAreas.classList[1] === "answered-comment")
+    ellipsisButtons[i].addEventListener("click", function () {
 
-       editDelete[i].classList.toggle("active-flex")
+      editDelete[i].classList.toggle("active-flex")
 
     })
 
-  
+
 
 }
+
+
+
+
+
+
+
+
+odoo.define('web_viseducat', function (require) {
+  "use strict";
+
+  const ajax = require('web.ajax');
+  const deleteBtn = document.querySelector(".delete")
+  const editBtn = document.querySelector(".edit")
+  const replyID = deleteBtn.getAttribute('data-id').split('/')[1]
+  deleteBtn.addEventListener('click', deleteByAjax)
+  editBtn.addEventListener('click', editByAjax)
+  
+
+
+  function deleteByAjax() {
+    console.log("delete butonu tıklandı")
+    const params = {
+      'id': replyID
+    }
+    
+    const url = '/delete'
+  
+    ajax.jsonRpc(url, 'call', params).then(function (data) {
+      
+      console.log("çağrı yapıldı")
+      console.log("data" + data.result)
+
+      if (data.result){
+        alert("Divi kapa")
+      }
+      else{
+        alert("Hata")
+      }
+  
+    }).catch(function (ex) {
+  
+      console.log("ex: " + ex)
+  
+  
+    });
+  }
+
+  function editByAjax() {
+    console.log("edit butonu tıklandı")
+    const params = {
+      'id': replyID
+    }
+    
+    const url = '/edit'
+  
+    ajax.jsonRpc(url, 'call', params).then(function (data) {
+      
+      console.log("edit çağrı yapıldı")
+      console.log("data" + data.content)
+
+
+    }).catch(function (ex) {
+  
+      console.log("ex: " + ex)
+  
+  
+    });
+  }
+
+
+});

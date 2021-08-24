@@ -213,10 +213,8 @@
                                             <button class="ellipsis"><i class="fas fa-ellipsis-v"></i></button>
                                             <div class="delete-edit">
                                                 <button class="edit"><i class="fas fa-pencil-alt"></i>Edit</button>
-                                                
-                                                 <a t-attf-href="/delete/?id=#{response.id}&amp;course_id=#{comment.course_id.id}">
-                                                    <button class="delete"><i class="far fa-trash-alt"></i>Delete</button>
-                                                </a>
+
+                                                <button class="delete" t-attf-data-id="response/{{ response.id }}"><i class="far fa-trash-alt"></i>Delete</button>
                                             </div>
 
                                             <div class="comment-flex">
@@ -230,6 +228,32 @@
                                                     <t t-esc="response.content" />
                                                 </p>
 
+                                            </div>
+                                        </div>
+                                        <div class="update-answer answer-reply-cont" t-attf-id="{{ comment.id }}">
+                                            <div class="answer-reply">
+                                                <img t-if="request.env.user.image_1920"
+                                                    t-att-src="image_data_uri(request.env.user.image_1920)" alt="" />
+                                                <div class="answer-flex">
+                                                    <h5>Update your comment</h5>
+                                                    <p>Published on</p>
+                                                    <form action="/comment-reply" method="post">
+                                                        <input type="hidden" name="csrf_token"
+                                                            t-att-value="request.csrf_token()" />
+                                                        <input type="hidden" name="comment_id" t-att-value="comment.id" />
+                                                        <input type="hidden" name="course_id"
+                                                            t-att-value="comment.course_id.id" />
+                                                        <textarea name="content" id="" cols="30"
+                                                            placeholder="Write a message..." rows="10"></textarea>
+        
+                                                        <div id="course-bottom-flex">
+                                                            <button class="post-cmnt" type="submit">Post Comment</button>
+                                                            <button class="cancel-cmnt" type="reset">Cancel</button>
+                                                        </div>
+        
+                                                    </form>
+                                                </div>
+        
                                             </div>
                                         </div>
                                     </t>
@@ -262,6 +286,7 @@
 
                                     </div>
                                 </div>
+
                             </div>
                         </t>
 
