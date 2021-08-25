@@ -2104,6 +2104,9 @@
         .deactive-plus{
             display: none;
         }
+        .deactive{
+            display: none !important;
+        }
         .python-table table,tbody,td{
             width: 50.5rem;
         }
@@ -2519,6 +2522,9 @@
          .active{
              display: block !important;
          }
+         .show{
+             display: block !important;
+         }
          .answer-reply-cont{
              display: none;
          }
@@ -2619,8 +2625,9 @@
              border:none;
              padding: 0.75rem;
          }
-         #qa{
-
+         
+         .update-answer{
+                display: none;
          }
          #course-q-and-a{
              margin-top: 2rem;
