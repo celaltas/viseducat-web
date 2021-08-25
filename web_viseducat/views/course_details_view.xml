@@ -88,69 +88,108 @@
                         <button class="tab-btn" data-id="qa">Q &amp; A</button>
                         <button class="tab-btn" data-id="blog">BLOG</button>
                     </div>
-                    <div class="cd-content" id="qa">
-                        <div id="course-q-and-a">
-                            <div class="entry-title">
-                                <a href="#">What is the difference between 2.7 search() and 3.1 search()?</a>
-                            </div>
-                            <div class="entry-title-bottom">
-                                <div class="entry-rate">
-                                    <i class="fas fa-sort-up"></i>
-                                    <b>0</b>
-                                    <i class="fas fa-sort-down"></i>
-                                    <span>14 June 2021, by&amp;nbsp</span>
-                                    <a href="">OdooBot</a>
-                                    <div class="entry-ans-view">
-                                        <span>&amp;nbsp; |</span>
-                                        <span>0 Answers</span>
-                                        <span>&amp;nbsp; |</span>
-                                        <span>0 Views</span>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                            <div class="entry-title">
-                                <a href="#">Is it possible to develop embaded system with python?</a>
-                            </div>
-                            <div class="entry-title-bottom">
-                                <div class="entry-rate">
-                                    <i class="fas fa-sort-up"></i>
-                                    <b>0</b>
-                                    <i class="fas fa-sort-down"></i>
-                                    <span>14 June 2021, by&amp;nbsp</span>
-                                    <a href="">OdooBot</a>
-                                    <div class="entry-ans-view">
-                                        <span>&amp;nbsp; |</span>
-                                        <span>0 Answers</span>
-                                        <span>&amp;nbsp; |</span>
-                                        <span>0 Views</span>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div id="entry-title-ask">
-                                <a href="" type="button">Ask a Question</a>
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <div class="cd-content" id="blog">
-                        <div class="blog">
-                            <div class="blog-date-b">
-                                <p class="blog-dd">14</p>
-                                <p class="blog-m">June</p>
-                            </div>
-                            <div class="blog-content">
-                                <a href="">
-                                    <t t-esc="course.blog_id.name" />
-                                </a>
-                                <i class="fas fa-tags"></i>
+                    <div class="cd-content active" id="overview">
+                        <div id="cd-description">
+                            <h2>Description</h2>
+                            <div id="cd-description-text">
+                                <t t-raw="course.full_description" />
                             </div>
                         </div>
+
+                        <div id="course-content">
+                            <h2>Course Content</h2>
+                        </div>
+
+                        <div id="course-content-schedule">
+                            <t t-foreach="course.course_section_ids" t-as="section">
+                                <div class="cc-schedule">
+                                    <a href="">
+                                        <i class="fas fa-plus"></i>
+                                        <i class="fas fa-minus active-minus"></i>
+                                        <span>
+                                            <t t-esc="section.name" />
+                                        </span>
+                                        <span class="cc-schedule-span2">
+                                            <t t-esc="section.total_time" />
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="python-table">
+                                    <table>
+                                        <tbody>
+                                            <t t-foreach="section.section_material_ids" t-as="material">
+                                                <tr>
+                                                    <td>
+                                                        <i class="fas fa-play-circle"></i>
+                                                        <t t-esc="material.material_id.name" />
+                                                    </td>
+                                                    <td>
+                                                        <i class="fas fa-eye"></i>
+                                                        Preview
+                                                    </td>
+                                                    <td>
+                                                        <t t-esc="material.material_id.total_time" />
+                                                    </td>
+                                                </tr>
+                                            </t>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </t>
+                        </div>
+
+                        <div id="course-details-instructor">
+                            <h2>Instructor</h2>
+                        </div>
+                        <t t-foreach="course.faculty_ids" t-as="faculty">
+                            <div id="instructor-details">
+                                <div id="instructor-image-holder">
+                                    <div id="instructor-image">
+
+                                        <img t-if="faculty.image_1920" t-att-src="image_data_uri(faculty.image_1920)"
+                                            alt="" />
+
+                                    </div>
+                                    <div id="instructor-social">
+                                        <a href="">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                        <a href="">
+                                            <i class="fab fa-google"></i>
+                                        </a>
+                                        <a href="">
+                                            <i class="fab fa-linkedin"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div id="instructor-info">
+                                    <h4>
+                                        <t t-esc="faculty.name" />
+                                    </h4>
+                                    <br />
+                                    <span>Email :
+                                        <t t-esc="faculty.email" />
+                                    </span>
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt
+                                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                        exercitation
+                                        ullamco laboris.
+                                    </p>
+                                </div>
+                            </div>
+                        </t>
                     </div>
-                    <div class="cd-content" id="review">
+                     <div class="cd-content" id="review">
 
 
                         <div id="course-comments">
@@ -292,108 +331,71 @@
 
 
                     </div>
-
-                    <div class="cd-content active" id="overview">
-                        <div id="cd-description">
-                            <h2>Description</h2>
-                            <div id="cd-description-text">
-                                <t t-raw="course.full_description" />
+                    <div class="cd-content" id="qa">
+                        <div id="course-q-and-a">
+                            <div class="entry-title">
+                                <a href="#">What is the difference between 2.7 search() and 3.1 search()?</a>
                             </div>
-                        </div>
-
-                        <div id="course-content">
-                            <h2>Course Content</h2>
-                        </div>
-
-                        <div id="course-content-schedule">
-                            <t t-foreach="course.course_section_ids" t-as="section">
-                                <div class="cc-schedule">
-                                    <a href="">
-                                        <i class="fas fa-plus"></i>
-                                        <i class="fas fa-minus active-minus"></i>
-                                        <span>
-                                            <t t-esc="section.name" />
-                                        </span>
-                                        <span class="cc-schedule-span2">
-                                            <t t-esc="section.total_time" />
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="python-table">
-                                    <table>
-                                        <tbody>
-                                            <t t-foreach="section.section_material_ids" t-as="material">
-                                                <tr>
-                                                    <td>
-                                                        <i class="fas fa-play-circle"></i>
-                                                        <t t-esc="material.material_id.name" />
-                                                    </td>
-                                                    <td>
-                                                        <i class="fas fa-eye"></i>
-                                                        Preview
-                                                    </td>
-                                                    <td>
-                                                        <t t-esc="material.material_id.total_time" />
-                                                    </td>
-                                                </tr>
-                                            </t>
-
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                            </t>
-                        </div>
-
-                        <div id="course-details-instructor">
-                            <h2>Instructor</h2>
-                        </div>
-                        <t t-foreach="course.faculty_ids" t-as="faculty">
-                            <div id="instructor-details">
-                                <div id="instructor-image-holder">
-                                    <div id="instructor-image">
-
-                                        <img t-if="faculty.image_1920" t-att-src="image_data_uri(faculty.image_1920)"
-                                            alt="" />
-
-                                    </div>
-                                    <div id="instructor-social">
-                                        <a href="">
-                                            <i class="fab fa-facebook-f"></i>
-                                        </a>
-                                        <a href="">
-                                            <i class="fab fa-twitter"></i>
-                                        </a>
-                                        <a href="">
-                                            <i class="fab fa-google"></i>
-                                        </a>
-                                        <a href="">
-                                            <i class="fab fa-linkedin"></i>
-                                        </a>
+                            <div class="entry-title-bottom">
+                                <div class="entry-rate">
+                                    <i class="fas fa-sort-up"></i>
+                                    <b>0</b>
+                                    <i class="fas fa-sort-down"></i>
+                                    <span>14 June 2021, by&amp;nbsp</span>
+                                    <a href="">OdooBot</a>
+                                    <div class="entry-ans-view">
+                                        <span>&amp;nbsp; |</span>
+                                        <span>0 Answers</span>
+                                        <span>&amp;nbsp; |</span>
+                                        <span>0 Views</span>
                                     </div>
                                 </div>
-                                <div id="instructor-info">
-                                    <h4>
-                                        <t t-esc="faculty.name" />
-                                    </h4>
-                                    <br />
-                                    <span>Email :
-                                        <t t-esc="faculty.email" />
-                                    </span>
-                                    <br />
-                                    <br />
-                                    <br />
-                                    <br />
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt
-                                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                        exercitation
-                                        ullamco laboris.
-                                    </p>
-                                </div>
+
+
                             </div>
-                        </t>
+                            <div class="entry-title">
+                                <a href="#">Is it possible to develop embaded system with python?</a>
+                            </div>
+                            <div class="entry-title-bottom">
+                                <div class="entry-rate">
+                                    <i class="fas fa-sort-up"></i>
+                                    <b>0</b>
+                                    <i class="fas fa-sort-down"></i>
+                                    <span>14 June 2021, by&amp;nbsp</span>
+                                    <a href="">OdooBot</a>
+                                    <div class="entry-ans-view">
+                                        <span>&amp;nbsp; |</span>
+                                        <span>0 Answers</span>
+                                        <span>&amp;nbsp; |</span>
+                                        <span>0 Views</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div id="entry-title-ask">
+                                <a href="" type="button">Ask a Question</a>
+                            </div>
+
+
+                        </div>
                     </div>
+                    <div class="cd-content" id="blog">
+                        <div class="blog">
+                            <div class="blog-date-b">
+                                <p class="blog-dd">14</p>
+                                <p class="blog-m">June</p>
+                            </div>
+                            <div class="blog-content">
+                                <a href="">
+                                    <t t-esc="course.blog_id.name" />
+                                </a>
+                                <i class="fas fa-tags"></i>
+                            </div>
+                        </div>
+                    </div>
+                   
+
+                    
                 </div>
                 <div id="course-details-aside">
                     <div id="cd-price">

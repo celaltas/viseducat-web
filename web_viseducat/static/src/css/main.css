@@ -1692,6 +1692,7 @@
             box-shadow: 0 4px 6px -6px #222;
             border:solid 1px gainsboro;
             display: flex;
+           
         }
         .content-photo{
             width: 33%;
