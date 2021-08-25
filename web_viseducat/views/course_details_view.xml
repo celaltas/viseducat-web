@@ -88,211 +88,6 @@
                         <button class="tab-btn" data-id="qa">Q &amp; A</button>
                         <button class="tab-btn" data-id="blog">BLOG</button>
                     </div>
-                    <div class="cd-content" id="qa">
-                        <div id="course-q-and-a">
-                            <div class="entry-title">
-                                <a href="#">What is the difference between 2.7 search() and 3.1 search()?</a>
-                            </div>
-                            <div class="entry-title-bottom">
-                                <div class="entry-rate">
-                                    <i class="fas fa-sort-up"></i>
-                                    <b>0</b>
-                                    <i class="fas fa-sort-down"></i>
-                                    <span>14 June 2021, by&amp;nbsp</span>
-                                    <a href="">OdooBot</a>
-                                    <div class="entry-ans-view">
-                                        <span>&amp;nbsp; |</span>
-                                        <span>0 Answers</span>
-                                        <span>&amp;nbsp; |</span>
-                                        <span>0 Views</span>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                            <div class="entry-title">
-                                <a href="#">Is it possible to develop embaded system with python?</a>
-                            </div>
-                            <div class="entry-title-bottom">
-                                <div class="entry-rate">
-                                    <i class="fas fa-sort-up"></i>
-                                    <b>0</b>
-                                    <i class="fas fa-sort-down"></i>
-                                    <span>14 June 2021, by&amp;nbsp</span>
-                                    <a href="">OdooBot</a>
-                                    <div class="entry-ans-view">
-                                        <span>&amp;nbsp; |</span>
-                                        <span>0 Answers</span>
-                                        <span>&amp;nbsp; |</span>
-                                        <span>0 Views</span>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div id="entry-title-ask">
-                                <a href="" type="button">Ask a Question</a>
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <div class="cd-content" id="blog">
-                        <div class="blog">
-                            <div class="blog-date-b">
-                                <p class="blog-dd">14</p>
-                                <p class="blog-m">June</p>
-                            </div>
-                            <div class="blog-content">
-                                <a href="">
-                                    <t t-esc="course.blog_id.name" />
-                                </a>
-                                <i class="fas fa-tags"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cd-content" id="review">
-
-
-                        <div id="course-comments">
-
-                            <div id="course-comments-image">
-                                <img t-if="request.env.user.image_1920"
-                                    t-att-src="image_data_uri(request.env.user.image_1920)" alt="" />
-                            </div>
-
-                            <form action="" method="post">
-                                <div id="course-stars">
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
-                                <textarea name="content" id="" cols="30" placeholder="Write a message..."
-                                    rows="10"></textarea>
-
-                                <div id="course-bottom-flex">
-                                    <button id="cbf-send-button" style="cursor: pointer;" type="submit">Send</button>
-                                    <button id="cbf-add-button" style="cursor: pointer;" type="button">
-                                        <i class="fas fa-paperclip"></i>
-                                    </button>
-                                </div>
-
-                            </form>
-
-                        </div>
-
-                        <t t-foreach="comments" t-as="comment">
-                            <div class="comment-answers">
-                                <div class="comment-answer">
-                                    <img t-if="comment.create_uid.image_1920"
-                                        t-att-src="image_data_uri(comment.create_uid.image_1920)" alt="" />
-                                    <div class="comment-flex">
-                                        <h5>
-                                            <t t-esc="comment.create_uid.name" />
-                                        </h5>
-                                        <p class="published-time">Published on
-                                            <i t-field="comment.create_date" t-options='{"format": "short"}' />
-
-                                        </p>
-                                        <p class="comment-area">
-                                            <t t-esc="comment.content" />
-                                        </p>
-                                        <button class="reply-comment" t-attf-id="{{ comment.id }}"><i
-                                                t-attf-id="{{ comment.id }}" class="fas fa-comment">Comment</i></button>
-                                    </div>
-                                    <button class="visible">Visible</button>
-                                </div>
-
-                                <t t-if="comment.response_ids">
-                                    <t t-foreach="comment.response_ids" t-as="response">
-                                        <div class="comment-answer answered-comment">
-                                            <img t-if="response.create_uid.image_1920"
-                                                t-att-src="image_data_uri(response.create_uid.image_1920)" alt="" />
-                                            <button class="ellipsis"><i class="fas fa-ellipsis-v"></i></button>
-                                            <div class="delete-edit">
-                                                <button class="edit"><i class="fas fa-pencil-alt"></i>Edit</button>
-
-                                                <button class="delete" t-attf-data-id="response/{{ response.id }}"><i class="far fa-trash-alt"></i>Delete</button>
-                                            </div>
-
-                                            <div class="comment-flex">
-                                                <h5>
-                                                    <t t-esc="response.create_uid.name" />
-                                                </h5>
-                                                <p class="published-time">Published on
-                                                    <i t-field="comment.create_date" t-options='{"format": "short"}' />
-                                                </p>
-                                                <p class="comment-area">
-                                                    <t t-esc="response.content" />
-                                                </p>
-
-                                            </div>
-                                        </div>
-                                        <div class="update-answer answer-reply-cont" t-attf-id="{{ comment.id }}">
-                                            <div class="answer-reply">
-                                                <img t-if="request.env.user.image_1920"
-                                                    t-att-src="image_data_uri(request.env.user.image_1920)" alt="" />
-                                                <div class="answer-flex">
-                                                    <h5>Update your comment</h5>
-                                                    <p>Published on</p>
-                                                    <form action="/comment-reply" method="post">
-                                                        <input type="hidden" name="csrf_token"
-                                                            t-att-value="request.csrf_token()" />
-                                                        <input type="hidden" name="comment_id" t-att-value="comment.id" />
-                                                        <input type="hidden" name="course_id"
-                                                            t-att-value="comment.course_id.id" />
-                                                        <textarea name="content" id="" cols="30"
-                                                            placeholder="Write a message..." rows="10"></textarea>
-        
-                                                        <div id="course-bottom-flex">
-                                                            <button class="post-cmnt" type="submit">Post Comment</button>
-                                                            <button class="cancel-cmnt" type="reset">Cancel</button>
-                                                        </div>
-        
-                                                    </form>
-                                                </div>
-        
-                                            </div>
-                                        </div>
-                                    </t>
-                                </t>
-
-
-                                <div class="answer-reply-cont" t-attf-id="{{ comment.id }}">
-                                    <div class="answer-reply">
-                                        <img t-if="request.env.user.image_1920"
-                                            t-att-src="image_data_uri(request.env.user.image_1920)" alt="" />
-                                        <div class="answer-flex">
-                                            <h5>Write your comment</h5>
-                                            <p>Published on</p>
-                                            <form action="/comment-reply" method="post">
-                                                <input type="hidden" name="csrf_token"
-                                                    t-att-value="request.csrf_token()" />
-                                                <input type="hidden" name="comment_id" t-att-value="comment.id" />
-                                                <input type="hidden" name="course_id"
-                                                    t-att-value="comment.course_id.id" />
-                                                <textarea name="content" id="" cols="30"
-                                                    placeholder="Write a message..." rows="10"></textarea>
-
-                                                <div id="course-bottom-flex">
-                                                    <button class="post-cmnt" type="submit">Post Comment</button>
-                                                    <button class="cancel-cmnt" type="reset">Cancel</button>
-                                                </div>
-
-                                            </form>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </t>
-
-
-                    </div>
-
                     <div class="cd-content active" id="overview">
                         <div id="cd-description">
                             <h2>Description</h2>
@@ -394,6 +189,213 @@
                             </div>
                         </t>
                     </div>
+                    <div class="cd-content" id="review">
+
+
+                        <div id="course-comments">
+
+                            <div id="course-comments-image">
+                                <img t-if="request.env.user.image_1920"
+                                    t-att-src="image_data_uri(request.env.user.image_1920)" alt="" />
+                            </div>
+
+                            <form action="" method="post">
+                                <div id="course-stars">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                                <textarea name="content" id="" cols="30" placeholder="Write a message..."
+                                    rows="10"></textarea>
+
+                                <div id="course-bottom-flex">
+                                    <button id="cbf-send-button" style="cursor: pointer;" type="submit">Send</button>
+                                    <button id="cbf-add-button" style="cursor: pointer;" type="button">
+                                        <i class="fas fa-paperclip"></i>
+                                    </button>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                        <t t-foreach="comments" t-as="comment">
+                            <div class="comment-answers">
+                                <div class="comment-answer wrapper-comment">
+                                    <img t-if="comment.create_uid.image_1920"
+                                        t-att-src="image_data_uri(comment.create_uid.image_1920)" alt="" />
+                                    <div class="comment-flex">
+                                        <h5>
+                                            <t t-esc="comment.create_uid.name" />
+                                        </h5>
+                                        <p class="published-time">Published on
+                                            <i t-field="comment.create_date" t-options='{"format": "short"}' />
+
+                                        </p>
+                                        <p class="comment-area">
+                                            <t t-esc="comment.content" />
+                                        </p>
+
+                                        <button class="reply-comment" t-attf-id="{{ comment.id }}"><i
+                                                t-attf-id="{{ comment.id }}" class="fas fa-comment">Comment</i></button>
+
+                                    </div>
+                                    <button class="visible">Visible</button>
+                                </div>
+
+                                <t t-if="comment.response_ids">
+                                    <t t-foreach="comment.response_ids" t-as="response">
+                                        <div class="comment-answer answered-comment">
+                                            <img t-if="response.create_uid.image_1920"
+                                                t-att-src="image_data_uri(response.create_uid.image_1920)" alt="" />
+                                            <button class="ellipsis"><i class="fas fa-ellipsis-v"></i></button>
+                                            <div class="delete-edit">
+                                                <button class="edit"><i class="fas fa-pencil-alt"></i>Edit</button>
+                                                <button class="delete" t-attf-data-id="response/{{ response.id }}"><i
+                                                        class="far fa-trash-alt"></i>Delete</button>
+                                            </div>
+
+                                            <div class="comment-flex">
+                                                <h5>
+                                                    <t t-esc="response.create_uid.name" />
+                                                </h5>
+                                                <t t-if="response.write_date">
+                                                    <p class="published-time">Updated on
+                                                        <i t-field="response.write_date" t-options='{"format": "short"}' />
+                                                    </p>
+                                                </t>
+                                                <t t-else="">
+                                                    <p class="published-time">Published on
+                                                        <i t-field="response.create_date" t-options='{"format": "short"}' />
+                                                    </p>
+                                                </t>
+
+                                                <p class="comment-area">
+                                                    <t t-esc="response.content" />
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                        <div class="update-answer">
+                                            <div class="update-reply">
+                                                <img t-if="request.env.user.image_1920"
+                                                    t-att-src="image_data_uri(request.env.user.image_1920)" alt="" />
+                                                <div class="answer-flex">
+                                                    <h5>Update your comment</h5>
+                                                    <textarea name="content" id="update-textarea" cols="30"
+                                                        placeholder="Write a message..."
+                                                        rows="10"><t t-esc="response.content" /></textarea>
+
+                                                    <div id="course-bottom-flex">
+                                                        <button class="update-post-btn" t-attf-data-id="update/{{ response.id }}">Post Comment</button>
+                                                        <button class="update-cancel-btn" >Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </t>
+
+
+                                <div class="answer-reply-cont" t-attf-id="{{ comment.id }}">
+                                    <div class="answer-reply">
+                                        <img t-if="request.env.user.image_1920"
+                                            t-att-src="image_data_uri(request.env.user.image_1920)" alt="" />
+                                        <div class="answer-flex">
+                                            <h5>Write your comment</h5>
+                                            <p>Published on</p>
+                                            <form action="/comment-reply" method="post">
+                                                <input type="hidden" name="csrf_token"
+                                                    t-att-value="request.csrf_token()" />
+                                                <input type="hidden" name="comment_id" t-att-value="comment.id" />
+                                                <input type="hidden" name="course_id"
+                                                    t-att-value="comment.course_id.id" />
+                                                <textarea name="content" id="" cols="30"
+                                                    placeholder="Write a message..." rows="10"></textarea>
+
+                                                <div id="course-bottom-flex">
+                                                    <button class="post-cmnt" type="submit">Post Comment</button>
+                                                    <button class="cancel-cmnt" type="reset">Cancel</button>
+                                                </div>
+
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </t>
+
+
+                    </div>
+                    <div class="cd-content" id="qa">
+                        <div id="course-q-and-a">
+                            <div class="entry-title">
+                                <a href="#">What is the difference between 2.7 search() and 3.1 search()?</a>
+                            </div>
+                            <div class="entry-title-bottom">
+                                <div class="entry-rate">
+                                    <i class="fas fa-sort-up"></i>
+                                    <b>0</b>
+                                    <i class="fas fa-sort-down"></i>
+                                    <span>14 June 2021, by&amp;nbsp</span>
+                                    <a href="">OdooBot</a>
+                                    <div class="entry-ans-view">
+                                        <span>&amp;nbsp; |</span>
+                                        <span>0 Answers</span>
+                                        <span>&amp;nbsp; |</span>
+                                        <span>0 Views</span>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="entry-title">
+                                <a href="#">Is it possible to develop embaded system with python?</a>
+                            </div>
+                            <div class="entry-title-bottom">
+                                <div class="entry-rate">
+                                    <i class="fas fa-sort-up"></i>
+                                    <b>0</b>
+                                    <i class="fas fa-sort-down"></i>
+                                    <span>14 June 2021, by&amp;nbsp</span>
+                                    <a href="">OdooBot</a>
+                                    <div class="entry-ans-view">
+                                        <span>&amp;nbsp; |</span>
+                                        <span>0 Answers</span>
+                                        <span>&amp;nbsp; |</span>
+                                        <span>0 Views</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div id="entry-title-ask">
+                                <a href="" type="button">Ask a Question</a>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="cd-content" id="blog">
+                        <div class="blog">
+                            <div class="blog-date-b">
+                                <p class="blog-dd">14</p>
+                                <p class="blog-m">June</p>
+                            </div>
+                            <div class="blog-content">
+                                <a href="">
+                                    <t t-esc="course.blog_id.name" />
+                                </a>
+                                <i class="fas fa-tags"></i>
+                            </div>
+                        </div>
+                    </div>
+                   
+                  
                 </div>
                 <div id="course-details-aside">
                     <div id="cd-price">
