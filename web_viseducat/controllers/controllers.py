@@ -61,24 +61,38 @@ class ViseducatOnline(http.Controller):
                 url = f'/course-detail?id={kw.get("course_id")}'
                 return request.redirect(url)
 
+
+
+
     @http.route('/delete', type='json', auth='user', website=True, csrf=False)
     def _delete_comment_reply(self, **kw):
-        print("delete çağrıldı")
-        print("delete çağrıldı, kw:", kw)
+
         response_obj = request.env['vm.course.comment.reply'].sudo().search(
             [('id', '=', kw.get('id'))])
+        res = {
+            'result':False
+        }
         if response_obj:
             response_obj.unlink()
-            print("kayıt silindi")
-            return True
-        return False
+            res['result'] = True
+            
+        return res
+
+
 
     @http.route('/edit', type='json', auth='user', website=True, csrf=False)
     def _edit_comment_reply(self, **kw):
-        print("edit çağrıldı")
-        print("edit çağrıldı, kw:", kw)
+
         response_obj = request.env['vm.course.comment.reply'].sudo().search(
             [('id', '=', kw.get('id'))])
+
+        res = {
+            'result':False
+        }
+
         if response_obj:
-            return response_obj
-        return False
+            response_obj.write({
+                'content': kw.get('text')
+            })
+            res['result'] = True
+        return res
