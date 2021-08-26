@@ -153,7 +153,7 @@ for (let index = 0; index < editBtn.length; index++) {
 
   updateCancelBtn[index].addEventListener('click', ()=>{
     updateForm[index].classList.remove("active")
-    responseForm[index].classList.toggle("active")
+    responseForm[index].classList.toggle("activate")
     editDeleteMenu[index].classList.remove("active")
 
   })
@@ -166,7 +166,8 @@ for (let index = 0; index < editBtn.length; index++) {
     const commentID = deleteBtn[index].getAttribute('data-id').split('/')[1]
     const updateText = updatedTextArea[index].value
     editByAjax(commentID, updateText, index)
-
+    responseForm[index].classList.remove("deactive")
+    responseForm[index].classList.add("activate")
   })
   
 }
@@ -233,7 +234,7 @@ function editByAjax(id,text, index) {
       responseForm[index].getElementsByClassName("published-time")[0].textContent = "Updated on " +updateDate.toLocaleString()
       responseForm[index].getElementsByClassName("comment-area")[0].textContent = text
       updateForm[index].classList.remove("active")
-      responseForm[index].classList.toggle("active")
+      responseForm[index].classList.toggle("activate")
       editDeleteMenu[index].classList.remove("active")
     }
     else{

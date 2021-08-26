@@ -1,6 +1,7 @@
-from odoo import http, fields
+from odoo import http, fields,_
 from odoo.http import request
 from datetime import datetime
+
 
 
 class ViseducatOnline(http.Controller):
@@ -25,9 +26,16 @@ class ViseducatOnline(http.Controller):
                 'course_id': kw.get('id'),
 
             }
-            comment_obj = request.env['vm.course.comment'].sudo().create(vals)
-            url = f'/course-detail?id={kw.get("id")}'
-            return request.redirect(url)
+            if len(vals['content'])>3:
+                
+                comment_obj = request.env['vm.course.comment'].sudo().create(vals)
+                url = f'/course-detail?id={kw.get("id")}'
+                return request.redirect(url)
+
+            else:
+
+                raise ValueError("3 ten küçük olamaz")
+
 
         else:
             vals = {}
@@ -43,14 +51,15 @@ class ViseducatOnline(http.Controller):
 
     @http.route('/comment-reply', auth='public', type="http", website=True)
     def _display_comment_res(self, **kw):
-
+        
         if request.httprequest.method == 'POST':
-
+            
             vals = {
                 'content': kw.get('content'),
                 'comment_id': kw.get('comment_id'),
             }
-            if vals['content']:
+            if len(vals['content'])>3:
+                print(vals['content'])
                 response_obj = request.env['vm.course.comment.reply'].sudo().create(
                     vals)
                 comment_obj = request.env['vm.course.comment'].sudo().search(
@@ -60,7 +69,11 @@ class ViseducatOnline(http.Controller):
                 })
                 url = f'/course-detail?id={kw.get("course_id")}'
                 return request.redirect(url)
-
+            else:
+                
+                raise ValueError(_("Error"))
+                
+       
 
 
 
@@ -91,8 +104,13 @@ class ViseducatOnline(http.Controller):
         }
 
         if response_obj:
-            response_obj.write({
-                'content': kw.get('text')
-            })
-            res['result'] = True
+            text=kw.get('text')
+            if len(text)>3:
+                response_obj.write({
+                    'content': text
+                })
+                res['result'] = True
+
+            else:
+                raise ValueError("Sikerler")            
         return res
