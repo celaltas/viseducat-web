@@ -11,22 +11,19 @@ class VmForumInherit(models.Model):
 
 
     def create_forum(self):
-        pass
-        # blog_obj = self.env['blog.blog']
-        # blog_obj.create({
-        #     'name': self.name,
-        # })
-        # self.blog_id = blog_obj.search([('name', '=', self.name)]).id
+        forum_obj = self.env['forum.forum']
+        forum_obj.create({
+            'name': self.name,
+        })
+        self.forum_id = forum_obj.search([('name', '=', self.name)]).id
 
 
     def action_view_forumpost(self):
-        pass
-        # action = self.env.ref('website_blog.action_blog_post').read()[0]
-        # action['domain'] = [('blog_id', '=', self.blog_id.id)]
-        # return action
+        action = self.env.ref('website_forum.action_forum_post').read()[0]
+        action['domain'] = [('forum_id', '=', self.forum_id.id)]
+        return action
 
 
 
     def forum_count_compute(self):
-        pass
-        self.forum_count = 2
+        self.forum_count = self.env['forum.post'].search_count([('forum_id', '=', self.forum_id.id)])

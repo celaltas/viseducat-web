@@ -25,5 +25,30 @@
                 </xpath>
             </field>
         </record>
+
+        <record id="forum_course_dashboard_inherit_viev" model="ir.ui.view">
+            <field name="name">forum.course.dashboard.inherit</field>
+            <field name="model">vm.course</field>
+            <field name="inherit_id" ref="viseducat_lms.view_vm_course_dashboard_lms_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="forum_id"/>
+                </xpath>
+                <xpath expr="//header" position="inside">
+                    <button name="create_forum" string="Create Forum" type="object"
+                            class="oe_highlight"
+                            attrs="{'invisible': ['|',('forum_id','!=',False),('state','not in','open')]}"
+                    />
+                </xpath>
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="action_view_forumpost" class="btn oe_stat_button" icon="fa-forumbee"
+                            type="object"
+                            groups="viseducat_core.group_vm_back_office_admin,viseducat_core.group_vm_faculty">
+                        <field string="Forum Post" name="forum_count" widget="statinfo"/>
+                    </button>
+
+                </xpath>
+            </field>
+        </record>
     </data>
 </odoo>
