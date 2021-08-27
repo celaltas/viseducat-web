@@ -65,21 +65,21 @@ tabList.forEach(function(button, index){
 
 // Course Content
 
-const allContent = document.querySelector("#course-content-schedule")
-const childrenList = allContent.children
+// const allContent = document.querySelector("#course-content-schedule")
+// const childrenList = allContent.children
 
 
-for (let i = 0; i < childrenList.length; i++) {
-  if (i % 2 === 0) {
-    childrenList[i].addEventListener("click", function () {
-      childrenList[i + 1].classList.toggle("active-table")
-      const plus = childrenList[i].firstElementChild.firstElementChild
-      const minus = childrenList[i].firstElementChild.firstElementChild.nextSibling.nextSibling
-      plus.classList.toggle("deactive-plus")
-      minus.classList.toggle("active-minus")
-    })
-  }
-}
+// for (let i = 0; i < childrenList.length; i++) {
+//   if (i % 2 === 0) {
+//     childrenList[i].addEventListener("click", function () {
+//       childrenList[i + 1].classList.toggle("active-table")
+//       const plus = childrenList[i].firstElementChild.firstElementChild
+//       const minus = childrenList[i].firstElementChild.firstElementChild.nextSibling.nextSibling
+//       plus.classList.toggle("deactive-plus")
+//       minus.classList.toggle("active-minus")
+//     })
+//   }
+// }
 
 // Visible and Employee Only
 
@@ -249,3 +249,69 @@ function editByAjax(id,text, index) {
   });
 }
 
+// // Grid and List view
+
+const gridViewButton=document.querySelector("#grid")
+const listViewButton=document.querySelector("#bar")
+const gridContainer=document.querySelector(".grid-container")
+const listContainer=document.querySelector(".list-container")
+const courseTitles=document.querySelectorAll(".grid-course-title-link")
+
+courseTitles.forEach((courseTitle)=>{
+  
+    let title=courseTitle.textContent.trim()
+    
+
+      if(title.length>24){
+        title=title.substring(0,24).concat("","...")
+
+        courseTitle.textContent=title
+
+
+      }
+    
+    
+    
+  
+
+
+})
+
+
+
+gridViewButton.addEventListener("click",function(){
+  gridViewButton.classList.add("clicked")
+  listViewButton.classList.remove("clicked")
+  gridContainer.style.display="flex"
+  listContainer.style.display="none"
+  
+
+
+})
+listViewButton.addEventListener("click",function(){
+  gridViewButton.firstElementChild.style.backgroundColor="transparent"
+  gridViewButton.classList.remove("clicked")
+  listViewButton.classList.add("clicked")
+  gridContainer.style.display="none"
+  listContainer.style.display="block"
+})
+
+// const buttons=document.querySelectorAll(".tab-btn")
+
+//   buttons.forEach(function(btn){
+
+//     btn.addEventListener("click",function(){
+
+//       if(btn.classList.contains("active")){
+//         btn.classList.remove("active")
+//       }
+//       else{
+//         btn.classList.add("active")
+//       }
+
+
+
+//     })
+
+
+//   })
