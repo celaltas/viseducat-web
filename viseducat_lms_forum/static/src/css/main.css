@@ -41,11 +41,11 @@ a{
 label{
     color: rgb(102, 102, 102);
 }
-.o_wforum_forum_card_bg {
+/* .o_wforum_forum_card_bg {
     background-image: linear-gradient(
         99deg
-        , #002147 10%, #000914 90%) !important;
-}
+        , #002147 10%, #000914 90%);
+} */
 .s_parallax_bg{
     background-image: linear-gradient(
         99deg
@@ -103,4 +103,35 @@ label{
 }
 .o_wforum_readable p{
     color: rgb(102, 102, 102) ;
+}
+.o_wprofile_header{
+    background-image: linear-gradient(
+        99deg
+        , #002147 10%, #000914 90%) !important;
+}
+.o_wprofile_header::before{
+    background-image: linear-gradient(
+        99deg
+        , #fdbb18 10%, white 90%) !important;
+}
+.nav-tabs{
+    color: white;
+}
+.card-body span:not(.badge){
+    color: rgb(0, 33, 71);
+}
+.badge-info{
+    background: #212529;
+}
+.o_wforum_author_box span{
+    color: rgb(102, 102, 102);
+}
+.fa-building-o{
+    color: white;
+}
+.fa-map-marker{
+    color: white;
+}
+.d-flex.flex-column.justify-content-center.flex-grow-1.mb-0.mb-md-5 span{
+    color: white;
 }
