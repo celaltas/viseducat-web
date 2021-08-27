@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_viseducat_lms_forum_viseducat_lms_forum,viseducat_lms_forum.viseducat_lms_forum,model_viseducat_lms_forum_viseducat_lms_forum,base.group_user,1,1,1,1
