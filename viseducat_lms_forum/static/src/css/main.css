@@ -64,3 +64,43 @@ label{
 .d-none a:hover{
     color: #c78e02 !important;
 }
+.mt-4{
+    color: rgb(0, 33, 71);
+}
+.lead{
+    color: rgb(102, 102, 102);
+}
+.card-header b ,.card-header i{
+    color: rgb(51, 51, 51) !important;   
+}
+.mb-4{
+    color: rgb(0, 33, 71);
+}
+.page-link{
+    color: rgb(0, 33, 71) !important;
+    background-color: #fdbb18 !important;
+    border: #fdbb18;
+}
+.o_wprofile_all_users_header{
+    background-image: linear-gradient(
+        99deg
+        , #002147 10%, #000914 90%) !important;
+}
+.w-100 span{
+    color:rgba(102, 102, 102, 0.7) !important;
+}
+.d-inline{
+    color: rgb(0, 33, 71);
+}
+.my-0{
+    color: rgb(0, 33, 71);
+}
+.small.mt-2.mb-1{
+    color: rgb(102, 102, 102);
+}
+.small.mt-2.mb-1 b{
+    color: rgb(102, 102, 102);
+}
+.o_wforum_readable p{
+    color: rgb(102, 102, 102) ;
+}
