@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="web_viseducat_assets_frontend_forum" name="Theme VisEduCat Frontend Assets Forum"
+              inherit_id="website.assets_frontend">
+        <xpath expr="link[last()]" position="after">
+            <link rel="stylesheet" type="text/css" href="/viseducat_lms_forum/static/src/css/main.css"/>
+        </xpath>
+    </template>
+
+
+
+</odoo>
