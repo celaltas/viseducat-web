@@ -17,20 +17,21 @@
                     </div>
                 </div>
             </section>
-
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <a href="/">Home</a>
-                    </li>
-                    <li class="breadcrumb-item active">
-                        <a href="/courses">Courses</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">
-                        <t t-esc="course.name" />
-                    </li>
-                </ol>
-            </nav>
+            <div class="breadcrumb-cont">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="/">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            <a href="/courses">Courses</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <t t-esc="course.name" />
+                        </li>
+                    </ol>
+                </nav>
+            </div>
             <hr class="breadcrumb-border">
             </hr>
 
@@ -190,20 +191,21 @@
                     </div>
                     <div class="cd-content" id="review">
 
-                        <div id="course-comments-image">
-                            <img t-if="request.env.user.image_1920"
-                                t-att-src="image_data_uri(request.env.user.image_1920)" alt="" />
-                        </div>
 
                         <div id="course-comments">
-                            <div id="course-stars">
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
+
+                            <div id="course-comments-image">
+                                <img t-if="request.env.user.image_1920"
+                                    t-att-src="image_data_uri(request.env.user.image_1920)" alt="" />
                             </div>
                             <form action="" method="post">
+                                <div id="course-stars">
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
                                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
                                 <textarea name="content" id="" cols="30" placeholder="Write a message..."
                                     rows="10"></textarea>
@@ -261,12 +263,14 @@
                                                 </h5>
                                                 <t t-if="response.write_date">
                                                     <p class="published-time">Updated on
-                                                        <i t-field="response.write_date" t-options='{"format": "short"}' />
+                                                        <i t-field="response.write_date"
+                                                            t-options='{"format": "short"}' />
                                                     </p>
                                                 </t>
                                                 <t t-else="">
                                                     <p class="published-time">Published on
-                                                        <i t-field="response.create_date" t-options='{"format": "short"}' />
+                                                        <i t-field="response.create_date"
+                                                            t-options='{"format": "short"}' />
                                                     </p>
                                                 </t>
 
@@ -282,13 +286,16 @@
                                                     t-att-src="image_data_uri(request.env.user.image_1920)" alt="" />
                                                 <div class="answer-flex">
                                                     <h5>Update your comment</h5>
+                                                    <p>Updated on</p>
                                                     <textarea name="content" id="update-textarea" cols="30"
                                                         placeholder="Write a message..."
                                                         rows="10"><t t-esc="response.content" /></textarea>
 
                                                     <div id="course-bottom-flex">
-                                                        <button class="update-post-btn" t-attf-data-id="update/{{ response.id }}">Post Comment</button>
-                                                        <button class="update-cancel-btn" >Cancel</button>
+                                                        <button class="update-post-btn"
+                                                            t-attf-data-id="update/{{ response.id }}">Update
+                                                            Comment</button>
+                                                        <button class="update-cancel-btn">Cancel</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -391,8 +398,8 @@
                             </div>
                         </div>
                     </div>
-                   
-                  
+
+
                 </div>
                 <div id="course-details-aside">
                     <div id="cd-price">
