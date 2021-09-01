@@ -27,6 +27,7 @@
         # 'security/ir.model.access.csv',
         'views/assets.xml',
         'views/forum_course_inherit.xml',
+        
     ],
     # only loaded in demonstration mode
     'demo': [

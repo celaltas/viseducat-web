@@ -36,7 +36,7 @@
                             <ul>
                                 <t t-foreach="categories" t-as="category">
                                     <li>
-                                        <a href="">
+                                        <a t-att-href="url_for('') + '?' +  keep_query( 'search', 'price_filters', category_filter=category.name)" t-attf-class="nav-link py-1 rounded-pill #{category_filter==category.name and 'active font-weight-bold' or 'px-2'}">
                                             <t t-esc="category.name" />
                                         </a>
                                     </li>
@@ -50,13 +50,13 @@
                             </h5>
                             <ul>
                                 <li>
-                                    <a href="">All</a>
+                                    <a t-att-href="url_for('') + '?' +  keep_query( 'search', 'category_filter', price_filters='all')" t-attf-class="nav-link py-1 rounded-pill #{price_filters=='all' and 'active font-weight-bold' or 'px-2'}">All</a>
                                 </li>
                                 <li>
-                                    <a href="">Free Course</a>
+                                    <a t-att-href="url_for('') + '?' +  keep_query( 'search', 'category_filter', price_filters='free_course')" t-attf-class="nav-link py-1 rounded-pill #{price_filters=='free_course' and 'active font-weight-bold' or 'px-2'}">Free Course</a>
                                 </li>
                                 <li>
-                                    <a href="">Premium Course</a>
+                                    <a t-att-href="url_for('') + '?' +  keep_query( 'search', 'category_filter', price_filters='premium_course')" t-attf-class="nav-link py-1 rounded-pill #{price_filters=='premium_course' and 'active font-weight-bold' or 'px-2'}">Premium Course</a>
                                 </li>
                             </ul>
                         </div>
@@ -64,12 +64,14 @@
 
                     <div id="article">
                         <div id="search-container">
-                            <div id="search">
-                                <input placeholder="Search" type="form-control" />
-                                <button type="submit">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </div>
+
+                            <form id="o_wforum_search" class="form-inline collapse w-100 w-md-auto pt-2 pt-md-0 d-md-flex" role="search" method="get">
+                                <t t-call="website.website_search_box">
+                                    <t t-set="_classes">w-100</t>
+                                </t>
+                                <input t-if="category_filter" type="hidden" name="category_filter" t-att-value="category_filter"/>
+                                <input t-if="price_filters" type="hidden" name="price_filters" t-att-value="price_filters"/>
+                            </form>
                             <div id="list-style">
                                 <button id="grid">
                                     <i class="fas fa-th-large"></i>
@@ -85,15 +87,14 @@
                                     <div class="courses-content">
                                         <div class="content-photo">
                                             <a t-attf-href="/course-detail?id=#{course.id}">
-                                                <img t-if="course.image_1920"
-                                                    t-att-src="image_data_uri(course.image_1920)" alt="" />
+                                                <img t-if="course.image_1920" t-att-src="image_data_uri(course.image_1920)" alt="" />
                                             </a>
                                         </div>
                                         <div class="content-text">
                                             <div class="d-top-flex">
                                                 <div class="subject-title">
                                                     <p>
-                                                        Programming
+                                                        <t t-esc="course.category_ids.name" />
                                                     </p>
                                                 </div>
                                                 <div class="website-rating">
@@ -115,8 +116,7 @@
                                                 </p>
                                             </div>
                                             <div class="course-instructor">
-                                                <img t-if="course.user_id.image_1920"
-                                                    t-att-src="image_data_uri(course.user_id.image_1920)" alt="" />
+                                                <img t-if="course.user_id.image_1920" t-att-src="image_data_uri(course.user_id.image_1920)" alt="" />
                                                 <span>by</span>
                                                 <span class="span2">
                                                     <t t-esc="course.user_id.name" />
@@ -147,114 +147,85 @@
                         </div>
 
                         <div class="grid-container">
-                        <t t-foreach="courses" t-as="course">
-                            <div class="courses-grid-content">
-                                
-                                <div class="courses-grid-photo">
-                                     <a t-attf-href="/course-detail?id=#{course.id}">
-                                                <img t-if="course.image_1920"
-                                                    t-att-src="image_data_uri(course.image_1920)" alt="" />
-                                            </a>
-                                </div>
+                            <t t-foreach="courses" t-as="course">
+                                <div class="courses-grid-content">
 
-                                <div class="grid-content-text">
+                                    <div class="courses-grid-photo">
+                                        <a t-attf-href="/course-detail?id=#{course.id}">
+                                            <img t-if="course.image_1920" t-att-src="image_data_uri(course.image_1920)" alt="" />
+                                        </a>
+                                    </div>
 
-                                </div>
+                                    <div class="grid-content-text">
+
+                                    </div>
                                     <div class="grid-top-flex">
                                         <div class="subject-title">
-                                              <p>
-                                                        Programming
-                                                    </p>
+                                            <p>
+                                                <t t-esc="course.category_ids.name" />
+                                            </p>
                                         </div>
 
                                         <div class="website-rating">
-                                              <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                        
-                                        
-                                        
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
+
+
+
                                         </div>
-                                    
+
                                     </div>
 
                                     <div class="grid-course-title">
-                                             <h2>
-                                                    <a class="grid-course-title-link" href="">
-                                                        <t t-esc="course.name" />
-                                                    </a>
-                                                </h2>
-                                               
+                                        <h2>
+                                            <a class="grid-course-title-link" href="">
+                                                <t t-esc="course.name" />
+                                            </a>
+                                        </h2>
+
                                     </div>
 
                                     <div class="grid-course-instructor">
-                                        
-                                         <img t-if="course.user_id.image_1920"
-                                                    t-att-src="image_data_uri(course.user_id.image_1920)" alt="" />
-                                                <span>by</span>
-                                                <span class="span2">
-                                                    <t t-esc="course.user_id.name" />
-                                                </span>
-                                                
 
-                                        
+                                        <img t-if="course.user_id.image_1920" t-att-src="image_data_uri(course.user_id.image_1920)" alt="" />
+                                        <span>by</span>
+                                        <span class="span2">
+                                            <t t-esc="course.user_id.name" />
+                                        </span>
+
                                     </div>
-                                        <hr class="grid-hr" />
+                                    <hr class="grid-hr" />
                                     <div class="grid-bottom-flex">
 
                                         <div class="course-about">
 
                                             <div class="course-student">
-                                            <i class="fas fa-users"></i>
-                                                 <t t-esc="course.enrolled_users" />
-                                                  <div class="price">
+                                                <i class="fas fa-users"></i>
+                                                <t t-esc="course.enrolled_users" />
+                                                <div class="price">
                                                     <span class="span3">
                                                         <t t-esc="course.type" />
                                                     </span>
                                                 </div>
                                             </div>
-                                        
-                                        </div>
 
+                                        </div>
                                         <div class="enroll">
                                             <a t-attf-href="/course-detail?id=#{course.id}">ENROLL NOW</a>
                                         </div>
-
-
-                            
-                                    
                                     </div>
 
-
-
-
-
-
-
-                            </div>
-                            
-                         </t>
-                        </div>
-                              <div id="pagination">
-                                    <ul>
-                                        <li>
-                                            <a id="Prev" href="">Prev</a>
-                                        </li>
-                                        <li>
-                                            <a id="FirstP" href="courses.html">1</a>
-                                        </li>
-                                        <li>
-                                            <a id="SecondP" href="courses2.html">2</a>
-                                        </li>
-                                        <li>
-                                            <a id="Next" href="courses2.html">Next</a>
-                                        </li>
-                                    </ul>
-
                                 </div>
-
+                            </t>
+                        </div>
+                        <div class="products_pager form-inline justify-content-center mt-3">
+                            <t t-call="website.pager">
+                                <t t-set="_classes">mt-2 ml-md-2</t>
+                            </t>
+                        </div>
                     </div>
                 </div>
             </section>

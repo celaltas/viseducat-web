@@ -14,6 +14,7 @@ class VmForumInherit(models.Model):
         forum_obj = self.env['forum.forum']
         forum_obj.create({
             'name': self.name,
+            'image_1920': self.image_1920 or None,
         })
         self.forum_id = forum_obj.search([('name', '=', self.name)]).id
 
