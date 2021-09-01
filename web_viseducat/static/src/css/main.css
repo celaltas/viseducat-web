@@ -16182,3 +16182,7 @@
         text-indent: 0;
     }
 
+    .pt8.pb8{
+        background-image: url(../img/s_banner_default_image.jpeg);
+    }
+
