@@ -238,8 +238,9 @@
                                             <t t-esc="comment.content" />
                                         </p>
 
-                                        <button class="reply-comment" t-attf-id="{{ comment.id }}"><i
-                                                t-attf-id="{{ comment.id }}" class="fas fa-comment">Comment</i></button>
+                                        <button class="reply-comment" t-attf-id="{{ comment.id }}">
+                                            <i t-attf-id="{{ comment.id }}" class="fas fa-comment">Comment</i>
+                                        </button>
 
                                     </div>
                                     <button class="visible">Visible</button>
@@ -250,11 +251,14 @@
                                         <div class="comment-answer answered-comment">
                                             <img t-if="response.create_uid.image_1920"
                                                 t-att-src="image_data_uri(response.create_uid.image_1920)" alt="" />
-                                            <button class="ellipsis"><i class="fas fa-ellipsis-v"></i></button>
+                                            <button class="ellipsis">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
                                             <div class="delete-edit">
-                                                <button class="edit"><i class="fas fa-pencil-alt"></i>Edit</button>
-                                                <button class="delete" t-attf-data-id="response/{{ response.id }}"><i
-                                                        class="far fa-trash-alt"></i>Delete</button>
+                                                <button class="edit">
+                                                    <i class="fas fa-pencil-alt"></i>Edit</button>
+                                                <button class="delete" t-attf-data-id="response/{{ response.id }}">
+                                                    <i class="far fa-trash-alt"></i>Delete</button>
                                             </div>
 
                                             <div class="comment-flex">
@@ -288,8 +292,9 @@
                                                     <h5>Update your comment</h5>
                                                     <p>Updated on</p>
                                                     <textarea name="content" id="update-textarea" cols="30"
-                                                        placeholder="Write a message..."
-                                                        rows="10"><t t-esc="response.content" /></textarea>
+                                                        placeholder="Write a message..." rows="10">
+                                                        <t t-esc="response.content" />
+                                                    </textarea>
 
                                                     <div id="course-bottom-flex">
                                                         <button class="update-post-btn"
@@ -338,64 +343,133 @@
                     </div>
                     <div class="cd-content" id="qa">
                         <div id="course-q-and-a">
-                            <div class="entry-title">
-                                <a href="#">What is the difference between 2.7 search() and 3.1 search()?</a>
-                            </div>
-                            <div class="entry-title-bottom">
-                                <div class="entry-rate">
-                                    <i class="fas fa-sort-up"></i>
-                                    <b>0</b>
-                                    <i class="fas fa-sort-down"></i>
-                                    <span>14 June 2021, by&amp;nbsp</span>
-                                    <a href="">OdooBot</a>
-                                    <div class="entry-ans-view">
-                                        <span>&amp;nbsp; |</span>
-                                        <span>0 Answers</span>
-                                        <span>&amp;nbsp; |</span>
-                                        <span>0 Views</span>
+                            <t t-if="course.forum_id">
+                                <t t-foreach="posts" t-as="post">
+                                    <div class="entry-title">
+                                        <a t-attf-href="/forum/#{ slug(post.forum_id) }/question/#{ slug(post) }">
+                                            <t t-esc="post.name" />
+                                        </a>
                                     </div>
-                                </div>
-
-
-                            </div>
-                            <div class="entry-title">
-                                <a href="#">Is it possible to develop embaded system with python?</a>
-                            </div>
-                            <div class="entry-title-bottom">
-                                <div class="entry-rate">
-                                    <i class="fas fa-sort-up"></i>
-                                    <b>0</b>
-                                    <i class="fas fa-sort-down"></i>
-                                    <span>14 June 2021, by&amp;nbsp</span>
-                                    <a href="">OdooBot</a>
-                                    <div class="entry-ans-view">
-                                        <span>&amp;nbsp; |</span>
-                                        <span>0 Answers</span>
-                                        <span>&amp;nbsp; |</span>
-                                        <span>0 Views</span>
+                                    <div class="entry-title-bottom">
+                                        <div class="entry-rate">
+                                            <t t-call="website_forum.vote">
+                                                <t t-set="post" t-value="post" />
+                                            </t>
+                                            <span t-field="post.write_date" t-options='{"format": "d MMMM y"}' />
+                                            , by <a
+                                                t-attf-href="/forum/#{slug(post.forum_id)}/user/#{post.create_uid.id}?forum_origin=#{request.httprequest.path}"
+                                                t-field="post.create_uid" class="d-inline-block font-weight-bold"
+                                                t-options='{"widget": "contact", "fields": ["name"]}' />
+                                            <div class="entry-ans-view">
+                                                <span>&amp;nbsp; |</span>
+                                                <span>
+                                                    <t t-esc="post.child_count" />
+                                                    Answers
+                                                </span>
+                                                <span>&amp;nbsp; |</span>
+                                                <span>
+                                                    <t t-esc="post.views" />
+                                                    Views
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
+                                </t>
+                                <div t-if="uid and request.env.user.forum_waiting_posts_count"
+                                    title="You already have a pending post" data-toggle="popover" data-trigger="hover"
+                                    data-content="Please wait for a moderator to validate your previous post before continuing.">
+                                    <a class="disabled btn btn-secondary btn-block mb-3 mb-md-0"
+                                        t-attf-href="/forum/#{slug(course.forum_id)}/ask">Ask a Question</a>
                                 </div>
-
-                            </div>
-                            <div id="entry-title-ask">
-                                <a href="" type="button">Ask a Question</a>
-                            </div>
-
-
+                                <a t-else="" role="button" type="button"
+                                    class="btn btn-primary btn-block o_forum_ask_btn mb-3 mb-md-0"
+                                    t-att-href="uid and '/forum/' + slug(course.forum_id) + '/ask' or '/web/login'">Ask
+                                    a
+                                    Question</a>
+                            </t>
                         </div>
                     </div>
                     <div class="cd-content" id="blog">
                         <div class="blog">
                             <div class="blog-date-b">
-                                <p class="blog-dd">14</p>
-                                <p class="blog-m">June</p>
+                                <span t-field="course.blog_id.create_date" t-options='{"format": "d MMMM"}' />
+
                             </div>
-                            <div class="blog-content">
-                                <a href="">
-                                    <t t-esc="course.blog_id.name" />
-                                </a>
-                                <i class="fas fa-tags"></i>
-                            </div>
+                            <t t-if="course.blog_id">
+                                <div class="blog-content">
+                                    <a t-attf-href="/blog/#{ slug(course.blog_id) }">
+                                        <t t-esc="course.blog_id.name" />
+                                    </a>
+                                </div>
+                            </t>
+                            <t t-else="">
+                                <h3>
+                                    There is no blog yet.
+                                </h3>
+                            </t>
+                            <t t-if="course.suggested_course_ids">
+                                <div class="blog-content">
+                                    <h3>
+                                        Related Courses.
+                                    </h3>
+                                    <t t-foreach="course.suggested_course_ids" t-as="course">
+                                        <div class="courses-grid-content">
+                                            <div class="courses-grid-photo">
+                                                <a t-attf-href="/course-detail?id=#{course.id}">
+                                                    <img t-if="course.image_1920"
+                                                        t-att-src="image_data_uri(course.image_1920)" alt="" />
+                                                </a>
+                                            </div>
+                                            <div class="grid-content-text">
+                                                <div class="grid-top-flex">
+                                                    <div class="subject-title">
+                                                        <p>Programming</p>
+                                                    </div>
+                                                    <div class="website-rating">
+                                                        <i class="far fa-star"></i>
+                                                        <i class="far fa-star"></i>
+                                                        <i class="far fa-star"></i>
+                                                        <i class="far fa-star"></i>
+                                                        <i class="far fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="grid-course-title">
+                                                    <h2>
+                                                        <a class="grid-course-title-link" href="">
+                                                            <t t-esc="course.name" />
+                                                        </a>
+                                                    </h2>
+                                                </div>
+                                                <div class="grid-course-instructor">
+                                                    <img t-if="course.user_id.image_1920"
+                                                        t-att-src="image_data_uri(course.user_id.image_1920)" alt="" />
+                                                    <span>by</span>
+                                                    <span class="span2">
+                                                        <t t-esc="course.user_id.name" />
+                                                    </span>
+                                                </div>
+                                                <hr class="grid-hr" />
+                                                <div class="grid-bottom-flex">
+                                                    <div class="course-about">
+                                                        <div class="course-student">
+                                                            <i class="fas fa-users"></i>
+                                                            <t t-esc="course.enrolled_users" />
+                                                            <div class="price">
+                                                                <span class="span3">
+                                                                    <t t-esc="course.type" />
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="enroll">
+                                                        <a t-attf-href="/course-detail?id=#{course.id}">ENROLL NOW</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+                            </t>
                         </div>
                     </div>
 
