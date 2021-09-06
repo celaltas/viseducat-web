@@ -296,22 +296,22 @@ listViewButton.addEventListener("click",function(){
   listContainer.style.display="block"
 })
 
-// const buttons=document.querySelectorAll(".tab-btn")
+const buttons=document.querySelectorAll(".tab-btn")
 
-//   buttons.forEach(function(btn){
+  buttons.forEach(function(btn){
 
-//     btn.addEventListener("click",function(){
+    btn.addEventListener("click",function(){
 
-//       if(btn.classList.contains("active")){
-//         btn.classList.remove("active")
-//       }
-//       else{
-//         btn.classList.add("active")
-//       }
-
-
-
-//     })
+      if(btn.classList.contains("active")){
+        btn.classList.remove("active")
+      }
+      else{
+        btn.classList.add("active")
+      }
 
 
-//   })
+
+    })
+
+
+  })

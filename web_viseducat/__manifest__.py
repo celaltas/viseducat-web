@@ -19,7 +19,9 @@
         'views/image_library.xml',
         'views/courses_view.xml',
         'views/course_details_view.xml',
+        'views/registration.xml',
         'views/menu.xml',
+        
 
     ],
     'qweb': [

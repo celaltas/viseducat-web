@@ -5213,6 +5213,16 @@
 
         background-color: #002147;
     }
+
+    /* Registration Start */
+   
+    .registration{
+        padding: 1rem;
+        width: 45rem;
+    }
+
+   
+    /* Registration End */
     #footer-text{
 
         padding-top: 2.2rem;
@@ -15978,6 +15988,7 @@
 
         background-color: #002147;
     }
+    
     #footer-text{
 
         padding-top: 2.2rem;

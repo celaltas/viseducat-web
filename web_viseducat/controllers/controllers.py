@@ -154,5 +154,9 @@ class ViseducatOnline(http.Controller):
                 res['result'] = True
 
             else:
-                raise ValueError("Sikerler")
+                raise ValueError("Value Error")
         return res
+    
+    @http.route('/registration', type='http', auth='public', website=True)
+    def _display_registration(self, **kw):
+        return request.render('web_viseducat.display_registration')
