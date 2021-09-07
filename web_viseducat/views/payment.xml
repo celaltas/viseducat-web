@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="display_payment" name="payment">
+        <t t-call="website.layout">
+            <div class="container payment">
+
+                <div class="stepper-wrapper">
+                    <div class="stepper-item completed">
+                      <div class="step-counter">1</div>
+                      <div class="step-name">Review Order</div>
+                    </div>
+                    <div class="stepper-item completed">
+                      <div class="step-counter">2</div>
+                      <div class="step-name">Address</div>
+                    </div>
+                    <div class="stepper-item">
+                      <div class="step-counter">3</div>
+                      <div class="step-name">Confirm Order</div>
+                    </div>
+                  </div>
+                     
+                <div class="row row-billing your-order">
+                    <div class="col-7 billing">
+                        <b>Your order:</b>
+                        <address>
+                            <p>$57,500.00</p>
+                        </address>
+                        <button class="billing-info">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+
+
+                </div>
+                <table class="billing-table billing-table-tablet">
+                    <thead class="billing-thead">
+                        <tr>
+                            <th>Product</th>
+                            <th></th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="" alt="" /></td>
+                            <td><strong>Admission Fees for BCA</strong></td>
+                            <td><span>1.0</span></td>
+                            <td><span>$50,000.00</span></td>
+                        </tr>
+                        <tr class="subtotal">
+                            <td></td>
+                            <td>Subtotal:</td>
+                            <td></td>
+                            <td><span>$50,000.00</span></td>
+                        </tr>
+                        <tr class="taxes">
+                            <td></td>
+                            <td>Taxes:</td>
+                            <td></td>
+                            <td><span>$7,500.00</span></td>
+                        </tr>
+                        <tr class="total">
+                            <td></td>
+                            <td><strong>Total:</strong></td>
+                            <td></td>
+                            <td><strong><span>$57,500.00</span></strong></td>
+                        </tr>
+                        <tr class="promo">
+                            <td class="empty-td" colspan="2"></td>
+                            <td class="promo-text" colspan="2"><a href="#0"><span class="promo-text-span">I have a promo
+                                        code</span></a></td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="4"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                  
+                <div class="row row-billing">
+                    <div class="col-7 billing">
+                        <b>Billing:</b>
+                        <address>
+                            <p>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx</p>
+                        </address>
+                        <a class="billing-edit" href="">
+                            <i class="fa fa-edit"></i>
+                            Edit
+                        </a>
+                    </div>
+
+
+                </div>
+                <div class="row row-payw">
+
+                    <h3>Pay with</h3>
+
+                </div>
+
+
+                <div class="row row-billing">
+                    <div class="col-7 billing billing-transfer">
+                        <p>Wire Transfer</p>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-7 pay-buttons">
+                        <button type="submit" class="rtrn-cart">
+                            <i class="fas fa-chevron-left"></i>
+                            Return to Cart
+                        </button>
+                        <button type="submit" class="pay-now">
+
+                            Pay Now
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <table class="billing-table">
+                    <thead class="billing-thead">
+                        <tr>
+                            <th>Product</th>
+                            <th></th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="" alt="" /></td>
+                            <td><strong>Admission Fees for BCA</strong></td>
+                            <td><span>1.0</span></td>
+                            <td><span>$50,000.00</span></td>
+                        </tr>
+                        <tr class="subtotal">
+                            <td></td>
+                            <td>Subtotal:</td>
+                            <td></td>
+                            <td><span>$50,000.00</span></td>
+                        </tr>
+                        <tr class="taxes">
+                            <td></td>
+                            <td>Taxes:</td>
+                            <td></td>
+                            <td><span>$7,500.00</span></td>
+                        </tr>
+                        <tr class="total">
+                            <td></td>
+                            <td><strong>Total:</strong></td>
+                            <td></td>
+                            <td><strong><span>$57,500.00</span></strong></td>
+                        </tr>
+                        <tr class="promo">
+                            <td class="empty-td" colspan="2"></td>
+                            <td class="promo-text" colspan="2"><a href="#0"><span class="promo-text-span">I have a promo
+                                        code</span></a></td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="4"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="promo-input-container" >
+                    <input id="promo-input" class="promo-input" type="text" name="promo" placeholder="code..." /><a href="#0" role="button" class="table-button" id="promo-input">Apply</a>
+                </div>
+
+
+            </div>
+            <script>
+            const promoInput = document.querySelector(".promo-input-container");
+            const emptyTd = document.querySelector(".empty-td");
+            const promoTextSpan = document.querySelector(".promo-text-span");
+            const promoText = document.querySelector(".promo-text");
+            const cols=document.querySelectorAll(".col-7")
+            
+            
+            const windowWidth=window.screen.width;
+            const windowWidth2=window.screen.availWidth
+            
+
+            const billingInfoButton=document.querySelector(".billing-info")
+            const tableTablet=document.querySelector(".billing-table-tablet")
+           
+
+            billingInfoButton.addEventListener("click",function(){
+                tableTablet.classList.toggle("active")
+            })
+
+
+            
+
+            window.onload(colWrapper())
+            function colWrapper(){
+                cols.forEach((col)=>{
+                    if(windowWidth>300){
+                        col.classList.remove("col-7")
+                        col.classList.add("col-12")
+                    }
+                    
+                    if (windowWidth>800){
+                        col.classList.remove("col-12")
+                        col.classList.add("col-7")
+                    }
+                })
+            }
+                 
+                
+              
+
+
+                promoTextSpan.addEventListener("click", () => {
+                    
+                    promoTextSpan.classList.toggle("deactive")
+                    promoText.classList.toggle("deactive")
+                    emptyTd.classList.toggle("deactive")
+                    promoInput.classList.toggle("active")
+                })
+
+            </script>
+        </t>
+    </template>
+</odoo>

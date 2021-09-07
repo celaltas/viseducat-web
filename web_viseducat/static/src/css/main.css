@@ -5217,12 +5217,288 @@
     /* Registration Start */
    
     .registration{
-        padding: 1rem;
+        padding: 2rem;
         width: 45rem;
     }
 
    
     /* Registration End */
+
+    /* Payment Start */
+
+    /* Stepper Start */
+    .stepper-wrapper {
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+      .stepper-item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+      
+      
+      }
+      
+      .stepper-item::before {
+        position: absolute;
+        content: "";
+        border-bottom: 2px solid #ccc;
+        width: 100%;
+        top: 20px;
+        left: -50%;
+        z-index: 2;
+      }
+      
+      .stepper-item::after {
+        position: absolute;
+        content: "";
+        border-bottom: 2px solid #ccc;
+        width: 100%;
+        top: 20px;
+        left: 50%;
+        z-index: 2;
+      }
+      
+      .stepper-item .step-counter {
+        position: relative;
+        z-index: 5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #ccc;
+        margin-bottom: 6px;
+      }
+      
+      .stepper-item.active {
+        font-weight: bold;
+      }
+      
+      .stepper-item.completed .step-counter {
+        background-color: #00A09D;
+      }
+      .step-name{
+        color: #00A09D;
+      }
+      
+      .stepper-item.completed::after {
+        position: absolute;
+        content: "";
+        border-bottom: 2px solid #00A09D;
+        width: 100%;
+        top: 20px;
+        left: 50%;
+        z-index: 3;
+      }
+      
+      .stepper-item:first-child::before {
+        content: none;
+      }
+      .stepper-item:last-child::after {
+        content: none;
+      }
+    /* Stepper End */
+    .payment{
+        padding-top:2rem;
+        padding-bottom:2rem;
+        margin-bottom: 10rem;
+        position: relative;
+      
+
+    }
+    .billing{
+        height: 4rem;
+        border: 1px solid gainsboro;
+        border-radius: 3px;
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+        
+    }
+    .your-order{
+        display: none;
+    }
+    
+    .billing-transfer{
+        margin-top: 1rem;
+    }
+    .billing b{
+        color: rgb(33, 37, 41);
+        font-size: 14px;
+        font-weight: 700;
+    }
+    .billing address{
+        margin: 0;
+        padding: 0;
+    }
+    .billing p{
+        color: rgb(33, 37, 41);
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+        padding-left: 0.25rem;
+       
+    }
+    .billing-edit{
+        margin-left: auto;
+        color: rgb(33, 37, 41);
+    }
+    .billing-edit i{
+        color: rgb(33, 37, 41);
+    }
+    .row-billing{
+        padding-left: 15px;
+        padding-right: 15px;
+        
+    }
+    .row.row-payw{
+        padding-left: 15px;
+        padding-top: 1rem;
+       
+    }
+    .row-payw h3{
+        color: rgb(0, 33, 71);
+        font-size: 24.5px;
+        font-weight: 500;
+    }
+    .pay-buttons{
+        display: flex;
+        padding-top: 0.5rem;
+    }
+    .rtrn-cart{
+        padding: 0.5rem;
+       
+       
+        color: white;
+        border: 1px solid white;
+        background: rgb(33, 37, 41);
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    .rtrn-cart:focus{
+        outline:none;
+    }
+    .rtrn-cart i{
+        color: white;
+    }
+    .pay-now{
+        padding: 0.5rem;
+        margin-left: auto;
+       
+        color: rgb(33, 37, 41);
+        border: 1px solid rgb(253, 187, 24);
+        background: rgb(253, 187, 24);
+        border-radius: 5px;
+        font-size: 16px;
+        transition: .3s ;
+    }
+    .pay-now:focus{
+        outline: none;
+    }
+    .pay-now:hover{
+       background: rgb(180, 140, 10);
+       border-color: rgb(180, 140, 10);
+    }
+    .pay-now i{
+        color: rgb(33, 37, 41);
+    }
+    .billing-table{
+        position: absolute;
+        top: 9.5rem;
+        left: 43rem;
+        color: black;
+        width: 27rem;
+    }
+    .billing-table strong{
+        color: rgb(102, 102, 102);
+        font-weight: 700;
+    }
+    .billing-table tbody tr td{
+        padding: 0.75rem;
+        
+    }
+    .billing-table thead{
+        background: white;
+        border: 1px solid gainsboro;
+        padding: 1rem;
+        
+    }
+    .billing-table thead tr th{
+        padding: 0.5rem 1rem;
+    }
+    .subtotal{
+        background: white;
+        padding-left: 1rem;
+        
+    }
+    .taxes{
+        background: white;
+    }
+    .total{
+        border-top: 1px solid gainsboro;
+        background: white;
+    }
+    .promo{
+        background: white;
+        
+        
+    }
+   .promo td:nth-child(2){
+      padding: 0 !important;
+      padding-left: 3rem !important;
+      
+   }
+   .billing-table tr:last-child{
+       background: white;
+   }
+    .promo-input{
+       width: 22.85rem ;
+       padding: 0.5rem;
+       border-top-left-radius: 5px;
+       border-bottom-left-radius: 5px;
+       border: 1px solid gainsboro;
+       transition: .3s  ;
+   }
+   .promo-input:focus{
+        border:1px       solid #fdbb18;
+        box-shadow: 0 0 10px#fdbb18;
+        outline: none;
+   }
+   .table-button{
+       background: rgb(0, 33, 71);
+       font-size: 16px;
+       color: white;
+       padding: 0.55rem 0.85rem;
+       padding-bottom: 0.66rem;
+       border-top-right-radius: 5px;
+       border-bottom-right-radius: 5px;
+       transition: .3s;
+   }
+   .table-button:hover{
+       background-color: black;
+       color: white !important;
+   }
+   .promo-input-container{
+       position: absolute;
+       left: 43rem;
+       top: 27rem;
+       display: none;
+   }
+  
+   
+   
+   
+   
+
+    /* Payment End */
+
+
     #footer-text{
 
         padding-top: 2.2rem;
@@ -10535,6 +10811,308 @@
 
         background-color: #002147;
     }
+    /* Registration Start */
+    .registration{
+        padding: 2rem;
+      
+    }
+
+    /* Registration End */
+    /* Payment Start */
+
+    /* Stepper Start */
+ 
+    .stepper-wrapper {
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .stepper-item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+    
+    
+    }
+    
+    .stepper-item::before {
+        position: absolute;
+        content: "";
+        border-bottom: 2px solid #ccc;
+        width: 100%;
+        top: 20px;
+        left: -50%;
+        z-index: 2;
+    }
+    
+    .stepper-item::after {
+        position: absolute;
+        content: "";
+        border-bottom: 2px solid #ccc;
+        width: 100%;
+        top: 20px;
+        left: 50%;
+        z-index: 2;
+    }
+    
+    .stepper-item .step-counter {
+        position: relative;
+        z-index: 5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #ccc;
+        margin-bottom: 6px;
+    }
+    
+    .stepper-item.active {
+        font-weight: bold;
+    }
+    
+    .stepper-item.completed .step-counter {
+        background-color: #00A09D;
+    }
+    .step-name{
+        color: #00A09D;
+    }
+    
+    .stepper-item.completed::after {
+        position: absolute;
+        content: "";
+        border-bottom: 2px solid #00A09D;
+        width: 100%;
+        top: 20px;
+        left: 50%;
+        z-index: 3;
+    }
+    
+    .stepper-item:first-child::before {
+        content: none;
+    }
+    .stepper-item:last-child::after {
+        content: none;
+    }
+
+    /* Stepper End */
+    .payment{
+        padding-top:2rem;
+        padding-bottom:2rem;
+        margin-bottom: 10rem;
+        position: relative;
+      
+
+    }
+    .billing{
+        
+        
+        height: 4rem;
+        border: 1px solid gainsboro;
+        border-radius: 3px;
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+        
+    }
+    .billing-transfer{
+        margin-top: 1rem;
+    }
+    .billing b{
+        color: rgb(33, 37, 41);
+        font-size: 14px;
+        font-weight: 700;
+    }
+    .billing address{
+        margin: 0;
+        padding: 0;
+    }
+    .billing p{
+        color: rgb(33, 37, 41);
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+        padding-left: 0.25rem;
+       
+    }
+    .billing-info{
+        background: white;
+        margin-left: auto;
+        width: 1.2rem;
+        height: 1.2rem;
+        outline: none;
+        border: 1px solid gainsboro;
+        align-items: center;
+    }
+    .billing-info i{
+        color:  black;
+        font-size: 14px;
+        
+
+    }
+    .billing-info:focus{
+        outline: none;
+    }
+    .billing-edit{
+        margin-left: auto;
+        color: rgb(33, 37, 41);
+    }
+    .billing-edit i{
+        color: rgb(33, 37, 41);
+    }
+    .row-billing{
+        padding-left: 15px;
+        padding-right: 15px;
+        
+    }
+    .row.row-payw{
+        padding-left: 15px;
+        padding-top: 1rem;
+       
+    }
+    .row-payw h3{
+        color: rgb(0, 33, 71);
+        font-size: 24.5px;
+        font-weight: 500;
+    }
+    .pay-buttons{
+        display: flex;
+        padding-top: 0.5rem;
+    }
+    .rtrn-cart{
+        padding: 0.5rem;
+       
+       
+        color: white;
+        border: 1px solid white;
+        background: rgb(33, 37, 41);
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    .rtrn-cart:focus{
+        outline:none;
+    }
+    .rtrn-cart i{
+        color: white;
+    }
+    .pay-now{
+        padding: 0.5rem;
+        margin-left: auto;
+       
+        color: rgb(33, 37, 41);
+        border: 1px solid rgb(253, 187, 24);
+        background: rgb(253, 187, 24);
+        border-radius: 5px;
+        font-size: 16px;
+        transition: .3s ;
+    }
+    .pay-now:focus{
+        outline: none;
+    }
+    .pay-now:hover{
+       background: rgb(180, 140, 10);
+       border-color: rgb(180, 140, 10);
+    }
+    .pay-now i{
+        color: rgb(33, 37, 41);
+    }
+    .billing-table{
+        display: none;
+        margin-left: 7rem;
+        top: 5rem;
+        left: 43rem;
+        color: black;
+        width: 27rem;
+    }
+    .billing-table-tablet{
+        display: none;
+    }
+    .billing-table strong{
+        color: rgb(102, 102, 102);
+        font-weight: 700;
+    }
+    .billing-table tbody tr td{
+        padding: 0.75rem;
+        
+    }
+    .billing-table thead{
+        background: white;
+       
+        padding: 1rem;
+        
+    }
+    .billing-table thead tr th{
+        padding: 0.5rem 1rem;
+    }
+    .subtotal{
+        background: white;
+        padding-left: 1rem;
+        
+    }
+    .taxes{
+        background: white;
+    }
+    .total{
+        border-top: 1px solid gainsboro;
+        background: white;
+    }
+    .promo{
+        background: white;
+        
+        
+    }
+   .promo td:nth-child(2){
+      padding: 0 !important;
+      padding-left: 3rem !important;
+      
+   }
+   .billing-table tr:last-child{
+       background: white;
+   }
+    .promo-input{
+       width: 22.85rem ;
+       padding: 0.5rem;
+       border-top-left-radius: 5px;
+       border-bottom-left-radius: 5px;
+       border: 1px solid gainsboro;
+       transition: .3s  ;
+   }
+   .promo-input:focus{
+        border:1px       solid #fdbb18;
+        box-shadow: 0 0 10px#fdbb18;
+        outline: none;
+   }
+   .table-button{
+       background: rgb(0, 33, 71);
+       font-size: 16px;
+       color: white;
+       padding: 0.55rem 0.85rem;
+       padding-bottom: 0.66rem;
+       border-top-right-radius: 5px;
+       border-bottom-right-radius: 5px;
+       transition: .3s;
+   }
+   .table-button:hover{
+       background-color: black;
+       color: white !important;
+   }
+   .promo-input-container{
+       position: absolute;
+       left: 43rem;
+       top: 22rem;
+       display: none;
+   }
+  
+   
+   
+   
+   
+
+    /* Payment End */
     #footer-text{
 
         padding-top: 2.2rem;
@@ -15988,6 +16566,309 @@
 
         background-color: #002147;
     }
+    /* Registration Start */
+    .registration{
+        padding: 2rem;
+      
+    }
+
+    /* Registration End */
+     /* Payment Start */
+
+    /* Stepper Start */
+ 
+    .stepper-wrapper {
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        display: none;
+    }
+    .stepper-item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+    
+    
+    }
+    
+    .stepper-item::before {
+        position: absolute;
+        content: "";
+        border-bottom: 2px solid #ccc;
+        width: 100%;
+        top: 20px;
+        left: -50%;
+        z-index: 2;
+    }
+    
+    .stepper-item::after {
+        position: absolute;
+        content: "";
+        border-bottom: 2px solid #ccc;
+        width: 100%;
+        top: 20px;
+        left: 50%;
+        z-index: 2;
+    }
+    
+    .stepper-item .step-counter {
+        position: relative;
+        z-index: 5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #ccc;
+        margin-bottom: 6px;
+    }
+    
+    .stepper-item.active {
+        font-weight: bold;
+    }
+    
+    .stepper-item.completed .step-counter {
+        background-color: #00A09D;
+    }
+    .step-name{
+        color: #00A09D;
+    }
+    
+    .stepper-item.completed::after {
+        position: absolute;
+        content: "";
+        border-bottom: 2px solid #00A09D;
+        width: 100%;
+        top: 20px;
+        left: 50%;
+        z-index: 3;
+    }
+    
+    .stepper-item:first-child::before {
+        content: none;
+    }
+    .stepper-item:last-child::after {
+        content: none;
+    }
+
+    /* Stepper End */
+    .payment{
+        padding-top:2rem;
+        padding-bottom:2rem;
+        margin-bottom: 10rem;
+        position: relative;
+      
+
+    }
+    .billing{
+        
+        overflow: scroll;
+        height: 4rem;
+        border: 1px solid gainsboro;
+        border-radius: 3px;
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+        
+    }
+    .billing-transfer{
+        margin-top: 1rem;
+    }
+    .billing b{
+        color: rgb(33, 37, 41);
+        font-size: 14px;
+        font-weight: 700;
+    }
+    .billing address{
+        margin: 0;
+        padding: 0;
+    }
+    .billing p{
+        color: rgb(33, 37, 41);
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+        padding-left: 0.25rem;
+       
+    }
+    .billing-info{
+        background: white;
+        margin-left: auto;
+        width: 1.2rem;
+        height: 1.2rem;
+        outline: none;
+        border: 1px solid gainsboro;
+        align-items: center;
+    }
+    .billing-info i{
+        color:  black;
+        font-size: 14px;
+        
+
+    }
+    .billing-info:focus{
+        outline: none;
+    }
+    .billing-edit{
+        margin-left: auto;
+        color: rgb(33, 37, 41);
+    }
+    .billing-edit i{
+        color: rgb(33, 37, 41);
+    }
+    .row-billing{
+        padding-left: 15px;
+        padding-right: 15px;
+        
+    }
+    .row.row-payw{
+        padding-left: 15px;
+        padding-top: 1rem;
+       
+    }
+    .row-payw h3{
+        color: rgb(0, 33, 71);
+        font-size: 24.5px;
+        font-weight: 500;
+    }
+    .pay-buttons{
+        display: flex;
+        padding-top: 0.5rem;
+    }
+    .rtrn-cart{
+        padding: 0.5rem;
+       
+       
+        color: white;
+        border: 1px solid white;
+        background: rgb(33, 37, 41);
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    .rtrn-cart:focus{
+        outline:none;
+    }
+    .rtrn-cart i{
+        color: white;
+    }
+    .pay-now{
+        padding: 0.5rem;
+        margin-left: auto;
+       
+        color: rgb(33, 37, 41);
+        border: 1px solid rgb(253, 187, 24);
+        background: rgb(253, 187, 24);
+        border-radius: 5px;
+        font-size: 16px;
+        transition: .3s ;
+    }
+    .pay-now:focus{
+        outline: none;
+    }
+    .pay-now:hover{
+       background: rgb(180, 140, 10);
+       border-color: rgb(180, 140, 10);
+    }
+    .pay-now i{
+        color: rgb(33, 37, 41);
+    }
+    .billing-table{
+        display: none;
+        
+        top: 5rem;
+        left: 43rem;
+        color: black;
+        width: 20rem;
+    }
+    .billing-table-tablet{
+        display: none;
+    }
+    .billing-table strong{
+        color: rgb(102, 102, 102);
+        font-weight: 700;
+    }
+    .billing-table tbody tr td{
+        padding: 0.75rem;
+        
+    }
+    .billing-table thead{
+        background: white;
+       
+        padding: 1rem;
+        
+    }
+    .billing-table thead tr th{
+        padding: 0.5rem 1rem;
+    }
+    .subtotal{
+        background: white;
+        padding-left: 1rem;
+        
+    }
+    .taxes{
+        background: white;
+    }
+    .total{
+        border-top: 1px solid gainsboro;
+        background: white;
+    }
+    .promo{
+        background: white;
+        
+        
+    }
+   .promo td:nth-child(2){
+      padding: 0 !important;
+      padding-left: 3rem !important;
+      
+   }
+   .billing-table tr:last-child{
+       background: white;
+   }
+    .promo-input{
+       width: 22.85rem ;
+       padding: 0.5rem;
+       border-top-left-radius: 5px;
+       border-bottom-left-radius: 5px;
+       border: 1px solid gainsboro;
+       transition: .3s  ;
+   }
+   .promo-input:focus{
+        border:1px       solid #fdbb18;
+        box-shadow: 0 0 10px#fdbb18;
+        outline: none;
+   }
+   .table-button{
+       background: rgb(0, 33, 71);
+       font-size: 16px;
+       color: white;
+       padding: 0.55rem 0.85rem;
+       padding-bottom: 0.66rem;
+       border-top-right-radius: 5px;
+       border-bottom-right-radius: 5px;
+       transition: .3s;
+   }
+   .table-button:hover{
+       background-color: black;
+       color: white !important;
+   }
+   .promo-input-container{
+       position: absolute;
+       left: 43rem;
+       top: 22rem;
+       display: none;
+   }
+  
+   
+   
+   
+   
+
+    /* Payment End */
     
     #footer-text{
 

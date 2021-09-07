@@ -315,3 +315,8 @@ const buttons=document.querySelectorAll(".tab-btn")
 
 
   })
+
+
+  // Promo Code
+
+  

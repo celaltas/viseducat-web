@@ -160,3 +160,9 @@ class ViseducatOnline(http.Controller):
     @http.route('/registration', type='http', auth='public', website=True)
     def _display_registration(self, **kw):
         return request.render('web_viseducat.display_registration')
+
+
+    @http.route('/payment', type='http', auth='public', website=True)
+    def _display_payment(self, **kw):
+        return request.render('web_viseducat.display_payment')
+
