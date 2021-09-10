@@ -2760,7 +2760,7 @@
             
         }
         .active-flex{
-            display: flex;
+            display: flex !important;
         }
         .delete-edit button{
             width: 7rem;
@@ -5232,6 +5232,8 @@
         display: flex;
         justify-content: space-between;
         margin-bottom: 20px;
+        
+        margin-left: auto;
       }
       .stepper-item {
         position: relative;
@@ -5262,7 +5264,12 @@
         left: 50%;
         z-index: 2;
       }
-      
+      .stepper-item-payment::after{
+        border-bottom: 2px solid #ccc !important ;
+     }
+      .uncompleted::after{
+        border-bottom: 2px solid #ccc !important ;
+      }
       .stepper-item .step-counter {
         position: relative;
         z-index: 5;
@@ -5295,6 +5302,9 @@
         top: 20px;
         left: 50%;
         z-index: 3;
+      }
+      .review-stepper::after{
+          border-bottom:#ccc !important;
       }
       
       .stepper-item:first-child::before {
@@ -5380,6 +5390,11 @@
         background: rgb(33, 37, 41);
         border-radius: 5px;
         font-size: 16px;
+        transition: .3s ;
+    }
+    .rtrn-cart:hover{
+        color: white;
+        background: black;
     }
     .rtrn-cart:focus{
         outline:none;
@@ -5391,7 +5406,7 @@
         padding: 0.5rem;
         margin-left: auto;
        
-        color: rgb(33, 37, 41);
+        color: black !important;
         border: 1px solid rgb(253, 187, 24);
         background: rgb(253, 187, 24);
         border-radius: 5px;
@@ -5487,7 +5502,7 @@
    .promo-input-container{
        position: absolute;
        left: 43rem;
-       top: 27rem;
+       top: 28rem;
        display: none;
    }
   
@@ -5498,6 +5513,431 @@
 
     /* Payment End */
 
+    /* Cart Start */
+    .cart{
+        margin-bottom: 5rem;
+        margin-top: 2rem;
+        position: relative;
+    }
+    .cart-table{
+        border: none;
+        table-layout: fixed;
+    }
+    .cart-table tbody tr td:nth-child(1){
+        width: 20%;
+    }
+    .cart-table tbody tr td:nth-child(4){
+        width: 20%;
+        text-align: center;
+    }
+    .cart-table tbody tr td:nth-child(5){
+        width: 10%;
+        text-align: center;
+        
+    }
+    .cart-table tbody{
+        border-top: 2px solid gainsboro;
+        height: 4.5rem;
+        align-items: center;
+    }
+    .cart-table thead{
+        border-top:1px solid gainsboro;
+        background: white;
+    }
+    .cart-table thead tr th{
+        padding: 0.35rem 0;
+        color: rgb(102, 102, 102);
+        font-size: 14px;
+        font-weight: 700;
+        text-align: center;
+    }
+    .cart-table-input-container{
+        display: flex;
+    }
+    .cart-table-input-container input{
+        height: 2.25rem;
+        width: 14rem;
+        border: 1px solid gainsboro;
+        padding-left: 7rem;
+        font-size:  16px;
+        transition: .3s;
+    }
+    .cart-table-input-container input:focus{
+        
+        border:1px       solid #fdbb18;
+        box-shadow: 0 0 10px#fdbb18;
+        outline: none;
+    }
+    .cart-table-input-container a{
+        padding: 0.5rem;
+        
+    }
+    .cart-table-input-container i{
+        color: rgb(199,142,2);
+    }
+    .cart-price{
+        color: rgb(102, 102, 102);
+    }
+    .cart-product{
+        color: rgb(51, 51, 51);
+        font-size: 14px;
+        font-weight: 700;
+    }
+    .cart-table-buttons{
+        display: flex;
+        padding-top: 1rem;
+        align-items: center;
+    }
+    
+    .continue-shopping{
+        background: rgb(0, 33, 71);
+        color: white;
+        font-size: 16px;
+        border: 1px solid rgb(0, 33, 71);
+        border-radius: 5px;
+        padding: 0.33rem 0.90rem;
+        align-items: center;
+        transition: .3s;
+    }
+    .continue-shopping:hover{
+        background: black;
+        color: white;
+        border: 1px solid black;
+    }
+    .continue-shopping i{
+        color: white;
+        padding-right: 0.25rem;
+    }
+    .process-co{
+        margin-left: auto;
+        background: rgb(253, 187, 24);
+        color: black;
+        font-size: 16px;
+        border: 1px solid rgb(253, 187, 24);
+        border-radius: 5px;
+        padding: 0.33rem 0.90rem;
+        align-items: center;
+        transition: .3s;
+    }
+    .process-co:hover{
+        background: #c78e02;
+        color: black;
+        border: 1px solid #c78e02;
+    }
+    .process-co i{
+        color: black;
+        padding-left: 0.25rem;
+    }
+    .cart-card-body{
+        border: 1px solid gainsboro;
+        border-radius: 3px;
+        height: 21rem;
+    }
+   
+    .cart-card-body hr{
+        width: 19.4rem;
+        margin-left: 1rem;
+        
+    }
+    .cart-card-body h4{
+        color: rgb(33, 37, 41);
+        font-size: 21px;
+        font-weight: 500;
+        padding-top: 1rem;
+        padding-left: 1rem;
+
+
+    }
+    .cart-order-table{
+        width: 90%;
+        background: white;
+        border: none;
+        margin-left: 1rem;
+    }
+    
+    .cart-order-table tbody tr td{
+        text-align: right;
+        color: rgb(102, 102, 102);
+        padding: 1rem;
+    }
+    .cart-order-table tbody  tr td:nth-child(1){
+        width: 33%;
+    }
+   .total-tr{
+       border-top: 1px solid gainsboro;
+   }
+   #continue-shopping{
+       margin-left: 10rem;
+       margin-top: 4rem;
+       padding: 0.5rem 0.90rem;
+       
+   }
+   .order-total{
+       font-weight: 700;
+   }
+   .order-price{
+       font-weight: 700;
+   }
+   #promo-input-container{
+       left: 1rem;
+      top:22rem ;
+   }
+   
+
+    /* Cart End */
+
+    /* Confirmation Start */
+    .confirmation-info-col{
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+    }
+    .confirmation-info-col h1{
+        color: rgb(0, 33, 71);
+        font-size: 35px;
+        font-weight: 500;
+    }
+    .payment-title{
+        margin-top: 2rem;
+        color: rgb(0, 33, 71);
+        font-size: 24.5px;
+        font-weight: 500;
+    }
+    .confirmation-info-table{
+        background: white;
+        border:none;
+        border-top:1px solid gainsboro;
+        
+    }
+    .confirmation-info-table tbody tr td{
+        padding: 0.75rem;
+    }
+    .confirmation-info-table tbody tr td:nth-child(1){
+        color: rgb(102, 102, 102);
+        font-size: 14px;
+        font-weight: 400;
+
+    }
+    .confirmation-info-table tbody tr td:nth-child(2){
+        text-align: right;
+        color: rgb(102, 102, 102);
+        font-size: 14px;
+        font-weight: 700;
+
+    }
+    .confirmation-info-table tbody tr td:nth-child(3){
+        color: rgb(102, 102, 102);
+        font-size: 14px;
+        font-weight: 700;
+
+    }
+    .payment2-row{
+        display: flex;
+        align-items: center;
+    }
+    .payment2-row h3{
+        color: white;
+    }
+    .payment2-row a i{
+        color: white;
+        font-size: 12px;
+        padding-bottom: 0.5rem;
+    }
+    .payment-edit{
+        margin-left: auto;
+    }
+    .card-head{
+        background-color: #626262;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        padding: 1rem;
+    }
+    .card-head ul{
+        list-style-type: disc;
+        padding-left: 2.5rem;
+    }
+    .bank-card-body{
+        background: #f0f0f0;
+        border:1px solid black;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        padding: 1rem;
+    }
+    .bank-card-body b{
+        color: rgb(33, 37, 41);
+        font-weight: 700;
+    }
+    .bank-card-body span,i{
+        color: black;
+    }
+    .bank-card-body i{
+        padding-right: 0.60rem;
+    }
+    .bill-ship-card{
+        align-items: center;
+        border: 1px solid gainsboro;
+        border-radius: 4px;
+        margin-top: 1rem;
+        display: flex;
+        padding: 1rem;
+    }
+    .bill-ship-card.order{
+        display: none;
+    }
+    .bill-ship-card b{
+        color: rgb(33, 37, 41);
+        font-weight: 700;
+    }
+    .bill-ship-card address span{
+        color: rgb(33, 37, 41);
+        padding-left: 0.5rem;
+    }
+    .bill-ship-card address{
+        margin-bottom: 0;
+    }
+    .confirmation-product-table{
+        border-radius: 4px !important;
+        width: 25rem;
+        margin-top: 5rem;
+    }
+    .confirmation-product-table thead{
+        
+        background: white;
+    }
+    .confirmation-product-table th{
+        color: rgb(102, 102, 102);
+        padding: 0.5rem 0.75rem;
+        font-weight: 700;
+        text-align: center;
+    }
+    .confirmation-product-table tbody td:nth-child(1){
+        
+        width: auto;
+        
+    }
+    .confirmation-product-table tbody td:nth-child(2){
+        
+        text-align: right;
+        
+       
+    }
+    .product-title{
+        text-align: center !important;
+    }
+    .confirmation-product-table tbody td:nth-child(3){
+        text-align: center;
+        
+    }
+    .confirmation-product-table tbody td:nth-child(4){
+        text-align: center;
+        
+    }
+    .confirmation-product-table tbody{
+        background:white;
+    }
+    .product-table-firsttr{
+        border-top: 2px  solid gainsboro;
+        
+        background: #f2f2f2;
+    }
+    
+    .confirmation-product-table td{
+        color: rgb(102, 102, 102);
+        padding: 0.75rem;
+        
+    }
+    .product-table-lasttr{
+        border-top: 1px solid gainsboro;
+    }
+    /* Confirmation End */
+
+    /* Confirm_order Start */
+
+    .confirm-order{
+        margin-top: 2rem;
+        
+        position: relative;
+    }
+    .billing-address{
+        color: rgb(0, 33, 71);
+        font-size: 24.5px;
+        font-weight: 500;
+        border-bottom: 1px solid gainsboro;
+        padding-bottom: 0.5rem;
+    }
+    .billing-address-info{
+        margin-top: 0.5rem;
+        border:1px solid rgb(253, 187, 24);
+        padding: 1.25rem;
+        border-radius: 4px;
+    }
+    .billing-address-info span{
+        color: rgb(33, 37, 41);
+    }
+    .billing-address-info-top-flex{
+        display: flex;
+        align-items: center;
+    }
+    .billing-address-info-top-flex i{
+        color: rgb(199, 142, 2);
+        margin-left: auto;
+    }
+    .row.confirm-order{
+      
+    }
+    .row-confirm-order-buttons{
+        padding-top: 1rem;
+    }
+    .confirm-order-confirm{
+        margin-left: auto;
+        background: rgb(253, 187, 24);
+        color: black;
+        font-size: 16px;
+        border: 1px solid rgb(253,187,24);
+        border-radius: 5px;
+        padding: 0.33rem 0.90rem;
+        align-items: center;
+        transition: .3s;
+       
+    }
+    .confirm-order-confirm:hover{
+        background: #c78e02;
+        color: black;
+        border: 1px solid #c78e02;
+    }
+    .confirm-order-confirm i{
+        color: black;
+        padding-left: 0.25rem;
+    }
+    .confirm-order-return{
+        background: rgb(0, 33, 71);
+        color: white;
+        font-size: 16px;
+        border: 1px solid rgb(0, 33, 71);
+        border-radius: 5px;
+        padding: 0.33rem 0.90rem;
+        align-items: center;
+        transition: .3s;
+        margin-left: 1rem;
+    }
+    .confirm-order-return:hover{
+        background: black;
+        color: white;
+        border: 1px solid black;
+    }
+    .confirm-order-return i{
+        color: white;
+        padding-right: 0.25rem;
+    }
+    .confirm-order-table{
+        
+        position: absolute;
+        left: 43rem;
+        bottom: 0;
+       
+    }
+
+
+    /* Confirm_order End */
 
     #footer-text{
 
@@ -8369,7 +8809,7 @@
            
        }
        .active-flex{
-           display: flex;
+           display: flex !important;
        }
        .delete-edit button{
            width: 7rem;
@@ -10857,6 +11297,9 @@
         left: 50%;
         z-index: 2;
     }
+    .stepper-item-payment::after{
+        border-bottom: 2px solid #ccc !important ;
+    }
     
     .stepper-item .step-counter {
         position: relative;
@@ -10891,7 +11334,9 @@
         left: 50%;
         z-index: 3;
     }
-    
+    .review-stepper::after{
+        border-bottom:#ccc !important;
+    }
     .stepper-item:first-child::before {
         content: none;
     }
@@ -10986,15 +11431,21 @@
     .rtrn-cart{
         padding: 0.5rem;
        
-       
+    
+
         color: white;
         border: 1px solid white;
         background: rgb(33, 37, 41);
         border-radius: 5px;
         font-size: 16px;
+        transition: .3s
     }
     .rtrn-cart:focus{
         outline:none;
+    }
+    .rtrn-cart:hover{
+        color: white;
+        background:black;
     }
     .rtrn-cart i{
         color: white;
@@ -11003,7 +11454,7 @@
         padding: 0.5rem;
         margin-left: auto;
        
-        color: rgb(33, 37, 41);
+        color: black !important;
         border: 1px solid rgb(253, 187, 24);
         background: rgb(253, 187, 24);
         border-radius: 5px;
@@ -11102,8 +11553,9 @@
    }
    .promo-input-container{
        position: absolute;
-       left: 43rem;
-       top: 22rem;
+       
+       left: 14rem;
+       top: 28rem;
        display: none;
    }
   
@@ -11113,6 +11565,478 @@
    
 
     /* Payment End */
+    /* Cart Start */
+    .cart{
+        margin-bottom: 5rem;
+        margin-top: 2rem;
+        position: relative;
+    }
+    .cart-row{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .col-order{
+        padding-top: 1rem;
+    }
+    .cart-table{
+        border: none;
+        table-layout: fixed;
+    }
+    .cart-table tbody tr td:nth-child(1){
+        width: 20%;
+    }
+    .cart-table tbody tr td:nth-child(4){
+        width: 20%;
+        text-align: center;
+    }
+    .cart-table tbody tr td:nth-child(5){
+        width: 10%;
+        text-align: center;
+        
+    }
+    .cart-table tbody{
+        border-top: 2px solid gainsboro;
+        height: 4.5rem;
+        align-items: center;
+        background: #f2f2f2;
+    }
+    .cart-table thead{
+        border-top:1px solid gainsboro;
+        background: white;
+    }
+    .cart-table thead tr th{
+        padding: 0.35rem 0;
+        color: rgb(102, 102, 102);
+        font-size: 14px;
+        font-weight: 700;
+        text-align: center;
+    }
+    .cart-table-input-container{
+        display: flex;
+    }
+    .cart-table-input-container input{
+        height: 2.25rem;
+        width: 14rem;
+        border: 1px solid gainsboro;
+        padding-left: 7rem;
+        font-size:  16px;
+        transition: .3s;
+    }
+    .cart-table-input-container input:focus{
+        
+        border:1px       solid #fdbb18;
+        box-shadow: 0 0 10px#fdbb18;
+        outline: none;
+    }
+    .cart-table-input-container a{
+        padding: 0.5rem;
+        
+    }
+    .cart-table-input-container i{
+        color: rgb(199,142,2);
+    }
+    .cart-price{
+        color: rgb(102, 102, 102);
+    }
+    .cart-product{
+        color: rgb(51, 51, 51);
+        font-size: 14px;
+        font-weight: 700;
+    }
+    .cart-table-buttons{
+        display: flex;
+        padding-top: 1rem;
+        align-items: center;
+    }
+    
+    .continue-shopping{
+        background: rgb(0, 33, 71);
+        color: white;
+        font-size: 16px;
+        border: 1px solid rgb(0, 33, 71);
+        border-radius: 5px;
+        padding: 0.33rem 0.90rem;
+        align-items: center;
+        transition: .3s;
+    }
+    .continue-shopping:hover{
+        background: black;
+        color: white;
+        border: 1px solid black;
+    }
+    .continue-shopping i{
+        color: white;
+        padding-right: 0.25rem;
+    }
+    .process-co{
+        margin-left: auto;
+        background: rgb(253, 187, 24);
+        color: black;
+        font-size: 16px;
+        border: 1px solid rgb(253, 187, 24);
+        border-radius: 5px;
+        padding: 0.33rem 0.90rem;
+        align-items: center;
+        transition: .3s;
+    }
+    .process-co:hover{
+        background: #c78e02;
+        color: black;
+        border: 1px solid #c78e02;
+    }
+    .process-co i{
+        color: black;
+        padding-left: 0.25rem;
+    }
+    .cart-card-body{
+        border: 1px solid gainsboro;
+        border-radius: 3px;
+        height: 18rem;
+    }
+   
+    .cart-card-body hr{
+        width: 19.4rem;
+        margin-left: 1rem;
+        display: none;
+        
+    }
+    .cart-card-body h4{
+        color: rgb(33, 37, 41);
+        font-size: 21px;
+        font-weight: 500;
+        padding-top: 1rem;
+        padding-left: 1rem;
+        display: none;
+
+
+    }
+    .cart-order-table{
+        width: 90%;
+        background: white;
+        border: none;
+        margin-left: 1rem;
+    }
+    
+    .cart-order-table tbody tr td{
+        text-align: right;
+        color: rgb(102, 102, 102);
+        padding: 1rem;
+    }
+    .cart-order-table tbody  tr td:nth-child(1){
+        width:50% ;
+        text-align: right;
+    }
+    .cart-order-table tbody  tr td:nth-child(2){
+        width: 50% ;
+        text-align: left;
+    }
+   .total-tr{
+       border-top: 1px solid gainsboro;
+       
+   }
+   .empty-order-td{
+       display: none;
+   }
+   .order-promo{
+       text-align: center !important;
+   }
+   #continue-shopping{
+       margin-left: 16rem;
+       margin-top: 4rem;
+       padding: 0.5rem 0.90rem;
+       
+   }
+   .order-total{
+       font-weight: 700;
+   }
+   .order-price{
+       font-weight: 700;
+   }
+   #promo-input-container{
+       left: 9rem;
+       top:14rem ;
+   }
+   
+
+    /* Cart End */
+    /* Confirmation Start */
+    .confirmation-info-col{
+        margin-top: 1rem;
+        
+    }
+    .confirmation-info-col h1{
+        color: rgb(0, 33, 71);
+        font-size: 35px;
+        font-weight: 500;
+    }
+    .payment-title{
+        margin-top: 2rem;
+        color: rgb(0, 33, 71);
+        font-size: 24.5px;
+        font-weight: 500;
+    }
+    .confirmation-info-table{
+        background: white;
+        border:none;
+        border-top:1px solid gainsboro;
+        
+    }
+    .confirmation-info-table tbody tr td{
+        padding: 0.75rem;
+    }
+    .confirmation-info-table tbody tr td:nth-child(1){
+        color: rgb(102, 102, 102);
+        font-size: 14px;
+        font-weight: 400;
+
+    }
+    .confirmation-info-table tbody tr td:nth-child(2){
+        text-align: right;
+        color: rgb(102, 102, 102);
+        font-size: 14px;
+        font-weight: 700;
+
+    }
+    .confirmation-info-table tbody tr td:nth-child(3){
+        color: rgb(102, 102, 102);
+        font-size: 14px;
+        font-weight: 700;
+
+    }
+    .payment2-row{
+        display: flex;
+        align-items: center;
+    }
+    .payment2-row h3{
+        color: white;
+    }
+    .payment2-row a i{
+        color: white;
+        font-size: 12px;
+        padding-bottom: 0.5rem;
+    }
+    .payment-edit{
+        margin-left: auto;
+    }
+    .card-head{
+        background-color: #626262;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        padding: 1rem;
+    }
+    .card-head ul{
+        list-style-type: disc;
+        padding-left: 2.5rem;
+    }
+    .bank-card-body{
+        background: #f0f0f0;
+        border:1px solid black;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        padding: 1rem;
+    }
+    .bank-card-body b{
+        color: rgb(33, 37, 41);
+        font-weight: 700;
+    }
+    .bank-card-body span,i{
+        color: black;
+    }
+    .bank-card-body i{
+        padding-right: 0.60rem;
+    }
+    .bill-ship-card{
+        align-items: center;
+        border: 1px solid gainsboro;
+        border-radius: 4px;
+        margin-top: 1rem;
+        display: flex;
+        padding: 1rem;
+    }
+    .bill-ship-card b{
+        color: rgb(33, 37, 41);
+        font-weight: 700;
+    }
+    .bill-ship-card address span{
+        color: rgb(33, 37, 41);
+        padding-left: 0.5rem;
+    }
+    .bill-ship-card address{
+        margin-bottom: 0;
+    }
+    
+    .bill-ship-card.order span{
+        color: rgb(102, 102, 102);
+    }
+    .card-order-button{
+        
+       margin-left: auto;
+       
+        
+    }
+    .card-order-button i{
+        padding-left: 0.18rem;
+        padding-top: 0.18rem;
+        width: 20px;
+        height: 20px;
+        border: 1px solid gainsboro;
+       
+        
+    }
+        
+    
+    .confirmation-product-col{
+        display: none;
+    }
+    .confirmation-product-table{
+        border-radius: 4px !important;
+        width: 43.1rem;
+        border: 1px solid gainsboro;
+        border-top:none;
+        
+    }
+    .confirmation-product-table thead{
+        
+        background: white;
+    }
+    .confirmation-product-table th{
+        color: rgb(102, 102, 102);
+        padding: 0.5rem 0.75rem;
+        font-weight: 700;
+        text-align: center;
+    }
+    .confirmation-product-table tbody td:nth-child(1){
+        
+        width: auto;
+        
+    }
+    .confirmation-product-table tbody td:nth-child(2){
+        
+        text-align: right;
+        
+       
+    }
+    .product-title{
+        text-align: center !important;
+    }
+    .confirmation-product-table tbody td:nth-child(3){
+        text-align: center;
+        
+    }
+    .confirmation-product-table tbody td:nth-child(4){
+        text-align: center;
+        
+    }
+    .confirmation-product-table tbody{
+        background:white;
+    }
+    .product-table-firsttr{
+        border-top: 2px  solid gainsboro;
+        
+        background: #f2f2f2;
+    }
+    
+    .confirmation-product-table td{
+        color: rgb(102, 102, 102);
+        padding: 0.75rem;
+        
+    }
+    .product-table-lasttr{
+        border-top: 1px solid gainsboro;
+    }
+    /* Confirmation End */
+
+      /* Confirm_order Start */
+
+      .confirm-order{
+        margin-top: 2rem;
+        position: relative;
+        margin-bottom: 3rem;
+    }
+    .billing-address{
+        color: rgb(0, 33, 71);
+        font-size: 24.5px;
+        font-weight: 500;
+        border-bottom: 1px solid gainsboro;
+        padding-bottom: 0.5rem;
+    }
+    .billing-address-info{
+        margin-top: 0.5rem;
+        border:1px solid rgb(253, 187, 24);
+        padding: 1.25rem;
+        border-radius: 4px;
+    }
+    .billing-address-info span{
+        color: rgb(33, 37, 41);
+    }
+    .billing-address-info-top-flex{
+        display: flex;
+        align-items: center;
+    }
+    .billing-address-info-top-flex i{
+        color: rgb(199, 142, 2);
+        margin-left: auto;
+    }
+    
+    .row-confirm-order-buttons{
+        padding-top: 1rem;
+    }
+    .confirm-order-confirm{
+        margin-left: auto;
+        background: rgb(253, 187, 24);
+        color: black;
+        font-size: 16px;
+        border: 1px solid rgb(253,187,24);
+        border-radius: 5px;
+        padding: 0.33rem 0.90rem;
+        align-items: center;
+        transition: .3s;
+       
+    }
+    .confirm-order-table{
+        display: none;
+    }
+    .confirm-order-confirm:hover{
+        background: #c78e02;
+        color: black;
+        border: 1px solid #c78e02;
+    }
+    .confirm-order-confirm i{
+        color: black;
+        padding-left: 0.25rem;
+    }
+    .confirm-order-return{
+        background: rgb(0, 33, 71);
+        color: white;
+        font-size: 16px;
+        border: 1px solid rgb(0, 33, 71);
+        border-radius: 5px;
+        padding: 0.33rem 0.90rem;
+        align-items: center;
+        transition: .3s;
+        margin-left: 1rem;
+    }
+    .confirm-order-return:hover{
+        background: black;
+        color: white;
+        border: 1px solid black;
+    }
+    .confirm-order-return i{
+        color: white;
+        padding-right: 0.25rem;
+    }
+    .confirm-order-table{
+        
+        position: absolute;
+        left: 43rem;
+        bottom: 0;
+       
+    }
+
+
+    /* Confirm_order End */
+
     #footer-text{
 
         padding-top: 2.2rem;
@@ -14071,7 +14995,7 @@
            
        }
        .active-flex{
-           display: flex;
+           display: flex !important;
        }
        .delete-edit button{
            width: 7rem;
@@ -16573,6 +17497,7 @@
     }
 
     /* Registration End */
+    
      /* Payment Start */
 
     /* Stepper Start */
@@ -16748,12 +17673,17 @@
         background: rgb(33, 37, 41);
         border-radius: 5px;
         font-size: 16px;
+        transition: .3s;
     }
     .rtrn-cart:focus{
         outline:none;
     }
     .rtrn-cart i{
         color: white;
+    }
+    .rtrn-cart:hover{
+        color: white;
+        background: black;
     }
     .pay-now{
         padding: 0.5rem;
@@ -16772,6 +17702,7 @@
     .pay-now:hover{
        background: rgb(180, 140, 10);
        border-color: rgb(180, 140, 10);
+       color: black;
     }
     .pay-now i{
         color: rgb(33, 37, 41);
@@ -16830,7 +17761,7 @@
        background: white;
    }
     .promo-input{
-       width: 22.85rem ;
+       width: 15.85rem ;
        padding: 0.5rem;
        border-top-left-radius: 5px;
        border-bottom-left-radius: 5px;
@@ -16858,8 +17789,8 @@
    }
    .promo-input-container{
        position: absolute;
-       left: 43rem;
-       top: 22rem;
+       left: 2rem;
+       top: 24rem;
        display: none;
    }
   
@@ -16870,6 +17801,501 @@
 
     /* Payment End */
     
+      /* Cart Start */
+      .cart{
+        margin-bottom: 5rem;
+        margin-top: 2rem;
+        position: relative;
+    }
+    .cart-row{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .col-order{
+        padding-top: 1rem;
+    }
+    .cart-table{
+        border: none;
+        table-layout: fixed;
+    }
+    .cart-table tbody tr td:nth-child(1){
+        width: 20%;
+    }
+    .cart-table tbody tr td:nth-child(4){
+        width: 20%;
+        text-align: center;
+    }
+    .cart-table tbody tr td:nth-child(5){
+        width: 10%;
+        text-align: center;
+        
+    }
+    .cart-table tbody{
+        border-top: 2px solid gainsboro;
+        height: 4.5rem;
+        align-items: center;
+        background: #f2f2f2;
+    }
+    .cart-table thead{
+        border-top:1px solid gainsboro;
+        background: white;
+    }
+    .cart-table thead tr th{
+        padding: 0.35rem 0;
+        color: rgb(102, 102, 102);
+        font-size: 14px;
+        font-weight: 700;
+        text-align: center;
+    }
+    .cart-table-input-container{
+        display: flex;
+    }
+    .cart-table-input-container input{
+        height: 2.25rem;
+        width: 6rem;
+        border: 1px solid gainsboro;
+        padding-left: 3rem;
+        font-size:  16px;
+        transition: .3s;
+    }
+    .cart-table-input-container input:focus{
+        
+        border:1px       solid #fdbb18;
+        box-shadow: 0 0 10px#fdbb18;
+        outline: none;
+    }
+    .cart-table-input-container a{
+        padding: 0.5rem;
+        
+    }
+    .cart-table-input-container i{
+        color: rgb(199,142,2);
+    }
+    .cart-price{
+        color: rgb(102, 102, 102);
+    }
+    .cart-product{
+        color: rgb(51, 51, 51);
+        font-size: 14px;
+        font-weight: 700;
+    }
+    .cart-product-td{
+        text-align: center;
+    }
+    .cart-table-buttons{
+        display: flex;
+        padding-top: 1rem;
+        align-items: center;
+    }
+    
+    .continue-shopping{
+        padding: 0.33rem 0.90rem;
+        background: rgb(0, 33, 71);
+        color: white;
+        font-size: 16px;
+        border: 1px solid rgb(0, 33, 71);
+        border-radius: 5px;
+       
+        align-items: center;
+        transition: .3s;
+        
+    }
+    .continue-shop::after{
+        content: "Continue";
+    }
+    .continue-shopping span{
+        display: none;
+    }
+   
+    .continue-shopping:hover{
+        background: black;
+        color: white;
+        border: 1px solid black;
+    }
+    .continue-shopping i{
+        color: white;
+        padding-right: 0.25rem;
+    }
+    .process-co{
+        margin-left: auto;
+        background: rgb(253, 187, 24);
+        color: black;
+        font-size: 16px;
+        border: 1px solid rgb(253, 187, 24);
+        border-radius: 5px;
+        padding: 0.33rem 0.90rem;
+        align-items: center;
+        transition: .3s;
+    }
+    .process-co:hover{
+        background: #c78e02;
+        color: black;
+        border: 1px solid #c78e02;
+    }
+    .process-co i{
+        color: black;
+        padding-left: 0.25rem;
+    }
+    .cart-card-body{
+        border: 1px solid gainsboro;
+        border-radius: 3px;
+        height: 18rem;
+    }
+   
+    .cart-card-body hr{
+        width: 19.4rem;
+        margin-left: 1rem;
+        display: none;
+        
+    }
+    .cart-card-body h4{
+        color: rgb(33, 37, 41);
+        font-size: 21px;
+        font-weight: 500;
+        padding-top: 1rem;
+        padding-left: 1rem;
+        display: none;
+
+
+    }
+    .cart-order-table{
+        width: 90%;
+        background: white;
+        border: none;
+        margin-left: 1rem;
+    }
+    
+    .cart-order-table tbody tr td{
+        text-align: right;
+        color: rgb(102, 102, 102);
+        padding: 1rem;
+    }
+    .cart-order-table tbody  tr td:nth-child(1){
+        width:50% ;
+        text-align: right;
+    }
+    .cart-order-table tbody  tr td:nth-child(2){
+        width: 50% ;
+        text-align: left;
+    }
+   .total-tr{
+       border-top: 1px solid gainsboro;
+       
+   }
+   .empty-order-td{
+       display: none;
+   }
+   .order-promo{
+       text-align: center !important;
+   }
+   #continue-shopping{
+       margin-left: 5.5rem;
+       margin-top: 4rem;
+       padding: 0.5rem 0.90rem;
+       
+   }
+   .order-total{
+       font-weight: 700;
+   }
+   .order-price{
+       font-weight: 700;
+   }
+   #promo-input-container{
+       left: 1.8rem;
+       top:14rem ;
+   }
+   .product-img-td{
+       display: none;
+   }
+   .product-th{
+       display: none;
+   }
+   .cart-table-input-td i{
+       display: none;
+   }
+   
+
+    /* Cart End */
+
+      /* Confirmation Start */
+      .confirmation-info-col{
+        margin-top: 1rem;
+        
+    }
+    .confirmation-info-col h1{
+        color: rgb(0, 33, 71);
+        font-size: 35px;
+        font-weight: 500;
+    }
+    .payment-title{
+        margin-top: 2rem;
+        color: rgb(0, 33, 71);
+        font-size: 24.5px;
+        font-weight: 500;
+    }
+    .confirmation-info-table{
+        background: white;
+        border:none;
+        border-top:1px solid gainsboro;
+        
+    }
+    .confirmation-info-table tbody tr td{
+        padding: 0.75rem;
+    }
+    .confirmation-info-table tbody tr td:nth-child(1){
+        color: rgb(102, 102, 102);
+        font-size: 14px;
+        font-weight: 400;
+
+    }
+    .confirmation-info-table tbody tr td:nth-child(2){
+        text-align: right;
+        color: rgb(102, 102, 102);
+        font-size: 14px;
+        font-weight: 700;
+
+    }
+    .confirmation-info-table tbody tr td:nth-child(3){
+        color: rgb(102, 102, 102);
+        font-size: 14px;
+        font-weight: 700;
+
+    }
+    .payment2-row{
+        display: flex;
+        align-items: center;
+    }
+    .payment2-row h3{
+        color: white;
+    }
+    .payment2-row a i{
+        color: white;
+        font-size: 12px;
+        padding-bottom: 0.5rem;
+    }
+    .payment-edit{
+        margin-left: auto;
+    }
+    .card-head{
+        background-color: #626262;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        padding: 1rem;
+    }
+    .card-head ul{
+        list-style-type: disc;
+        padding-left: 2.5rem;
+    }
+    .bank-card-body{
+        background: #f0f0f0;
+        border:1px solid black;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        padding: 1rem;
+    }
+    .bank-card-body b{
+        color: rgb(33, 37, 41);
+        font-weight: 700;
+    }
+    .bank-card-body span,i{
+        color: black;
+    }
+    .bank-card-body i{
+        padding-right: 0.60rem;
+    }
+    .bill-ship-card{
+        align-items: center;
+        border: 1px solid gainsboro;
+        border-radius: 4px;
+        margin-top: 1rem;
+        display: flex;
+        padding: 1rem;
+    }
+    .bill-ship-card b{
+        color: rgb(33, 37, 41);
+        font-weight: 700;
+    }
+    .bill-ship-card address span{
+        color: rgb(33, 37, 41);
+        padding-left: 0.5rem;
+    }
+    .bill-ship-card address{
+        margin-bottom: 0;
+    }
+    
+    .bill-ship-card.order span{
+        color: rgb(102, 102, 102);
+    }
+    .card-order-button{
+        
+       margin-left: auto;
+       
+        
+    }
+    .card-order-button i{
+        padding-left: 0.18rem;
+        padding-top: 0.18rem;
+        width: 20px;
+        height: 20px;
+        border: 1px solid gainsboro;
+       
+        
+    }
+        
+    
+    .confirmation-product-col{
+        display: none;
+    }
+    .confirmation-product-table{
+        border-radius: 4px !important;
+        width: 21.55rem;
+        border: 1px solid gainsboro;
+        border-top:none;
+        
+    }
+    .confirmation-product-table thead{
+        
+        background: white;
+    }
+    .confirmation-product-table th{
+        color: rgb(102, 102, 102);
+        padding: 0.5rem 0.75rem;
+        font-weight: 700;
+        text-align: center;
+    }
+    .confirmation-product-table tbody td:nth-child(1){
+        
+        width: auto;
+        
+    }
+    .confirmation-product-table tbody td:nth-child(2){
+        
+        text-align: right;
+        
+       
+    }
+    .product-title{
+        text-align: center !important;
+    }
+    .confirmation-product-table tbody td:nth-child(3){
+        text-align: center;
+        
+    }
+    .confirmation-product-table tbody td:nth-child(4){
+        text-align: center;
+        
+    }
+    .confirmation-product-table tbody{
+        background:white;
+    }
+    .product-table-firsttr{
+        border-top: 2px  solid gainsboro;
+        
+        background: #f2f2f2;
+    }
+    
+    .confirmation-product-table td{
+        color: rgb(102, 102, 102);
+        padding: 0.75rem;
+        
+    }
+    .product-table-lasttr{
+        border-top: 1px solid gainsboro;
+    }
+    /* Confirmation End */
+
+     /* Confirm_order Start */
+
+     .confirm-order{
+        margin-top: 2rem;
+        position: relative;
+        margin-bottom: 3rem;
+    }
+    .billing-address{
+        color: rgb(0, 33, 71);
+        font-size: 24.5px;
+        font-weight: 500;
+        border-bottom: 1px solid gainsboro;
+        padding-bottom: 0.5rem;
+    }
+    .billing-address-info{
+        margin-top: 0.5rem;
+        border:1px solid rgb(253, 187, 24);
+        padding: 1.25rem;
+        border-radius: 4px;
+    }
+    .billing-address-info span{
+        color: rgb(33, 37, 41);
+    }
+    .billing-address-info-top-flex{
+        display: flex;
+        align-items: center;
+    }
+    .billing-address-info-top-flex i{
+        color: rgb(199, 142, 2);
+        margin-left: auto;
+    }
+    
+    .row-confirm-order-buttons{
+        padding-top: 1rem;
+    }
+    .confirm-order-confirm{
+        margin-left: auto;
+        margin-right: 1rem;
+        background: rgb(253, 187, 24);
+        color: black;
+        font-size: 16px;
+        border: 1px solid rgb(253,187,24);
+        border-radius: 5px;
+        padding: 0.33rem 0.90rem;
+        align-items: center;
+        transition: .3s;
+       
+    }
+    .confirm-order-table{
+        display: none;
+    }
+    .confirm-order-confirm:hover{
+        background: #c78e02;
+        color: black;
+        border: 1px solid #c78e02;
+    }
+    .confirm-order-confirm i{
+        color: black;
+        padding-left: 0.25rem;
+    }
+    .confirm-order-return{
+        background: rgb(0, 33, 71);
+        color: white;
+        font-size: 16px;
+        border: 1px solid rgb(0, 33, 71);
+        border-radius: 5px;
+        padding: 0.33rem 0.90rem;
+        align-items: center;
+        transition: .3s;
+        margin-left: 1rem;
+    }
+    .confirm-order-return:hover{
+        background: black;
+        color: white;
+        border: 1px solid black;
+    }
+    .confirm-order-return i{
+        color: white;
+        padding-right: 0.25rem;
+    }
+    .confirm-order-table{
+        
+        position: absolute;
+        left: 43rem;
+        bottom: 0;
+       
+    }
+
+
+    /* Confirm_order End */
+
     #footer-text{
 
         padding-top: 2.2rem;

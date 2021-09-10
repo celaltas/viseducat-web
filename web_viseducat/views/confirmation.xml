@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="display_confirmation" name="Confirmation">
+        <t t-call="website.layout">
+            <div class="container confirmation">
+                <div class="row confirmation-row">
+
+                    <div class="col-7 confirmation-info-col">
+                        <h1>Order S00040</h1>
+                        <h3 class="payment-title"><strong>Payment Information:</strong></h3>
+
+                        <table class="confirmation-info-table">
+                            <tbody>
+                                <tr>
+                                    <td colspan="2">Wire Transfer</td>
+                                    <td><strong>Total:</strong></td>
+                                    <td><strong>$57,500.00</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="bank-card">
+                            <div class="card-head">
+                                <div class="payment2-row">
+                                    <h3>Please make a payment to:</h3>
+                                    <a class="payment-edit" href=""><i class="fas fa-pencil-alt"></i></a>
+                                </div>
+
+                                <ul>
+                                    <li>Bank:</li>
+                                    <li>Account Number:</li>
+                                    <li>Account Holder:</li>
+                                </ul>
+                            </div>
+                            <div class="bank-card-body">
+                                <b>Communication:</b>
+                                <span><i class="fas fa-exclamation-triangle"></i>S00040</span>
+                            </div>
+
+                        </div>
+
+                        <div class="bill-ship-card">
+                            <b>Billing &amp; Shipping: </b>
+                            <address><span>215 Vine St, Scranton PA 18503, United States</span></address>
+                        </div>
+                        <div class="bill-ship-card order">
+                            <b>Your order:</b>
+                           <span>$57,500.00</span>
+
+                           <span class="card-order-button"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+
+
+
+                    </div>
+                    <div class="col-4 confirmation-product-col">
+                        <table class="confirmation-product-table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th colspan="3"></th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="product-table-firsttr">
+                                    <td class="product-table-img"><img src="" alt=""/></td>
+                                    <td class="product-title" colspan="3"><strong>Admission Fees for Bca</strong></td>
+                                    <td>1.0</td>
+                                    <td><span>$50,000.00</span></td>
+                                
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="3">Subtotal:</td>
+                                    <td></td>
+                                    <td><span>$50,000.00</span></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="3">Taxes:</td>
+                                    <td></td>
+                                    <td><span>$7,500.00</span></td>
+                                </tr>
+                                <tr class="product-table-lasttr" >
+                                    <td></td>
+                                    <td colspan="3"><strong>Total:</strong></td>
+                                    <td></td>
+                                    <td><span><strong>$57,500.00</strong></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+            <script>
+
+                const toggleButton=document.querySelector(".card-order-button").firstChild
+                
+                toggleButton.addEventListener("click",()=>{
+
+                    productCol.classList.toggle("active")
+
+
+
+                })
+
+
+
+                
+                // Bootstrap Col Changes
+                const windowWidth=window.screen.width;
+                const confirmationCol=document.querySelector(".confirmation-info-col")
+                const productCol=document.querySelector(".confirmation-product-col")
+
+                colWrapper(confirmationCol,productCol)
+
+
+                function colWrapper(colx,coly){
+                    if(windowWidth>300){
+                        colx.classList.remove("col-7")
+                        colx.classList.add("col-12")
+
+                        coly.classList.remove("col-4")
+                        coly.classList.add("col-12")
+                        
+
+                        
+                    }
+                    
+                    if (windowWidth>800){
+                        colx.classList.remove("col-12")
+                        colx.classList.add("col-7")
+
+                        coly.classList.remove("col-12")
+                        coly.classList.add("col-4")
+
+                    }
+                }
+
+
+
+            </script>
+        </t>
+    </template>
+</odoo>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <template id="display_payment" name="payment">
+    <template id="display_payment" name="Payment">
         <t t-call="website.layout">
             <div class="container payment">
 
@@ -10,7 +10,7 @@
                       <div class="step-counter">1</div>
                       <div class="step-name">Review Order</div>
                     </div>
-                    <div class="stepper-item completed">
+                    <div class="stepper-item completed stepper-item-payment">
                       <div class="step-counter">2</div>
                       <div class="step-name">Address</div>
                     </div>
@@ -69,8 +69,7 @@
                         </tr>
                         <tr class="promo">
                             <td class="empty-td" colspan="2"></td>
-                            <td class="promo-text" colspan="2"><a href="#0"><span class="promo-text-span">I have a promo
-                                        code</span></a></td>
+                            <td class="promo-text" colspan="2"><a class="promo-text-link" href="#0"><span class="promo-text-span">I have a promo code</span></a></td>
 
                         </tr>
                         <tr>
@@ -109,15 +108,15 @@
 
                 <div class="row">
                     <div class="col-7 pay-buttons">
-                        <button type="submit" class="rtrn-cart">
+                        <a href="cart"  type="submit" class="rtrn-cart">
                             <i class="fas fa-chevron-left"></i>
                             Return to Cart
-                        </button>
-                        <button type="submit" class="pay-now">
+                        </a>
+                        <a href="confirmation" type="submit" class="pay-now">
 
                             Pay Now
                             <i class="fas fa-chevron-right"></i>
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <table class="billing-table">
@@ -156,8 +155,7 @@
                         </tr>
                         <tr class="promo">
                             <td class="empty-td" colspan="2"></td>
-                            <td class="promo-text" colspan="2"><a href="#0"><span class="promo-text-span">I have a promo
-                                        code</span></a></td>
+                            <td class="promo-text" colspan="2"><a class="promo-text-link" href="#0"><span class="promo-text-span">I have a promo code</span></a></td>
 
                         </tr>
                         <tr>
@@ -175,9 +173,10 @@
             <script>
             const promoInput = document.querySelector(".promo-input-container");
             const emptyTd = document.querySelector(".empty-td");
-            const promoTextSpan = document.querySelector(".promo-text-span");
-            const promoText = document.querySelector(".promo-text");
+            const promoTextLink = document.querySelectorAll(".promo-text-link");
+            const promoText = document.querySelectorAll(".promo-text");
             const cols=document.querySelectorAll(".col-7")
+            
             
             
             const windowWidth=window.screen.width;
@@ -186,16 +185,39 @@
 
             const billingInfoButton=document.querySelector(".billing-info")
             const tableTablet=document.querySelector(".billing-table-tablet")
+            
+            
+           
+
+            
+           
+            
            
 
             billingInfoButton.addEventListener("click",function(){
+
+                var i=0;
+                const linkLength=promoTextLink.length;
+
+              
+                
                 tableTablet.classList.toggle("active")
+                promoInput.classList.remove("active-flex")
+              
             })
-
-
+            promoTextLink.forEach((promoTextLink)=>{
+                promoTextLink.addEventListener("click", function(){
+                        
+                        promoTextLink.classList.toggle("deactive")
+                        // promoText.classList.toggle("deactive")
+                        emptyTd.classList.toggle("deactive")
+                        promoInput.classList.toggle("active-flex")
+                    })
+            })
+             
             
 
-            window.onload(colWrapper())
+           
             function colWrapper(){
                 cols.forEach((col)=>{
                     if(windowWidth>300){
@@ -214,13 +236,9 @@
               
 
 
-                promoTextSpan.addEventListener("click", () => {
-                    
-                    promoTextSpan.classList.toggle("deactive")
-                    promoText.classList.toggle("deactive")
-                    emptyTd.classList.toggle("deactive")
-                    promoInput.classList.toggle("active")
-                })
+               
+
+                 window.onload=colWrapper
 
             </script>
         </t>

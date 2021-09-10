@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="display_cart" name="Cart">
+        <t t-call="website.layout">
+            <div class="container cart">
+
+                <div class="stepper-wrapper">
+                    <div class="stepper-item completed review-stepper">
+                      <div class="step-counter">1</div>
+                      <div class="step-name">Review Order</div>
+                    </div>
+                    <div class="stepper-item">
+                      <div class="step-counter">2</div>
+                      <div class="step-name">Address</div>
+                    </div>
+                    <div class="stepper-item">
+                      <div class="step-counter">3</div>
+                      <div class="step-name">Confirm Order</div>
+                    </div>
+                </div>
+
+                <div class="row cart-row">
+                    <div class="col-8 col-product">
+                        <table class="cart-table">
+                            <thead>
+                                <tr>
+                                    <th class="product-th" >Product</th>
+                                    <th></th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="product-img-td" ><img src="" alt=""/></td>
+                                    <td class="cart-product-td"><a href=""><strong class="cart-product">Admission Fees for BCA</strong></a></td>
+                                    <td class="cart-table-input-td"><div class="cart-table-input-container"><a href="#0"><i class="fas fa-minus"></i></a><input class="cart-table-input" type="text"/><a href="#0"><i class="fas fa-plus"></i></a></div></td>
+                                    <td><span class="cart-price">$50,000.00</span></td>
+                                    <td><a href=""><small><i class="far fa-trash-alt"></i></small></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="cart-table-buttons">
+                            <a class="continue-shopping continue-shop" href=""><i class="fas fa-chevron-left"></i><span>Continue Shopping</span></a>
+                            <a class="process-co" href="payment">Process Checkout<i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-4 col-order">
+                        <div class="cart-card-body">
+                            <h4>Order Total</h4>
+                            <hr/>
+                            <table class="cart-order-table">
+                                <tbody>
+                                    <tr>
+                                        <td>Subtotal:</td>
+                                        <td>$ 50,000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Taxes:</td>
+                                        <td>$ 7,500.00</td>
+                                    </tr>
+                                    <tr class="total-tr">
+                                        <td class="order-total">Total:</td>
+                                        <td class="order-price" >$ 57,500.00</td>
+                                    </tr>
+                                    <tr>
+                                       
+                                        <td colspan="2" class="promo-text order-promo"><span><a class="promo-text-link" href="#0"><span class="promo-text-span">I have a promo code</span></a></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <a href="payment" id="continue-shopping" class="continue-shopping">Process Checkout</a>
+                        </div>
+                        <div class="promo-input-container" id="promo-input-container" >
+                            <input id="promo-input" class="promo-input" type="text" name="promo" placeholder="code..." /><a href="#0" role="button" class="table-button" id="promo-input">Apply</a>
+                        </div>
+                    </div>
+                </div>
+
+            
+
+
+            </div>
+            <script>
+
+                const promoInput = document.querySelector(".promo-input-container");
+                const promoTextLink = document.querySelector(".promo-text-link");
+                const promoText = document.querySelector(".promo-text");
+
+                promoTextLink.addEventListener("click",()=>{
+                    promoText.classList.toggle("deactive")
+                    promoInput.classList.toggle("active-flex")
+                })
+                
+                // Bootstrap col changes
+
+                const windowWidth=window.screen.width
+                const productCol=document.querySelector(".col-product")
+                const orderCol=document.querySelector(".col-order")
+
+                colWrapper(productCol,orderCol)
+
+                function colWrapper(colProduct,colOrder){
+                    if(windowWidth>300){
+                        colProduct.classList.remove("col-8")
+                        colProduct.classList.add("col-12")
+
+                        colOrder.classList.remove("col-4")
+                        colOrder.classList.add("col-12")
+                    }
+                    
+                    if (windowWidth>800){
+                        colProduct.classList.remove("col-12")
+                        colProduct.classList.add("col-8")
+
+                        colOrder.classList.remove("col-12")
+                        colOrder.classList.add("col-4")
+                    }
+                }
+
+
+              
+            </script>
+        </t>
+    </template>
+</odoo>

@@ -21,7 +21,10 @@
         'views/course_details_view.xml',
         'views/registration.xml',
         'views/menu.xml',
-        'views/payment.xml'
+        'views/payment.xml',
+        'views/cart.xml',
+        'views/confirmation.xml',
+        'views/confirm_order.xml'
         
 
     ],

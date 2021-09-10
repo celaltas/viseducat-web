@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="display_confirm_order" name="Confirm Order">
+        <t t-call="website.layout">
+            <div class="container confirm-order">
+                <div class="stepper-wrapper">
+                    <div class="stepper-item completed uncompleted">
+                        <div class="step-counter">1</div>
+                        <div class="step-name">Review Order</div>
+                    </div>
+                    <div class="stepper-item">
+                        <div class="step-counter">2</div>
+                        <div class="step-name">Address</div>
+                    </div>
+                    <div class="stepper-item">
+                        <div class="step-counter">3</div>
+                        <div class="step-name">Confirm Order</div>
+                    </div>
+                </div>
+
+                <div class="row row-confirm-order">
+                    <div class="col-lg-7">
+                        <h3 class="billing-address">Billing Address</h3>
+                    </div>
+                   
+                    <div class="col-7 billing-address-infos">
+                        <div class="col-6 billing-address-info">
+                            <div class="billing-address-info-top-flex">
+                                <span>YourCompany, Mitchell Admin
+                                </span>
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <div>
+                                <span>
+                                    215 Vine St
+                                    <br />
+                                    Scranton PA 18503
+                                    <br />
+                                    United States
+                                </span>
+                            </div>
+
+                        </div>
+                        <div class="row row-confirm-order-buttons">
+                            <a class="confirm-order-return" role="button" href="cart"><i
+                                    class="fas fa-chevron-left"></i>Return to Cart</a>
+                            <a class="confirm-order-confirm" role="button" href="payment">Confirm<i
+                                    class="fas fa-chevron-right"></i></a>
+                        </div>
+
+                    </div>
+                    <div class="col-4 confirm-order-table">
+                        <table class="confirmation-product-table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th colspan="3"></th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="product-table-firsttr">
+                                    <td class="product-table-img"><img src="" alt=""/></td>
+                                    <td class="product-title" colspan="3"><strong>Admission Fees for Bca</strong></td>
+                                    <td>1.0</td>
+                                    <td><span>$50,000.00</span></td>
+                                
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="3">Subtotal:</td>
+                                    <td></td>
+                                    <td><span>$50,000.00</span></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="3">Taxes:</td>
+                                    <td></td>
+                                    <td><span>$7,500.00</span></td>
+                                </tr>
+                                <tr class="product-table-lasttr" >
+                                    <td></td>
+                                    <td colspan="3"><strong>Total:</strong></td>
+                                    <td></td>
+                                    <td><span><strong>$57,500.00</strong></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <script>
+                // Bootstrap col changes
+
+                const windowWidth=window.screen.width
+                const billingAddress=document.querySelector(".billing-address-infos")
+                const billingAddressInner=document.querySelector(".billing-address-info")
+
+                colWrapper(billingAddress,billingAddressInner)
+                
+                function colWrapper(colx,coly){
+                    if(windowWidth>300){
+                        colx.classList.remove("col-7")
+                        colx.classList.add("col-12")
+
+                        coly.classList.remove("col-6")
+                        coly.classList.add("col-12")
+                        
+
+                        
+                    }
+                    
+                    if (windowWidth>800){
+                        colx.classList.remove("col-12")
+                        colx.classList.add("col-7")
+
+                        coly.classList.remove("col-12")
+                        coly.classList.add("col-6")
+
+
+                    }
+                }
+            </script>
+        </t>
+    </template>
+</odoo>

@@ -166,3 +166,15 @@ class ViseducatOnline(http.Controller):
     def _display_payment(self, **kw):
         return request.render('web_viseducat.display_payment')
 
+    @http.route('/cart', type='http', auth='public', website=True)
+    def _display_cart(self, **kw):
+        return request.render('web_viseducat.display_cart')
+
+    @http.route('/confirmation', type='http', auth='public', website=True)
+    def _display_confirmation(self, **kw):
+        return request.render('web_viseducat.display_confirmation')
+
+    @http.route('/confirm_order', type='http', auth='public', website=True)
+    def _display_confirm_order(self, **kw):
+        return request.render('web_viseducat.display_confirm_order')
+
