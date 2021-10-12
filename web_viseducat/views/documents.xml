@@ -9,19 +9,18 @@
                     <h3>Sumita S Dani Documents</h3>
                     <hr></hr>
                     <div class="documents-grid-view">
-                        <div class="grid g1"></div>
-                        <div class="grid g2"></div>
-                        <div class="grid g3"></div>
-                        <div class="grid g4"></div>
-                        <div class="grid g5"></div>
-                        <div class="grid g6"></div>
-                        <div class="grid g7"></div>
-                        <div class="grid g8"></div>
-                        <div class="grid g9"></div>
-                        <div class="grid g10"></div>
-                        <div class="grid g11"></div>
-                        <div class="grid g12"></div>
-                        <div class="grid g13"></div>
+                        <div class="grid g1"><img src="../web_viseducat/static/src/img/student-profile.png"></img><span>Student Profile</span></div>
+                        <div class="grid g2"><img src="../web_viseducat/static/src/img/subject-registration.png"></img><span>Subject Registration</span></div>
+                        <div class="grid g3"><img src="../web_viseducat/static/src/img/library.png"></img><span>Library</span></div>
+                        <div class="grid g4"><img src="../web_viseducat/static/src/img/assignments.png"></img><span>Assignments</span></div>
+                        <div class="grid g5"><img src="../web_viseducat/static/src/img/exams.png"></img><span>Exams</span></div>
+                        <div class="grid g6"><img src="../web_viseducat/static/src/img/courses.png"></img><span>Courses</span></div>
+                        <div class="grid g7"><img src="../web_viseducat/static/src/img/timetable.png"></img><span>Timetable</span></div>
+                        <div class="grid g8"><img src="../web_viseducat/static/src/img/attendance.png"></img><span>Attendance</span></div>
+                        <div class="grid g9"><img src="../web_viseducat/static/src/img/admission-registration.png"></img><span>Admission Registration</span></div>
+                        <div class="grid g10"><img src="../web_viseducat/static/src/img/invoices-bills.png"></img><span>Invoices &amp; Bills </span></div>
+                        <div class="grid g11"><img src="../web_viseducat/static/src/img/quotations.png"></img><span>Quotations</span></div>
+                        <div class="grid g12"><img src="../web_viseducat/static/src/img/sales-orders.png"></img><span>Sales Orders</span></div>
                     </div>
                 </div>
                 <div class="documents-right">
@@ -30,7 +29,7 @@
                         <hr></hr>
                         <div class="documents-contact">
                             <b>Sumita S Dani</b>
-                            <div class="contact-mail" >
+                            <div class="contact-mail">
                                 <i class="fas fa-envelope"></i>
                                 <a href="#0">sumitasdani@demo.com</a>
                             </div>
@@ -43,27 +42,31 @@
                         <div class="documents-details">
                             <div class="documents-details-flex">
                                 <h4>Details</h4>
-                                <a href="#0" ><i class="fas fa-pencil-alt"></i>&amp;nbsp;Edit</a>
+                                <a href="/account">
+                                    <i class="fas fa-pencil-alt"></i>
+                                    &amp;nbsp;Edit
+                                </a>
                             </div>
                             <hr></hr>
                             <div class="documents-details-map">
                                 <span>Sumita S Dani</span>
                                 <i class="fas fa-map-marker-alt details-map-icon"></i>
-                                <span class="details-country" >India</span>
-                                <div class="documents-details-mail" >
-                                <i class="fas fa-envelope"></i>
-                                <a href="#0">sumitasdani@demo.com</a>  
-                                </div> 
+                                <span class="details-country">India</span>
+                                <div class="documents-details-mail">
+                                    <i class="fas fa-envelope"></i>
+                                    <a href="#0">sumitasdani@demo.com</a>
+                                </div>
 
                             </div>
 
                         </div>
-                        <div class="documents-security" >
+                        <div class="documents-security">
                             <h4>Account Security</h4>
                             <hr></hr>
-                            <a href="#0" ><i class="fas fa-pencil-alt"></i>&amp;nbsp;Edit Security Settings</a> 
-
-
+                            <a href="/security">
+                                <i class="fas fa-pencil-alt"></i>
+                                &amp;nbsp;Edit Security Settings
+                            </a>
 
 
                         </div>

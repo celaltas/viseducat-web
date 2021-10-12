@@ -182,3 +182,11 @@ class ViseducatOnline(http.Controller):
     def _display_documents(self, **kw):
         return request.render('web_viseducat.display_documents')
 
+    @http.route('/account', type='http', auth='public', website=True)
+    def _display_account(self, **kw):
+        return request.render('web_viseducat.display_account')
+    
+
+    @http.route('/security', type='http', auth='public', website=True)
+    def _display_security(self, **kw):
+        return request.render('web_viseducat.display_security')

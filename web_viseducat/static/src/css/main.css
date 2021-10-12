@@ -5976,11 +5976,65 @@
     .grid{
         width:245px;
         height:185px;
-        border:1px solid black;
         background: red;
         margin:0.35rem;
+        display:flex;
+        flex-direction:column;
+        text-align:center;
+        border-radius:10px;
         
         
+    }
+    .grid:hover{
+        cursor:pointer;
+    }
+    .grid img{
+        width:5rem;
+        margin:0 auto;
+        margin-top:2rem;
+    }
+    .grid span{
+        font-size:16px;
+        font-weight:bold;
+        margin-top:1rem;
+    }
+    .g1{
+        background-color:#304cd5
+    }
+    .g2{
+        background-color: #E959AD;
+
+    }
+    .g3{
+        background-color:#575756
+    }
+    .g4{
+        background-color:#45ac34
+    }
+    .g5{
+       
+        background-color: #304cd5;
+    }
+    .g6{
+        background-color:#E959AD
+    }
+    .g7{
+        background-color:#575756
+    }
+    .g8{
+        background-color:#45ac34
+    }
+    .g9{
+        background-color: #304cd5;
+    }
+    .g10{
+        background-color: #E959AD;
+    }
+    .g11{
+        background-color:#575756;
+    }
+    .g12{
+        background-color:#45ac34
     }
     .documents-side-bar{
         width: 12rem;
@@ -6068,6 +6122,109 @@
         color:#5f5606;
     }
     /* Documents End */
+
+    /* Account Start */
+    .account-row{
+        border:1px solid gainsboro;
+        padding:0.66rem;
+        margin-top:1rem;
+        border-radius:5px;
+       
+    }
+    .account-row i:hover{
+        color:#5f5606;
+        cursor:pointer;
+    }
+    .form-group.group-col{
+        padding-left: 0 !important;
+        
+    }
+    .form-group.group-col:nth-child(2n){
+        padding-left:1rem !important;
+    }
+    .form-group input{
+        font-size:16px;
+    }
+    .form-group.col-xl-5.group-col select{
+        font-size:16px;
+    }
+    .row.account-button button{
+        float:right;
+        
+        border:none;
+        display:flex;
+       
+        
+    }
+    .row.account-button a{
+        padding:0.5rem 1rem;
+        float:right;
+        background:#fdbb18;
+        align-items:center;
+        border-radius:4px;
+        transition:.3s;
+        font-size:16px;
+        color:black;
+    }
+    .row.account-button span{
+       font-size:16px;
+    }
+    .row.account-button i{
+        padding-left:0.20rem;
+     }
+    .row.account-button a:hover{
+        background:#d29a12;
+    }
+    .row.account-button a:focus{
+        box-shadow: 0px 0px 2px 2px #fdbb18;
+        outline:none
+    }
+    /* Account End */
+
+    /* Security Start */
+   .form-group.security h3{
+       font-size:24.5px;
+       font-weight:500;
+       margin-left:17.8rem;
+       color:#002147;
+       
+   }
+   .container.security{
+       margin-top:1rem;
+   }
+   .form-group.group-sec{
+       margin-left:16rem;
+   }
+   .form-group.group-sec input{
+       font-size:14px;
+   }
+   .group-sec label{
+       font-weight: 700;
+       color:rgb(33, 37, 41);
+   }
+   .change-pw-button{
+       margin-left:16rem;
+       padding:0.55rem 1rem;
+       border-radius:4px;
+       background-color: #d91f1f;
+       color:white;
+       font-size:16px;
+       cursor:pointer;
+       transition:.3s;
+   }
+   .change-pw-button:hover{
+       background-color: #ab1818;
+   }
+   .change-pw-button:focus{
+   box-shadow: 0px 0px 2px 2px #d91f1f;
+   outline:none
+}
+   .change-pw-button button{
+       border:none;
+       
+
+   }
+    /* Security End */
     #footer-text{
 
         padding-top: 2.2rem;
@@ -12202,11 +12359,65 @@
     .grid{
         width:200px;
         height:165px;
-        border:1px solid black;
         background: red;
         margin:0.35rem;
+        display:flex;
+        flex-direction:column;
+        text-align:center;
+        border-radius:10px;
         
         
+    }
+    .grid:hover{
+        cursor:pointer;
+    }
+    .grid img{
+        width:5rem;
+        margin:0 auto;
+        margin-top:2rem;
+    }
+    .grid span{
+        font-size:16px;
+        font-weight:bold;
+        margin-top:1rem;
+    }
+    .g1{
+        background-color:#304cd5
+    }
+    .g2{
+        background-color: #E959AD;
+
+    }
+    .g3{
+        background-color:#575756
+    }
+    .g4{
+        background-color:#45ac34
+    }
+    .g5{
+       
+        background-color: #304cd5;
+    }
+    .g6{
+        background-color:#E959AD
+    }
+    .g7{
+        background-color:#575756
+    }
+    .g8{
+        background-color:#45ac34
+    }
+    .g9{
+        background-color: #304cd5;
+    }
+    .g10{
+        background-color: #E959AD;
+    }
+    .g11{
+        background-color:#575756;
+    }
+    .g12{
+        background-color:#45ac34
     }
     .documents-side-bar{
         width: 12rem;
@@ -12294,6 +12505,117 @@
         color:#5f5606;
     }
     /* Documents End */
+     /* Account Start */
+     .account-row{
+        border:1px solid gainsboro;
+        padding:0.66rem;
+        margin-top:1rem;
+        border-radius:5px;
+       
+    }
+    .account-row i:hover{
+        color:#5f5606;
+        cursor:pointer;
+    }
+    .form-group.group-col{
+        padding-left: 0 !important;
+        padding-right:0 !important;
+        
+    }
+    .form-group input{
+        font-size:16px;
+    }
+    .form-group.col-xl-5.group-col select{
+        font-size:16px;
+    }
+    .row.account-button{
+        margin-bottom:6rem;
+    }
+    .row.account-button button{
+        
+        border:none;
+        
+       
+        
+    }
+    .row.account-button a{
+        padding:0.5rem 1rem;
+        background:#fdbb18;
+        border-radius:4px;
+        transition:.3s;
+        position:absolute;
+        right: 0;
+        font-size:16px;
+        color:black;
+    }
+    .row.account-button span{
+       font-size:16px;
+    }
+    .row.account-button i{
+        padding-left:0.20rem;
+     }
+    .row.account-button a:hover{
+        background:#d29a12;
+    }
+    .row.account-button a:focus{
+        box-shadow: 0px 0px 2px 2px #fdbb18;
+        outline:none
+    }
+    .row.account-button .col-10{
+        flex:none !important;
+        max-width:none !important;
+    }
+    
+    /* Account End */
+
+    /* Security Start */
+   .form-group.security h3{
+    font-size:24.5px;
+    font-weight:500;
+    margin-left:6rem;
+    color:#002147;
+    
+}
+.container.security{
+    margin-top:1rem;
+    margin-bottom:3rem;
+}
+.form-group.group-sec{
+    margin-left:4rem;
+}
+.form-group.group-sec input{
+    font-size:14px;
+}
+.group-sec label{
+    font-weight: 700;
+    color:rgb(33, 37, 41);
+}
+.change-pw-button{
+    margin-left:4rem;
+    padding:0.55rem 1rem;
+    border-radius:4px;
+    background-color: #d91f1f;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+.change-pw-button:hover{
+    background-color: #ab1818;
+}
+.change-pw-button:focus{
+box-shadow: 0px 0px 2px 2px #d91f1f;
+outline:none
+}
+.change-pw-button button{
+    border:none;
+    
+
+}
+.group-sec input{
+    width:80% !important;
+}
+ /* Security End */
 
     #footer-text{
 
@@ -18589,13 +18911,67 @@
         flex-wrap: wrap;
     }
     .grid{
-        width:200px;
+        width:335px;
         height:165px;
-        border:1px solid black;
         background: red;
         margin:0.35rem;
+        display:flex;
+        flex-direction: column;
+        text-align:center;
+        border-radius:10px;
         
         
+    }
+    .grid:hover{
+        cursor:pointer;
+    }
+    .grid img{
+        width:5rem;
+        margin:0 auto;
+        margin-top:2rem;
+    }
+    .grid span{
+        font-size:16px;
+        font-weight:bold;
+        margin-top:1rem;
+    }
+    .g1{
+        background-color:#304cd5
+    }
+    .g2{
+        background-color: #E959AD;
+
+    }
+    .g3{
+        background-color:#575756
+    }
+    .g4{
+        background-color:#45ac34
+    }
+    .g5{
+       
+        background-color: #304cd5;
+    }
+    .g6{
+        background-color:#E959AD
+    }
+    .g7{
+        background-color:#575756
+    }
+    .g8{
+        background-color:#45ac34
+    }
+    .g9{
+        background-color: #304cd5;
+    }
+    .g10{
+        background-color: #E959AD;
+    }
+    .g11{
+        background-color:#575756;
+    }
+    .g12{
+        background-color:#45ac34
     }
     .documents-side-bar{
         width: 12rem;
@@ -18717,15 +19093,6 @@
     flex-direction:row;
     flex-wrap: wrap;
 }
-.grid{
-    width:335px;
-    height:165px;
-    border:1px solid black;
-    background: red;
-    margin:0.35rem;
-    
-    
-}
 .documents-side-bar{
     width: 12rem;
     margin:3rem auto;
@@ -18813,6 +19180,122 @@
     color:#5f5606;
 }
 /* Documents End */
+  /* Account Start */
+  .account-row{
+    border:1px solid gainsboro;
+    padding:0.66rem;
+    
+    border-radius:5px;
+    margin:0 2px;
+    margin-top:1rem;
+   
+}
+.account-row i:hover{
+    color:#5f5606;
+    cursor:pointer;
+}
+
+.form-group input{
+    font-size:16px;
+}
+.form-group.col-xl-5.group-col select{
+    font-size:16px;
+}
+.row.account-button{
+    margin-bottom:6rem;
+}
+.row.account-button button{
+   
+    border:none;
+    
+    
+   
+   
+    
+}
+.row.account-button a{
+    background:#fdbb18;
+    padding:0.5rem 1rem;
+    position:absolute;
+    right: 0;
+    border-radius:4px;
+    transition:.3s;
+    font-size:16px;
+    color:black;
+}
+.row.account-button span{
+   font-size:16px;
+}
+.row.account-button i{
+    padding-left:0.20rem;
+ }
+.row.account-button a:hover{
+    background:#d29a12;
+}
+.row.account-button a:focus{
+    box-shadow: 0px 0px 2px 2px #fdbb18;
+    outline:none
+}
+.row.account-button .col-10{
+    flex:none !important;
+    max-width:96% !important;
+}
+/* Account End */
+
+ /* Security Start */
+ .form-group.security{
+    width:375px;
+ }
+ .form-group.security h3{
+    font-size:24.5px;
+    font-weight:500;
+    padding-left:1rem;
+    color:#002147;
+    
+}
+.container.security{
+    margin-top:1rem;
+    margin-bottom:3rem;
+}
+.form-group.group-sec{
+   padding-left:0 !important;
+}
+.form-group.group-sec input{
+    font-size:14px;
+    width:95% !important;
+}
+.group-sec label{
+    font-weight: 700;
+    color:rgb(33, 37, 41);
+}
+.change-pw-button{
+    
+    padding:0.55rem 1rem;
+    border-radius:4px;
+    background-color: #d91f1f;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+.change-pw-button:hover{
+    background-color: #ab1818;
+}
+.change-pw-button:focus{
+box-shadow: 0px 0px 2px 2px #d91f1f;
+outline:none
+}
+.change-pw-button button{
+    border:none;
+    
+
+}
+.form-group.security .col-10{
+    padding-left:0 !important;
+}
+
+ /* Security End */
+
 
 
     #footer-text{

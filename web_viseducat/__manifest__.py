@@ -25,7 +25,9 @@
         'views/cart.xml',
         'views/confirmation.xml',
         'views/confirm_order.xml',
-        'views/documents.xml'
+        'views/documents.xml',
+        'views/account.xml',
+        'views/security.xml'
         
 
     ],
