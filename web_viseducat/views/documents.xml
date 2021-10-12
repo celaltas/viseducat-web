@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="display_documents" name="Documents">
+        <t t-call="website.layout">
+
+            <div class="container documents">
+                <div class="documents-left">
+                    <h3>Sumita S Dani Documents</h3>
+                    <hr></hr>
+                    <div class="documents-grid-view">
+                        <div class="grid g1"></div>
+                        <div class="grid g2"></div>
+                        <div class="grid g3"></div>
+                        <div class="grid g4"></div>
+                        <div class="grid g5"></div>
+                        <div class="grid g6"></div>
+                        <div class="grid g7"></div>
+                        <div class="grid g8"></div>
+                        <div class="grid g9"></div>
+                        <div class="grid g10"></div>
+                        <div class="grid g11"></div>
+                        <div class="grid g12"></div>
+                        <div class="grid g13"></div>
+                    </div>
+                </div>
+                <div class="documents-right">
+                    <div class="documents-side-bar">
+                        <h4>Your contact</h4>
+                        <hr></hr>
+                        <div class="documents-contact">
+                            <b>Sumita S Dani</b>
+                            <div class="contact-mail" >
+                                <i class="fas fa-envelope"></i>
+                                <a href="#0">sumitasdani@demo.com</a>
+                            </div>
+                            <div class="documents-pm">
+                                <i class="fas fa-phone-alt"></i>
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+
+                        </div>
+                        <div class="documents-details">
+                            <div class="documents-details-flex">
+                                <h4>Details</h4>
+                                <a href="#0" ><i class="fas fa-pencil-alt"></i>&amp;nbsp;Edit</a>
+                            </div>
+                            <hr></hr>
+                            <div class="documents-details-map">
+                                <span>Sumita S Dani</span>
+                                <i class="fas fa-map-marker-alt details-map-icon"></i>
+                                <span class="details-country" >India</span>
+                                <div class="documents-details-mail" >
+                                <i class="fas fa-envelope"></i>
+                                <a href="#0">sumitasdani@demo.com</a>  
+                                </div> 
+
+                            </div>
+
+                        </div>
+                        <div class="documents-security" >
+                            <h4>Account Security</h4>
+                            <hr></hr>
+                            <a href="#0" ><i class="fas fa-pencil-alt"></i>&amp;nbsp;Edit Security Settings</a> 
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </t>
+
+
+    </template>
+
+
+</odoo>

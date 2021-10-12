@@ -5939,6 +5939,135 @@
 
     /* Confirm_order End */
 
+    /* Documents Start */
+    .container{
+        align-items: baseline !important;
+    }
+
+    .container.documents{
+        display:flex;
+        margin-top:3rem;
+        margin-bottom:3rem;
+        align-items: none !important;
+    }
+    .documents-left{
+        flex:7;
+        
+    }
+    
+    .documents-left h3{
+        color:#002147;
+        font-size: 35px ;
+        font-weight: 500 ;
+        margin-bottom:1rem;
+
+    }
+    .documents-right{
+        
+        flex:3;
+
+        
+    }
+    .documents-grid-view{
+        display:flex;
+        flex-direction:row;
+        flex-wrap: wrap;
+    }
+    .grid{
+        width:245px;
+        height:185px;
+        border:1px solid black;
+        background: red;
+        margin:0.35rem;
+        
+        
+    }
+    .documents-side-bar{
+        width: 12rem;
+        margin:0 auto;
+    }
+    .documents-side-bar h4{
+        color:#002147;
+
+    }
+    .documents-contact b{
+        color:#002147;
+    }
+    .contact-mail{
+        margin-top:0.4rem
+    }
+    .documents-pm{
+        display:flex;
+        flex-direction:column;
+    }
+    .documents-pm i:last-child{
+        margin-top: 0.5rem;
+    }
+    .documents-pm i:last-child::after{
+        content: "Banglore";
+        margin-left:0.4rem;
+        font-size:14px;
+        font-weight:400;
+    }
+    .documents-details{
+        margin-top:3rem;
+    }
+    .documents-details-flex{
+        display:flex;
+        align-items: center;
+    }
+    .documents-details-flex a:hover>i{
+        color:#5f5606;
+    }
+    .documents-details-flex i{
+        margin-left:0.75rem;
+        padding-bottom:0.4rem;
+    }
+    .documents-details-map{
+        display:flex;
+        flex-direction:column;
+    }
+    .details-map-icon{
+        margin-top:0.4rem;
+    }
+    .details-country{
+        margin-top:0.4rem;
+    }
+    .documents-details-mail{
+        margin-top:0.4rem;
+    }
+    .details-map-icon::after{
+        content:"Banglore";
+        margin-left:0.4rem;
+        font-size:14px;
+        font-weight:400;
+    }
+   
+    .documents-details-map span{
+        color:#002147;
+    }
+    .documents-details a{
+        color:#002147;
+    }
+    .documents-details a:hover{
+        color:#5f5606;
+    }
+    .documents-contact a{
+        color:#002147;
+    }
+    .documents-contact a:hover{
+        color:#5f5606;
+    }
+    .documents-security{
+        margin-top:3rem
+    }
+    .documents-security a,i{
+        color:#002147;
+    }
+    .documents-security a:hover>i,a:hover{
+        color:#5f5606;
+    }
+    /* Documents End */
     #footer-text{
 
         padding-top: 2.2rem;
@@ -12036,6 +12165,135 @@
 
 
     /* Confirm_order End */
+     /* Documents Start */
+    .container{
+        align-items: baseline !important;
+    }
+
+    .container.documents{
+        display:flex;
+        margin-top:3rem;
+        margin-bottom:3rem;
+        align-items: none !important;
+    }
+    .documents-left{
+        flex:7;
+        
+    }
+    
+    .documents-left h3{
+        color:#002147;
+        font-size: 35px ;
+        font-weight: 500 ;
+        margin-bottom:1rem;
+
+    }
+    .documents-right{
+        
+        flex:3;
+
+        
+    }
+    .documents-grid-view{
+        display:flex;
+        flex-direction:row;
+        flex-wrap: wrap;
+    }
+    .grid{
+        width:200px;
+        height:165px;
+        border:1px solid black;
+        background: red;
+        margin:0.35rem;
+        
+        
+    }
+    .documents-side-bar{
+        width: 12rem;
+        margin:0 auto;
+    }
+    .documents-side-bar h4{
+        color:#002147;
+
+    }
+    .documents-contact b{
+        color:#002147;
+    }
+    .contact-mail{
+        margin-top:0.4rem
+    }
+    .documents-pm{
+        display:flex;
+        flex-direction:column;
+    }
+    .documents-pm i:last-child{
+        margin-top: 0.5rem;
+    }
+    .documents-pm i:last-child::after{
+        content: "Banglore";
+        margin-left:0.4rem;
+        font-size:14px;
+        font-weight:400;
+    }
+    .documents-details{
+        margin-top:3rem;
+    }
+    .documents-details-flex{
+        display:flex;
+        align-items: center;
+    }
+    .documents-details-flex a:hover>i{
+        color:#5f5606;
+    }
+    .documents-details-flex i{
+        margin-left:0.75rem;
+        padding-bottom:0.4rem;
+    }
+    .documents-details-map{
+        display:flex;
+        flex-direction:column;
+    }
+    .details-map-icon{
+        margin-top:0.4rem;
+    }
+    .details-country{
+        margin-top:0.4rem;
+    }
+    .documents-details-mail{
+        margin-top:0.4rem;
+    }
+    .details-map-icon::after{
+        content:"Banglore";
+        margin-left:0.4rem;
+        font-size:14px;
+        font-weight:400;
+    }
+   
+    .documents-details-map span{
+        color:#002147;
+    }
+    .documents-details a{
+        color:#002147;
+    }
+    .documents-details a:hover{
+        color:#5f5606;
+    }
+    .documents-contact a{
+        color:#002147;
+    }
+    .documents-contact a:hover{
+        color:#5f5606;
+    }
+    .documents-security{
+        margin-top:3rem
+    }
+    .documents-security a,i{
+        color:#002147;
+    }
+    .documents-security a:hover>i,a:hover{
+        color:#5f5606;
+    }
+    /* Documents End */
 
     #footer-text{
 
@@ -18295,6 +18553,267 @@
 
 
     /* Confirm_order End */
+
+       /* Documents Start */
+    .container{
+        align-items: baseline !important;
+    }
+
+    .container.documents{
+        display:flex;
+        margin-top:3rem;
+        margin-bottom:3rem;
+        align-items: none !important;
+    }
+    .documents-left{
+        flex:7;
+        
+    }
+    
+    .documents-left h3{
+        color:#002147;
+        font-size: 35px ;
+        font-weight: 500 ;
+        margin-bottom:1rem;
+
+    }
+    .documents-right{
+        
+        flex:3;
+
+        
+    }
+    .documents-grid-view{
+        display:flex;
+        flex-direction:row;
+        flex-wrap: wrap;
+    }
+    .grid{
+        width:200px;
+        height:165px;
+        border:1px solid black;
+        background: red;
+        margin:0.35rem;
+        
+        
+    }
+    .documents-side-bar{
+        width: 12rem;
+        margin:0 auto;
+    }
+    .documents-side-bar h4{
+        color:#002147;
+
+    }
+    .documents-contact b{
+        color:#002147;
+    }
+    .contact-mail{
+        margin-top:0.4rem
+    }
+    .documents-pm{
+        display:flex;
+        flex-direction:column;
+    }
+    .documents-pm i:last-child{
+        margin-top: 0.5rem;
+    }
+    .documents-pm i:last-child::after{
+        content: "Banglore";
+        margin-left:0.4rem;
+        font-size:14px;
+        font-weight:400;
+    }
+    .documents-details{
+        margin-top:3rem;
+    }
+    .documents-details-flex{
+        display:flex;
+        align-items: center;
+    }
+    .documents-details-flex a:hover>i{
+        color:#5f5606;
+    }
+    .documents-details-flex i{
+        margin-left:0.75rem;
+        padding-bottom:0.4rem;
+    }
+    .documents-details-map{
+        display:flex;
+        flex-direction:column;
+    }
+    .details-map-icon{
+        margin-top:0.4rem;
+    }
+    .details-country{
+        margin-top:0.4rem;
+    }
+    .documents-details-mail{
+        margin-top:0.4rem;
+    }
+    .details-map-icon::after{
+        content:"Banglore";
+        margin-left:0.4rem;
+        font-size:14px;
+        font-weight:400;
+    }
+   
+    .documents-details-map span{
+        color:#002147;
+    }
+    .documents-details a{
+        color:#002147;
+    }
+    .documents-details a:hover{
+        color:#5f5606;
+    }
+    .documents-contact a{
+        color:#002147;
+    }
+    .documents-contact a:hover{
+        color:#5f5606;
+    }
+    .documents-security{
+        margin-top:3rem
+    }
+    .documents-security a,i{
+        color:#002147;
+    }
+    .documents-security a:hover>i,a:hover{
+        color:#5f5606;
+    }
+    /* Documents End */
+   /* Documents Start */
+   .container{
+    align-items: baseline !important;
+}
+
+.container.documents{
+    display:flex;
+    margin-top:3rem;
+    margin-bottom:3rem;
+    align-items: none !important;
+}
+.documents-left{
+    flex:7;
+    
+}
+
+.documents-left h3{
+    color:#002147;
+    font-size: 35px ;
+    font-weight: 500 ;
+    margin-bottom:1rem;
+
+}
+.documents-right{
+    
+    flex:3;
+
+    
+}
+.documents-grid-view{
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+}
+.grid{
+    width:335px;
+    height:165px;
+    border:1px solid black;
+    background: red;
+    margin:0.35rem;
+    
+    
+}
+.documents-side-bar{
+    width: 12rem;
+    margin:3rem auto;
+    margin-left:1rem;
+}
+.documents-side-bar h4{
+    color:#002147;
+
+}
+.documents-contact b{
+    color:#002147;
+}
+.contact-mail{
+    margin-top:0.4rem
+}
+.documents-pm{
+    display:flex;
+    flex-direction:column;
+}
+.documents-pm i:last-child{
+    margin-top: 0.5rem;
+}
+.documents-pm i:last-child::after{
+    content: "Banglore";
+    margin-left:0.4rem;
+    font-size:14px;
+    font-weight:400;
+}
+.documents-details{
+    margin-top:3rem;
+}
+.documents-details-flex{
+    display:flex;
+    align-items: center;
+}
+.documents-details-flex a:hover>i{
+    color:#5f5606;
+}
+.documents-details-flex i{
+    margin-left:0.75rem;
+    padding-bottom:0.4rem;
+}
+.documents-details-map{
+    display:flex;
+    flex-direction:column;
+}
+.details-map-icon{
+    margin-top:0.4rem;
+}
+.details-country{
+    margin-top:0.4rem;
+}
+.documents-details-mail{
+    margin-top:0.4rem;
+}
+.details-map-icon::after{
+    content:"Banglore";
+    margin-left:0.4rem;
+    font-size:14px;
+    font-weight:400;
+}
+
+.documents-details-map span{
+    color:#002147;
+}
+.documents-details a{
+    color:#002147;
+}
+.documents-details a:hover{
+    color:#5f5606;
+}
+.documents-contact a{
+    color:#002147;
+}
+.documents-contact a:hover{
+    color:#5f5606;
+}
+.documents-security{
+    margin-top:3rem
+}
+.documents-security a,i{
+    color:#002147;
+}
+.documents-security a:hover>i,a:hover{
+    color:#5f5606;
+}
+/* Documents End */
+
 
     #footer-text{
 
